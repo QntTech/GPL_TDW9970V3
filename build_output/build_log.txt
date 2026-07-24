@@ -1,0 +1,367 @@
+=== DEBUG: Makefile ilk 3 satiri (enjeksiyon kontrolu) ===
+EXTRA_CFLAGS += -DCONFIG_BIG_ENDIAN
+EXTRA_CFLAGS += $(USER_EXTRA_CFLAGS)
+#EXTRA_CFLAGS += -O1
+=== DEBUG SONU ===
+
+make ARCH=mips CROSS_COMPILE=mips-linux-gnu- -C /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt M=/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au  modules
+make[1]: Entering directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt'
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c: In function ‘rtw_joinbss_cmd’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:1526:77: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1526 |                         rtw_build_wmm_ie_ht(padapter, &psecnetwork->IEs[0], &psecnetwork->IELength);
+      |                                                                             ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:1530:104: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1530 |                                                                         pnetwork->network.IELength-12, &psecnetwork->IELength,
+      |                                                                                                        ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:1539:93: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1539 |                                                                 pnetwork->network.IELength, &psecnetwork->IELength);
+      |                                                                                             ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:1543:64: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1543 |         rtw_append_exented_cap(padapter, &psecnetwork->IEs[0], &psecnetwork->IELength);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_security.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_security.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_debug.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_debug.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_io.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_io.c:52:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ioctl_query.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ioctl_query.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ioctl_set.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ioctl_set.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ioctl_set.c: In function ‘rtw_set_802_11_infrastructure_mode’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ioctl_set.c:611:58: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  611 |         NDIS_802_11_NETWORK_INFRASTRUCTURE* pold_state = &(cur_network->network.InfrastructureMode);
+      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ieee80211.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ieee80211.c:25:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_types.h:226,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_precomp.h:24,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/hal_data.h:25,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_p2p_GO_request’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:3809:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 3809 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_p2p_GO_response’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:4257:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 4257 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_p2p_GO_confirm’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:4732:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 4732 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_p2p_invitation_request’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:5008:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 5008 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_p2p_invitation_response’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:5348:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 5348 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_p2p_provision_request’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:5621:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 5621 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_probersp_p2p’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:5759:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 5759 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘_issue_probereq_p2p’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:6101:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 6101 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_beacon’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:7627:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 7627 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_probersp’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:7953:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 7953 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘_issue_probereq’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:8235:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 8235 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_auth’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:8396:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 8396 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_asocrsp’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:8556:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 8556 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_assocreq’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:8804:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 8804 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘_issue_nulldata’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:9263:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 9263 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘_issue_qos_nulldata’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:9441:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 9441 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘_issue_deauth’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:9591:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 9591 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_action_spct_ch_switch’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:9721:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 9721 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_action_ba’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:9896:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 9896 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘issue_action_BSSCoexistPacket’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:10175:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+10175 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘_issue_action_SM_PS’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:10339:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+10339 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘linked_status_chk’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:12560:77: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+12560 |                                                 issue_probereq_ex(padapter, &pmlmeinfo->network.Ssid, pmlmeinfo->network.MacAddress, 0, 0, 0, 0);
+      |                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:12561:77: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+12561 |                                                 issue_probereq_ex(padapter, &pmlmeinfo->network.Ssid, pmlmeinfo->network.MacAddress, 0, 0, 0, 0);
+      |                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:12562:77: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+12562 |                                                 issue_probereq_ex(padapter, &pmlmeinfo->network.Ssid, pmlmeinfo->network.MacAddress, 0, 0, 0, 0);
+      |                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~
+In function ‘rtw_chplan_is_empty’,
+    inlined from ‘dump_chplan_id_list’ at /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:576:7:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:315:23: warning: iteration 91 invokes undefined behavior [-Waggressive-loop-optimizations]
+  315 |         if (chplan_map->Index2G == RTW_RD_2G_NULL
+      |             ~~~~~~~~~~^~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c: In function ‘dump_chplan_id_list’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mlme_ext.c:575:23: note: within this loop
+  575 |         for (i = 0; i < RTW_CHPLAN_MAX; i++) {
+      |                     ~~^~~~~~~~~~~~~~~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_wlan_util.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_wlan_util.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_wlan_util.c:1325:9: warning: ‘_exit_critical_bh’ is static but used in inline function ‘rtw_sec_camid_is_used’ which is not static
+ 1325 |         _exit_critical_bh(&cam_ctl->lock, &irqL);
+      |         ^~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_wlan_util.c:1323:9: warning: ‘_enter_critical_bh’ is static but used in inline function ‘rtw_sec_camid_is_used’ which is not static
+ 1323 |         _enter_critical_bh(&cam_ctl->lock, &irqL);
+      |         ^~~~~~~~~~~~~~~~~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_vht.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_vht.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_pwrctrl.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_pwrctrl.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_rf.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_rf.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_recv.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_recv.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_sta_mgt.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_sta_mgt.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_sta_mgt.c: In function ‘rtw_mfree_stainfo’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_sta_mgt.c:212:24: warning: the comparison will always evaluate as ‘true’ for the address of ‘lock’ will never be NULL [-Waddress]
+  212 |         if(&psta->lock != NULL)
+      |                        ^~
+In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:110:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/rtl_sta_info.h:129:17: note: ‘lock’ declared here
+  129 |         _lock   lock;
+      |                 ^~~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ap.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ap.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ap.c: In function ‘rtw_ap_check_scan’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_ap.c:1410:55: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1410 |                         && _TRUE == rtw_validate_ssid(&(pnetwork->network.Ssid))) {
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_xmit.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_xmit.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_xmit.c: In function ‘rtw_make_wlanhdr’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_xmit.c:1443:22: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1443 |         u16 *fctrl = &pwlanhdr->frame_ctl;
+      |                      ^~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_xmit.c: In function ‘rtw_monitor_xmit_entry’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_xmit.c:3885:22: error: ‘IEEE80211_RADIOTAP_VHT’ undeclared (first use in this function); did you mean ‘IEEE80211_RADIOTAP_EXT’?
+ 3885 |                 case IEEE80211_RADIOTAP_VHT: {
+      |                      ^~~~~~~~~~~~~~~~~~~~~~
+      |                      IEEE80211_RADIOTAP_EXT
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_xmit.c:3885:22: note: each undeclared identifier is reported only once for each function it appears in
+make[2]: *** [scripts/Makefile.build:308: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_xmit.o] Error 1
+make[1]: *** [Makefile:1679: _module_/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au] Error 2
+make[1]: Leaving directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt'
+make: *** [Makefile:1744: modules] Error 2
