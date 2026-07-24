@@ -10,7 +10,7 @@ on:
       driver_ref:
         description: 'Branch/tag to checkout'
         required: false
-        default: 'v4.3.20'
+        default: 'v4.3.21'
 
 jobs:
   build:
@@ -49,12 +49,28 @@ jobs:
 
       - name: Clone RTL8812AU driver source
         run: |
-          git clone --depth 1 -b "${{ github.event.inputs.driver_ref }}" "${{ github.event.inputs.driver_repo }}" rtl8812au 2>&1 | tee clone_log.txt || \
-          git clone --depth 1 "${{ github.event.inputs.driver_repo }}" rtl8812au 2>&1 | tee -a clone_log.txt
-          ls rtl8812au/ | head -30
+          set -o pipefail
+          REF="${{ github.event.inputs.driver_ref }}"
+          REPO="${{ github.event.inputs.driver_repo }}"
+          echo "Deneniyor: $REPO @ $REF" > clone_log.txt
+          if git clone --depth 1 -b "$REF" "$REPO" rtl8812au >> clone_log.txt 2>&1; then
+            echo "BASARILI: $REF branch/tag ile klonlandi" >> clone_log.txt
+          else
+            echo "UYARI: $REF bulunamadi/basarisiz, default branch deneniyor" >> clone_log.txt
+            rm -rf rtl8812au
+            git clone --depth 1 "$REPO" rtl8812au >> clone_log.txt 2>&1
+          fi
+          echo "--- clone_log.txt ---"
+          cat clone_log.txt
+          echo "--- rtl8812au icerigi ---"
+          ls rtl8812au/ 2>&1 | head -30 || echo "KLASOR OLUSMADI - clone tamamen basarisiz"
 
       - name: Configure driver Makefile for MIPS platform
         run: |
+          if [ ! -d rtl8812au ]; then
+            echo "rtl8812au klasoru yok, clone basarisiz olmus - adim atlaniyor"
+            exit 0
+          fi
           cd rtl8812au
           echo "--- Orijinal platform ayarlari (ilk 60 satir grep) ---"
           grep -n "CONFIG_PLATFORM" Makefile | head -60 > ../platform_options.txt
@@ -67,6 +83,10 @@ jobs:
       - name: Attempt kernel module build
         run: |
           set +e
+          if [ ! -d rtl8812au ]; then
+            echo "rtl8812au klasoru yok, build atlaniyor" | tee build_log.txt
+            exit 0
+          fi
           cd rtl8812au
           echo "=== Derleme baslatiliyor ==="
           make ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" 2>&1 | tee ../build_log.txt
