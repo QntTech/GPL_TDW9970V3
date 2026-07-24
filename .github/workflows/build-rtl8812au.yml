@@ -81,14 +81,23 @@ jobs:
           grep -n "CONFIG_PLATFORM" Makefile | head -60
           echo ""
           echo "--- Big-endian MIPS icin manuel EXTRA_CFLAGS enjekte ediliyor ---"
-          # Makefile'in EXTRA_CFLAGS tanimlandigi ilk satirin hemen altina
-          # bizim endian/platform flaglerimizi ekliyoruz. Bu, herhangi bir
-          # CONFIG_PLATFORM_* blogunun disinda, kosulsuz calisir.
           FIRST_EXTRA_CFLAGS_LINE=$(grep -n "^EXTRA_CFLAGS" Makefile | head -1 | cut -d: -f1)
           echo "Ilk EXTRA_CFLAGS satiri: $FIRST_EXTRA_CFLAGS_LINE"
           sed -i "${FIRST_EXTRA_CFLAGS_LINE}i EXTRA_CFLAGS += -DCONFIG_BIG_ENDIAN" Makefile
           echo "--- Enjeksiyon sonrasi ilk 10 EXTRA_CFLAGS satiri ---"
           grep -n "EXTRA_CFLAGS" Makefile | head -10
+          echo ""
+          echo "--- Eski kernelde eksik radiotap sabitlerini global header'a enjekte ediyoruz ---"
+          HEADER_GUARD_LINE=$(grep -n "^#define __BASIC_TYPES_H__" include/basic_types.h | head -1 | cut -d: -f1)
+          echo "Header guard satiri: $HEADER_GUARD_LINE"
+          if [ -n "$HEADER_GUARD_LINE" ]; then
+            INSERT_LINE=$((HEADER_GUARD_LINE + 1))
+            sed -i "${INSERT_LINE}a\\n#ifndef IEEE80211_RADIOTAP_MCS\n#define IEEE80211_RADIOTAP_MCS 19\n#endif\n#ifndef IEEE80211_RADIOTAP_VHT\n#define IEEE80211_RADIOTAP_VHT 21\n#endif" include/basic_types.h
+            echo "--- Enjeksiyon sonrasi basic_types.h ilk 35 satir ---"
+            head -35 include/basic_types.h
+          else
+            echo "UYARI: header guard bulunamadi, enjeksiyon atlandi"
+          fi
 
       - name: Attempt kernel module build
         run: |
