@@ -1,0 +1,66 @@
+make ARCH=mips CROSS_COMPILE=mips-linux-gnu- -C /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt M=/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au  modules
+make[1]: Entering directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt'
+  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:81,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:33:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/rtw_byteorder.h:35:4: error: #error "Must be LITTLE/BIG Endian Host"
+   35 | #  error "Must be LITTLE/BIG Endian Host"
+      |    ^~~~~
+In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:112:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/rtw_mlme_ext.h:1148:4: error: #error "Must be LITTLE or BIG Endian"
+ 1148 | #  error "Must be LITTLE or BIG Endian"
+      |    ^~~~~
+In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_precomp.h:80,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/hal_data.h:25,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:23:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_hwconfig.h:47:14: warning: "ODM_ENDIAN_TYPE" is not defined, evaluates to 0 [-Wundef]
+   47 |         #if (ODM_ENDIAN_TYPE == ODM_ENDIAN_LITTLE)
+      |              ^~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_hwconfig.h:73:6: warning: "ODM_ENDIAN_TYPE" is not defined, evaluates to 0 [-Wundef]
+   73 | #if (ODM_ENDIAN_TYPE == ODM_ENDIAN_LITTLE)
+      |      ^~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_hwconfig.h:97:6: warning: "ODM_ENDIAN_TYPE" is not defined, evaluates to 0 [-Wundef]
+   97 | #if (ODM_ENDIAN_TYPE == ODM_ENDIAN_LITTLE)
+      |      ^~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_hwconfig.h:110:6: warning: "ODM_ENDIAN_TYPE" is not defined, evaluates to 0 [-Wundef]
+  110 | #if (ODM_ENDIAN_TYPE == ODM_ENDIAN_LITTLE)
+      |      ^~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_hwconfig.h:122:6: warning: "ODM_ENDIAN_TYPE" is not defined, evaluates to 0 [-Wundef]
+  122 | #if (ODM_ENDIAN_TYPE == ODM_ENDIAN_LITTLE)
+      |      ^~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_hwconfig.h:141:6: warning: "ODM_ENDIAN_TYPE" is not defined, evaluates to 0 [-Wundef]
+  141 | #if (ODM_ENDIAN_TYPE == ODM_ENDIAN_LITTLE)
+      |      ^~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_hwconfig.h:158:6: warning: "ODM_ENDIAN_TYPE" is not defined, evaluates to 0 [-Wundef]
+  158 | #if (ODM_ENDIAN_TYPE == ODM_ENDIAN_LITTLE)
+      |      ^~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/../hal/phydm/phydm_hwconfig.h:169:6: warning: "ODM_ENDIAN_TYPE" is not defined, evaluates to 0 [-Wundef]
+  169 | #if (ODM_ENDIAN_TYPE == ODM_ENDIAN_LITTLE)
+      |      ^~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c: In function ‘rtw_joinbss_cmd’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:1526:77: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1526 |                         rtw_build_wmm_ie_ht(padapter, &psecnetwork->IEs[0], &psecnetwork->IELength);
+      |                                                                             ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:1530:104: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1530 |                                                                         pnetwork->network.IELength-12, &psecnetwork->IELength,
+      |                                                                                                        ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:1539:93: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1539 |                                                                 pnetwork->network.IELength, &psecnetwork->IELength);
+      |                                                                                             ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.c:1543:64: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1543 |         rtw_append_exented_cap(padapter, &psecnetwork->IEs[0], &psecnetwork->IELength);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~~~
+make[2]: *** [scripts/Makefile.build:308: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o] Error 1
+make[1]: *** [Makefile:1679: _module_/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au] Error 2
+make[1]: Leaving directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt'
+make: *** [Makefile:1743: modules] Error 2
