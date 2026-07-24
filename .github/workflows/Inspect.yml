@@ -1,0 +1,104 @@
+name: Inspect GPL Source for RTL8812AU feasibility
+
+on:
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and extract GPL archive
+        run: |
+          curl -sL -o GPL_W9970V3.tar.gz "https://static.tp-link.com/resources/gpl/GPL_W9970V3.tar.gz"
+          ls -la GPL_W9970V3.tar.gz
+          mkdir -p extracted
+          tar -xzf GPL_W9970V3.tar.gz -C extracted || tar -xf GPL_W9970V3.tar.gz -C extracted
+          rm -f GPL_W9970V3.tar.gz
+          echo "Extraction tamamlandi:"
+          find extracted -maxdepth 4 -type d
+
+      - name: Locate kernel tree
+        id: locate
+        run: |
+          set +e
+          KDIR=$(find extracted -maxdepth 5 -type d -path "*kernel/linux-3.4rt" | head -1)
+          echo "KDIR=$KDIR" | tee -a report.txt
+          echo "kdir=$KDIR" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Check for wireless subsystem prerequisites
+        run: |
+          set +e
+          KDIR="${{ steps.locate.outputs.kdir }}"
+          {
+            echo "===================================================="
+            echo "RTL8812AU FIZIBILITE RAPORU - $(date -u)"
+            echo "===================================================="
+            echo ""
+            echo "--- Kernel dizini ---"
+            echo "$KDIR"
+            echo ""
+            echo "--- Tum kernel kaynagi ust seviye net/ icerigi ---"
+            ls "$KDIR/net/" 2>/dev/null || echo "net/ dizini YOK"
+            echo ""
+            echo "--- net/wireless var mi ---"
+            ls -la "$KDIR/net/wireless/" 2>/dev/null || echo "net/wireless YOK"
+            echo ""
+            echo "--- net/mac80211 var mi ---"
+            ls -la "$KDIR/net/mac80211/" 2>/dev/null || echo "net/mac80211 YOK"
+            echo ""
+            echo "--- cfg80211.h / mac80211.h dosyalari ---"
+            find "$KDIR/include" -iname "cfg80211.h" -o -iname "mac80211.h" 2>/dev/null
+            echo ""
+            echo "--- drivers/usb ust seviye ---"
+            ls "$KDIR/drivers/usb/" 2>/dev/null || echo "drivers/usb YOK"
+            echo ""
+            echo "--- drivers/usb/core var mi (usbcore icin sart) ---"
+            ls -la "$KDIR/drivers/usb/core/" 2>/dev/null || echo "drivers/usb/core YOK"
+            echo ""
+            echo "--- drivers/usb/host var mi (ehci/ohci) ---"
+            ls "$KDIR/drivers/usb/host/" 2>/dev/null || echo "drivers/usb/host YOK"
+            echo ""
+            echo "--- drivers/net/wireless icerigi (mevcut wireless driverlari) ---"
+            ls "$KDIR/drivers/net/wireless/" 2>/dev/null || echo "drivers/net/wireless YOK"
+            echo ""
+            echo "--- proc_create sembolu var mi (API uyumlulugu icin) ---"
+            grep -rn "proc_create(" "$KDIR/include/linux/proc_fs.h" 2>/dev/null || echo "proc_create BULUNAMADI"
+            echo ""
+            echo "--- usbnet.h var mi ---"
+            find "$KDIR/include" -iname "usbnet.h" 2>/dev/null
+            echo ""
+            echo "--- Kernel ana Makefile / VERSION bilgisi ---"
+            head -5 "$KDIR/Makefile" 2>/dev/null || echo "Makefile YOK"
+            echo ""
+            echo "--- .config dosyalari (varsa CONFIG_CFG80211/CONFIG_MAC80211 kontrolu icin) ---"
+            CONFIGFILE=$(find extracted -iname ".config" | head -1)
+            echo "config: $CONFIGFILE"
+            if [ -n "$CONFIGFILE" ]; then
+              grep -E "CONFIG_CFG80211|CONFIG_MAC80211|CONFIG_USB_USBNET|CONFIG_WIRELESS_EXT" "$CONFIGFILE" 2>/dev/null || echo "ilgili config satirlari bulunamadi"
+            fi
+            echo ""
+            echo "--- Genel istatistik: net/ altinda kac dosya, drivers/usb altinda kac dosya ---"
+            find "$KDIR/net" -type f 2>/dev/null | wc -l
+            find "$KDIR/drivers/usb" -type f 2>/dev/null | wc -l
+            echo ""
+            echo "===================================================="
+            echo "RAPOR SONU"
+            echo "===================================================="
+          } > report.txt
+          cat report.txt
+
+      - name: Cleanup extracted source (do not commit full kernel tree)
+        run: |
+          rm -rf extracted
+          echo "extracted/ silindi, sadece rapor commit edilecek"
+
+      - name: Push report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add report.txt
+          git commit -m "RTL8812AU fizibilite raporu" || echo "Degisiklik yok"
+          git push
