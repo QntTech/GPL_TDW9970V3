@@ -91,8 +91,17 @@ jobs:
           HEADER_GUARD_LINE=$(grep -n "^#define __BASIC_TYPES_H__" include/basic_types.h | head -1 | cut -d: -f1)
           echo "Header guard satiri: $HEADER_GUARD_LINE"
           if [ -n "$HEADER_GUARD_LINE" ]; then
-            INSERT_LINE=$((HEADER_GUARD_LINE + 1))
-            sed -i "${INSERT_LINE}a\\n#ifndef IEEE80211_RADIOTAP_MCS\n#define IEEE80211_RADIOTAP_MCS 19\n#endif\n#ifndef IEEE80211_RADIOTAP_VHT\n#define IEEE80211_RADIOTAP_VHT 21\n#endif" include/basic_types.h
+            printf '%s\n' \
+              '#ifndef IEEE80211_RADIOTAP_MCS' \
+              '#define IEEE80211_RADIOTAP_MCS 19' \
+              '#endif' \
+              '#ifndef IEEE80211_RADIOTAP_VHT' \
+              '#define IEEE80211_RADIOTAP_VHT 21' \
+              '#endif' > /tmp/radiotap_fallback.h
+            head -n "$HEADER_GUARD_LINE" include/basic_types.h > /tmp/basic_types_new.h
+            cat /tmp/radiotap_fallback.h >> /tmp/basic_types_new.h
+            tail -n +$((HEADER_GUARD_LINE + 1)) include/basic_types.h >> /tmp/basic_types_new.h
+            mv /tmp/basic_types_new.h include/basic_types.h
             echo "--- Enjeksiyon sonrasi basic_types.h ilk 35 satir ---"
             head -35 include/basic_types.h
           else
