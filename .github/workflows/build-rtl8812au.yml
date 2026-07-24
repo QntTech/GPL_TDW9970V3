@@ -103,7 +103,7 @@ jobs:
           echo "=== DEBUG SONU ===" >> ../build_log.txt
           echo "" >> ../build_log.txt
           echo "=== Derleme baslatiliyor ==="
-          make ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" 2>&1 | tee -a ../build_log.txt
+          make V=1 ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" 2>&1 | tee -a ../build_log.txt
           echo "=== Derleme sonucu ==="
           find . -name "*.ko" 2>/dev/null | tee ../ko_files.txt
           if [ -s ../ko_files.txt ]; then
