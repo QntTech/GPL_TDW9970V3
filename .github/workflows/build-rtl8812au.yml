@@ -1,0 +1,139 @@
+name: Build RTL8812AU for TD-W9970 kernel
+
+on:
+  workflow_dispatch:
+    inputs:
+      driver_repo:
+        description: 'RTL8812AU driver git URL'
+        required: false
+        default: 'https://github.com/aircrack-ng/rtl8812au.git'
+      driver_ref:
+        description: 'Branch/tag to checkout'
+        required: false
+        default: 'v4.3.21'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MIPS toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-mips-linux-gnu build-essential bc bison flex libssl-dev libelf-dev
+          mips-linux-gnu-gcc --version
+
+      - name: Download and extract GPL archive
+        run: |
+          curl -sL -o GPL_W9970V3.tar.gz "https://static.tp-link.com/resources/gpl/GPL_W9970V3.tar.gz"
+          mkdir -p extracted
+          tar -xzf GPL_W9970V3.tar.gz -C extracted || tar -xf GPL_W9970V3.tar.gz -C extracted
+          rm -f GPL_W9970V3.tar.gz
+          KDIR=$(find extracted -maxdepth 5 -type d -path "*kernel/linux-3.4rt" | head -1)
+          echo "KDIR=$KDIR" >> "$GITHUB_ENV"
+          echo "Kernel dizini: $KDIR"
+
+      - name: GCC compatibility workaround
+        run: |
+          set +e
+          echo "--- Mevcut compiler-gcc*.h dosyalari ---"
+          ls "$KDIR/include/linux/" | grep compiler-gcc
+          HIGHEST=$(ls "$KDIR/include/linux/" | grep -oP 'compiler-gcc\K[0-9]+' | sort -n | tail -1)
+          GCCVER=$(mips-linux-gnu-gcc -dumpversion | cut -d. -f1)
+          echo "En yuksek mevcut: gcc$HIGHEST, kullanilan: gcc$GCCVER"
+          if [ ! -f "$KDIR/include/linux/compiler-gcc${GCCVER}.h" ]; then
+            cp "$KDIR/include/linux/compiler-gcc${HIGHEST}.h" "$KDIR/include/linux/compiler-gcc${GCCVER}.h"
+            echo "compiler-gcc${GCCVER}.h olusturuldu"
+          fi
+
+      - name: Clone RTL8812AU driver source
+        run: |
+          set -o pipefail
+          REF="${{ github.event.inputs.driver_ref }}"
+          REPO="${{ github.event.inputs.driver_repo }}"
+          echo "Deneniyor: $REPO @ $REF" > clone_log.txt
+          if git clone --depth 1 -b "$REF" "$REPO" rtl8812au >> clone_log.txt 2>&1; then
+            echo "BASARILI: $REF branch/tag ile klonlandi" >> clone_log.txt
+          else
+            echo "UYARI: $REF bulunamadi/basarisiz, default branch deneniyor" >> clone_log.txt
+            rm -rf rtl8812au
+            git clone --depth 1 "$REPO" rtl8812au >> clone_log.txt 2>&1
+          fi
+          echo "--- clone_log.txt ---"
+          cat clone_log.txt
+          echo "--- rtl8812au icerigi ---"
+          ls rtl8812au/ 2>&1 | head -30 || echo "KLASOR OLUSMADI - clone tamamen basarisiz"
+
+      - name: Configure driver Makefile for MIPS platform
+        run: |
+          if [ ! -d rtl8812au ]; then
+            echo "rtl8812au klasoru yok, clone basarisiz olmus - adim atlaniyor"
+            exit 0
+          fi
+          cd rtl8812au
+          echo "--- Orijinal platform ayarlari (ilk 60 satir grep) ---"
+          grep -n "CONFIG_PLATFORM" Makefile | head -60 > ../platform_options.txt
+          cat ../platform_options.txt
+          # I386 platformunu kapat (biz MIPS icin manuel flag enjekte edecegiz)
+          sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || true
+          echo "--- Duzenleme sonrasi platform durumu ---"
+          grep -n "CONFIG_PLATFORM" Makefile | head -60
+          echo ""
+          echo "--- Big-endian MIPS icin manuel EXTRA_CFLAGS enjekte ediliyor ---"
+          # Makefile'in EXTRA_CFLAGS tanimlandigi ilk satirin hemen altina
+          # bizim endian/platform flaglerimizi ekliyoruz. Bu, herhangi bir
+          # CONFIG_PLATFORM_* blogunun disinda, kosulsuz calisir.
+          FIRST_EXTRA_CFLAGS_LINE=$(grep -n "^EXTRA_CFLAGS" Makefile | head -1 | cut -d: -f1)
+          echo "Ilk EXTRA_CFLAGS satiri: $FIRST_EXTRA_CFLAGS_LINE"
+          sed -i "${FIRST_EXTRA_CFLAGS_LINE}i EXTRA_CFLAGS += -DCONFIG_BIG_ENDIAN" Makefile
+          echo "--- Enjeksiyon sonrasi ilk 10 EXTRA_CFLAGS satiri ---"
+          grep -n "EXTRA_CFLAGS" Makefile | head -10
+
+      - name: Attempt kernel module build
+        run: |
+          set +e
+          if [ ! -d rtl8812au ]; then
+            echo "rtl8812au klasoru yok, build atlaniyor" | tee build_log.txt
+            exit 0
+          fi
+          cd rtl8812au
+          echo "=== DEBUG: Makefile ilk 3 satiri (enjeksiyon kontrolu) ===" > ../build_log.txt
+          head -3 Makefile >> ../build_log.txt
+          echo "=== DEBUG SONU ===" >> ../build_log.txt
+          echo "" >> ../build_log.txt
+          echo "=== Derleme baslatiliyor ==="
+          make ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" EXTRA_CFLAGS="-DCONFIG_BIG_ENDIAN" 2>&1 | tee -a ../build_log.txt
+          echo "=== Derleme sonucu ==="
+          find . -name "*.ko" 2>/dev/null | tee ../ko_files.txt
+          if [ -s ../ko_files.txt ]; then
+            echo "BASARILI: .ko dosyasi olustu"
+          else
+            echo "BASARISIZ: .ko dosyasi olusmadi, build_log.txt'e bak"
+          fi
+          exit 0
+
+      - name: Collect artifacts
+        run: |
+          mkdir -p output
+          cp build_log.txt output/ 2>/dev/null || true
+          cp clone_log.txt output/ 2>/dev/null || true
+          cp platform_options.txt output/ 2>/dev/null || true
+          find rtl8812au -name "*.ko" -exec cp {} output/ \; 2>/dev/null || true
+          # build_log son 200 satir - ozet
+          tail -200 build_log.txt > output/build_log_tail200.txt 2>/dev/null || true
+          ls -la output/
+
+      - name: Cleanup large source before commit
+        run: |
+          rm -rf extracted rtl8812au GPL_W9970V3.tar.gz
+
+      - name: Push results
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          rm -rf build_output
+          mv output build_output
+          git add build_output/
+          git commit -m "RTL8812AU derleme denemesi" || echo "Degisiklik yok"
+          git push
