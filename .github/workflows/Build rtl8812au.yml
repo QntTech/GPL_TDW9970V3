@@ -75,10 +75,20 @@ jobs:
           echo "--- Orijinal platform ayarlari (ilk 60 satir grep) ---"
           grep -n "CONFIG_PLATFORM" Makefile | head -60 > ../platform_options.txt
           cat ../platform_options.txt
-          # Tum I386/ARM/vs platformlari kapat, MIPS icin genel bir secenek varsa ac
+          # I386 platformunu kapat (biz MIPS icin manuel flag enjekte edecegiz)
           sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || true
-          echo "--- Duzenleme sonrasi durum ---"
+          echo "--- Duzenleme sonrasi platform durumu ---"
           grep -n "CONFIG_PLATFORM" Makefile | head -60
+          echo ""
+          echo "--- Big-endian MIPS icin manuel EXTRA_CFLAGS enjekte ediliyor ---"
+          # Makefile'in EXTRA_CFLAGS tanimlandigi ilk satirin hemen altina
+          # bizim endian/platform flaglerimizi ekliyoruz. Bu, herhangi bir
+          # CONFIG_PLATFORM_* blogunun disinda, kosulsuz calisir.
+          FIRST_EXTRA_CFLAGS_LINE=$(grep -n "^EXTRA_CFLAGS" Makefile | head -1 | cut -d: -f1)
+          echo "Ilk EXTRA_CFLAGS satiri: $FIRST_EXTRA_CFLAGS_LINE"
+          sed -i "${FIRST_EXTRA_CFLAGS_LINE}i EXTRA_CFLAGS += -DCONFIG_BIG_ENDIAN" Makefile
+          echo "--- Enjeksiyon sonrasi ilk 10 EXTRA_CFLAGS satiri ---"
+          grep -n "EXTRA_CFLAGS" Makefile | head -10
 
       - name: Attempt kernel module build
         run: |
