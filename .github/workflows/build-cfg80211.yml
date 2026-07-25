@@ -1,0 +1,98 @@
+name: Build cfg80211 module for TD-W9970 kernel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MIPS toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-mips-linux-gnu build-essential bc bison flex libssl-dev libelf-dev
+          mips-linux-gnu-gcc --version
+
+      - name: Download and extract GPL archive
+        run: |
+          set +e
+          curl -sL -o GPL_W9970V3.tar.gz "https://static.tp-link.com/resources/gpl/GPL_W9970V3.tar.gz"
+          mkdir -p extracted
+          tar -xzf GPL_W9970V3.tar.gz -C extracted || tar -xf GPL_W9970V3.tar.gz -C extracted
+          rm -f GPL_W9970V3.tar.gz
+          KDIR=$(find extracted -maxdepth 5 -type d -path "*kernel/linux-3.4rt" | head -1)
+          echo "KDIR=$KDIR" >> "$GITHUB_ENV"
+          echo "Kernel dizini: $KDIR"
+          exit 0
+
+      - name: GCC compatibility workaround
+        run: |
+          set +e
+          HIGHEST=$(ls "$KDIR/include/linux/" | grep -oP 'compiler-gcc\K[0-9]+' | sort -n | tail -1)
+          GCCVER=$(mips-linux-gnu-gcc -dumpversion | cut -d. -f1)
+          echo "En yuksek mevcut: gcc$HIGHEST, kullanilan: gcc$GCCVER"
+          if [ ! -f "$KDIR/include/linux/compiler-gcc${GCCVER}.h" ]; then
+            cp "$KDIR/include/linux/compiler-gcc${HIGHEST}.h" "$KDIR/include/linux/compiler-gcc${GCCVER}.h"
+            echo "compiler-gcc${GCCVER}.h olusturuldu"
+          fi
+          exit 0
+
+      - name: Prepare cfg80211 as external module
+        run: |
+          set +e
+          mkdir -p cfg80211_build
+          # net/wireless kaynagini kendi calisma alanimiza kopyaliyoruz
+          # (kernel agacinin kendisini bozmadan, harici modul gibi derlemek icin)
+          cp -r "$KDIR/net/wireless/"* cfg80211_build/
+          cd cfg80211_build
+          rm -f *.o *.ko modules.order Module.symvers .*.cmd 2>/dev/null
+
+          echo "--- cfg80211_build icerigi ---"
+          ls -la
+
+          # regdb.c genregdb.awk ile uretiliyor (db.txt'den), Makefile
+          # bunu $(AWK) ile otomatik yapiyor - awk gerekli
+          which awk gawk mawk 2>&1
+
+          echo "--- Basit bir Kbuild dosyasi olusturuyoruz (harici modul icin) ---"
+          cat > Kbuild << 'KBUILD_EOF'
+          obj-m := cfg80211.o
+          cfg80211-y := core.o sysfs.o radiotap.o util.o reg.o scan.o nl80211.o
+          cfg80211-y += mlme.o ibss.o sme.o chan.o ethtool.o mesh.o
+          ccflags-y += -D__CHECK_ENDIAN__
+          KBUILD_EOF
+          cat Kbuild
+          exit 0
+
+      - name: Attempt cfg80211 module build
+        run: |
+          set +e
+          cd cfg80211_build
+          echo "=== Derleme baslatiliyor ==="
+          make ARCH=mips CROSS_COMPILE=mips-linux-gnu- -C "$GITHUB_WORKSPACE/$KDIR" M="$PWD" modules 2>&1 | tee ../cfg80211_build_log.txt
+          echo "=== Derleme sonucu ==="
+          find . -name "*.ko" | tee ../cfg80211_ko_files.txt
+          exit 0
+
+      - name: Collect artifacts
+        run: |
+          mkdir -p output
+          cp cfg80211_build_log.txt output/ 2>/dev/null || true
+          tail -300 cfg80211_build_log.txt > output/cfg80211_build_log_tail300.txt 2>/dev/null || true
+          find cfg80211_build -name "*.ko" -exec cp {} output/ \; 2>/dev/null || true
+          ls -la output/
+
+      - name: Cleanup large source before commit
+        run: rm -rf extracted cfg80211_build GPL_W9970V3.tar.gz
+
+      - name: Push results
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          rm -rf cfg80211_build_output
+          mv output cfg80211_build_output
+          git add cfg80211_build_output/
+          git commit -m "cfg80211 modul derleme denemesi" || echo "Degisiklik yok"
+          git push
