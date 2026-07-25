@@ -21,30 +21,34 @@ jobs:
 
       - name: Inspect net/wireless Makefile and Kconfig
         run: |
+          set +e
           {
+            echo "=== KDIR: $KDIR ==="
+            echo "=== net/wireless dizini var mi ==="
+            ls -la "$KDIR/net/wireless/" 2>&1
+            echo ""
             echo "=== net/wireless/Makefile ==="
-            cat "$KDIR/net/wireless/Makefile"
+            cat "$KDIR/net/wireless/Makefile" 2>&1
             echo ""
             echo "=== net/wireless/Kconfig (ilk 60 satir) ==="
-            head -60 "$KDIR/net/wireless/Kconfig"
+            head -60 "$KDIR/net/wireless/Kconfig" 2>&1
             echo ""
             echo "=== net/Makefile icinde wireless referansi ==="
-            grep -n "wireless" "$KDIR/net/Makefile"
+            grep -n "wireless" "$KDIR/net/Makefile" 2>&1
             echo ""
-            echo "=== mevcut .config dosyasinda CFG80211 ile ilgili satirlar (varsa) ==="
-            find extracted -iname ".config" -exec grep -l "CFG80211" {} \; 2>/dev/null
-            find extracted -iname ".config" | head -3 | while read f; do
-              echo "--- $f ---"
-              grep "CFG80211\|WIRELESS_EXT\|WEXT" "$f" 2>/dev/null
-            done
+            echo "=== .config dosyalari araniyor ==="
+            find extracted -iname ".config" 2>&1
             echo ""
-            echo "=== Ana kernel .config (build sirasinda kullanilan, varsa auto.conf) ==="
-            find "$KDIR" -maxdepth 2 -iname ".config" -o -maxdepth 2 -iname "auto.conf"
+            echo "=== auto.conf araniyor ==="
+            find "$KDIR" -maxdepth 3 -iname "auto.conf" 2>&1
             echo ""
-            echo "=== net/wireless altindaki .o veya .ko dosyalari (onceden derlenmis mi) ==="
-            find "$KDIR/net/wireless" -iname "*.o" -o -iname "*.ko" 2>/dev/null | head -20
+            echo "=== net/wireless altindaki .o/.ko dosyalari ==="
+            find "$KDIR/net/wireless" \( -iname "*.o" -o -iname "*.ko" \) 2>&1
           } > cfg80211_report.txt
+          echo "Rapor olusturuldu, boyut:"
+          wc -l cfg80211_report.txt
           cat cfg80211_report.txt
+          exit 0
 
       - name: Cleanup
         run: rm -rf extracted
