@@ -1,0 +1,60 @@
+name: Inspect cfg80211 config state
+
+on:
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and extract GPL archive
+        run: |
+          set +e
+          curl -sL -o GPL_W9970V3.tar.gz "https://static.tp-link.com/resources/gpl/GPL_W9970V3.tar.gz"
+          mkdir -p extracted
+          tar -xzf GPL_W9970V3.tar.gz -C extracted || tar -xf GPL_W9970V3.tar.gz -C extracted
+          rm -f GPL_W9970V3.tar.gz
+          KDIR=$(find extracted -maxdepth 5 -type d -path "*kernel/linux-3.4rt" | head -1)
+          echo "KDIR=$KDIR" >> "$GITHUB_ENV"
+          exit 0
+
+      - name: Inspect config state
+        run: |
+          set +e
+          echo "=== extracted/GPL_W9970V3/build/.config icinde CFG80211/WIRELESS satirlari ===" > cfg80211_config_report.txt
+          grep -n "CFG80211\|CONFIG_WIRELESS\b\|WEXT" "extracted/GPL_W9970V3/build/.config" >> cfg80211_config_report.txt 2>&1
+          echo "" >> cfg80211_config_report.txt
+
+          echo "=== auto.conf icinde CFG80211/WIRELESS satirlari ===" >> cfg80211_config_report.txt
+          grep -n "CFG80211\|CONFIG_WIRELESS\b\|WEXT" "$KDIR/include/config/auto.conf" >> cfg80211_config_report.txt 2>&1
+          echo "" >> cfg80211_config_report.txt
+
+          echo "=== auto.conf tam icerigi (kisa oldugu icin) satir sayisi ===" >> cfg80211_config_report.txt
+          wc -l "$KDIR/include/config/auto.conf" >> cfg80211_config_report.txt 2>&1
+          echo "" >> cfg80211_config_report.txt
+
+          echo "=== rtl8812au'nun kullandigi ayni auto.conf mu, yoksa modul derlerken baska bir config mi devreye giriyor ===" >> cfg80211_config_report.txt
+          echo "(auto.conf modul derlemesinde otomatik okunuyor, kbuild bunu -include ile isliyor)" >> cfg80211_config_report.txt
+          echo "" >> cfg80211_config_report.txt
+
+          echo "=== net/built-in.o icinde cfg80211 sembolleri var mi (built-in olarak derlenmis mi kontrolu) ===" >> cfg80211_config_report.txt
+          find "$KDIR/net" -maxdepth 1 -iname "built-in.o" >> cfg80211_config_report.txt 2>&1
+          nm "$KDIR/net/built-in.o" 2>&1 | grep -i "wiphy_new\|cfg80211_scan_done" >> cfg80211_config_report.txt 2>&1
+
+          echo "Tamamlandi"
+          cat cfg80211_config_report.txt
+          exit 0
+
+      - name: Cleanup
+        run: rm -rf extracted
+        continue-on-error: true
+
+      - name: Push report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add cfg80211_config_report.txt
+          git commit -m "cfg80211 config durum raporu" || echo "Degisiklik yok"
+          git push
