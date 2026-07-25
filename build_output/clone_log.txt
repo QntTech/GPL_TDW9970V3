@@ -1,3 +1,0 @@
-Deneniyor: https://github.com/aircrack-ng/rtl8812au.git @ v4.3.21
-Cloning into 'rtl8812au'...
-BASARILI: v4.3.21 branch/tag ile klonlandi
