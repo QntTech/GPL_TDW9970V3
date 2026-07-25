@@ -118,6 +118,90 @@ jobs:
             echo "UYARI: 5GHz blogu bulunamadi, atlandi"
           fi
 
+      - name: Stub out VHT/cfg80211_chan_def dependent functions
+        run: |
+          if [ ! -d rtl8812au ]; then
+            echo "rtl8812au klasoru yok, adim atlaniyor"
+            exit 0
+          fi
+          cd rtl8812au
+          cat > /tmp/fix_vht.py << 'PYEOF'
+          import sys
+          path = "os_dep/linux/ioctl_cfg80211.c"
+          with open(path) as f:
+              text = f.read()
+
+          def replace_function(text, old_sig, new_body, label):
+              idx = text.find(old_sig)
+              if idx == -1:
+                  print(f"UYARI: bulunamadi - {label}")
+                  return text
+              brace_start = text.find('{', idx)
+              depth = 0
+              i = brace_start
+              while i < len(text):
+                  if text[i] == '{':
+                      depth += 1
+                  elif text[i] == '}':
+                      depth -= 1
+                      if depth == 0:
+                          break
+                  i += 1
+              end_idx = i + 1
+              print(f"OK: {label} degistirildi ({end_idx - idx} karakter)")
+              return text[:idx] + new_body + text[end_idx:]
+
+          text = replace_function(
+              text,
+              "static int\tcfg80211_rtw_set_monitor_channel(struct wiphy *wiphy, struct cfg80211_chan_def *chandef)",
+              "static int\tcfg80211_rtw_set_monitor_channel(struct wiphy *wiphy, void *chandef)\n"
+              "{\n"
+              "\t/* 5GHz/VHT/chan_def gecici olarak devre disi - kernelde struct cfg80211_chan_def yok */\n"
+              "\treturn 0;\n"
+              "}\n",
+              "cfg80211_rtw_set_monitor_channel"
+          )
+
+          text = replace_function(
+              text,
+              "static int cfg80211_rtw_get_channel(struct wiphy *wiphy, struct wireless_dev *wdev, struct cfg80211_chan_def *chandef){",
+              "static struct ieee80211_channel * cfg80211_rtw_get_channel(struct wiphy *wiphy)\n"
+              "{\n"
+              "\t/* 5GHz/VHT/chan_def gecici olarak devre disi - kernelde struct cfg80211_chan_def yok */\n"
+              "\treturn NULL;\n"
+              "}\n",
+              "cfg80211_rtw_get_channel"
+          )
+
+          text = replace_function(
+              text,
+              "static void rtw_cfg80211_create_vht_cap(_adapter *padapter, struct ieee80211_sta_vht_cap *vht_cap)",
+              "static void rtw_cfg80211_create_vht_cap(_adapter *padapter, void *vht_cap)\n"
+              "{\n"
+              "\t/* VHT gecici olarak devre disi - kernelde struct ieee80211_sta_vht_cap yok */\n"
+              "\treturn;\n"
+              "}\n",
+              "rtw_cfg80211_create_vht_cap"
+          )
+
+          old_decl = "\tstruct wiphy *wiphy = pwdev->wiphy;\n\tstruct ieee80211_sta_vht_cap *vht_cap;"
+          new_decl = "\tstruct wiphy *wiphy = pwdev->wiphy;"
+          if old_decl in text:
+              text = text.replace(old_decl, new_decl)
+              print("OK: kullanilmayan vht_cap yerel degiskeni kaldirildi")
+          else:
+              print("UYARI: vht_cap yerel degisken satiri bulunamadi (belki zaten yok)")
+
+          with open(path, 'w') as f:
+              f.write(text)
+
+          print("Tum VHT/chan_def duzeltmeleri tamamlandi.")
+          PYEOF
+          python3 /tmp/fix_vht.py
+          echo ""
+          echo "--- Doğrulama: kalan korumasız VHT/chan_def referansları ---"
+          grep -n "ieee80211_sta_vht_cap\|cfg80211_chan_def\|NL80211_CHAN_WIDTH\|IEEE80211_VHT_" os_dep/linux/ioctl_cfg80211.c
+
       - name: Attempt kernel module build
         run: |
           set +e
@@ -131,7 +215,7 @@ jobs:
           echo "=== DEBUG SONU ===" >> ../build_log.txt
           echo "" >> ../build_log.txt
           echo "=== Derleme baslatiliyor ==="
-          make V=1 ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" 2>&1 | tee -a ../build_log.txt
+          make ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" 2>&1 | tee -a ../build_log.txt
           echo "=== Derleme sonucu ==="
           find . -name "*.ko" 2>/dev/null | tee ../ko_files.txt
           if [ -s ../ko_files.txt ]; then
