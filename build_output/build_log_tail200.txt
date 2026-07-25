@@ -1,0 +1,200 @@
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:84,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/usb_ops_linux.c:21:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  mips-linux-gnu-gcc -Wp,-MD,/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/.ioctl_linux.o.d -nostdinc -isystem /usr/lib/gcc-cross/mips-linux-gnu/12/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include -Iarch/mips/include/generated -Iinclude  -include /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/include/linux/kconfig.h -D__KERNEL__ -D"VMLINUX_LOAD_ADDRESS=0x80010000" -D"DATAOFFSET=0" -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -mno-check-zero-division -mabi=32 -G 0 -mno-abicalls -fno-pic -pipe -msoft-float -ffreestanding -EB -UMIPSEB -U_MIPSEB -U__MIPSEB -U__MIPSEB__ -UMIPSEL -U_MIPSEL -U__MIPSEL -U__MIPSEL__ -DMIPSEB -D_MIPSEB -D__MIPSEB -D__MIPSEB__ -march=mips32 -Wa,-mips32 -Wa,--trap -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../bcmdrivers/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../shared/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-generic -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -DCONFIG_BIG_ENDIAN -Wno-unused-variable -Wno-unused-value -Wno-unused-label -Wno-unused-parameter -Wno-unused-function -Wno-unused -Wno-uninitialized -Wno-date-time -Wno-misleading-indentation -Wno-error=date-time -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm -DDBG=0 -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/platform -DCONFIG_RTL8812A -DCONFIG_RTL8821A -DCONFIG_MP_INCLUDED -DCONFIG_TRAFFIC_PROTECT -DCONFIG_LOAD_PHY_PARA_FROM_FILE -DREALTEK_CONFIG_PATH=\"\" -DCONFIG_RTW_ADAPTIVITY_EN=0 -DCONFIG_RTW_ADAPTIVITY_MODE=0 -DCONFIG_BR_EXT '-DCONFIG_BR_EXT_BRNAME="'br0'"' -DCONFIG_WIFI_MONITOR -DDM_ODM_SUPPORT_TYPE=0x04  -DMODULE -mlong-calls  -D"KBUILD_STR(s)=#s" -D"KBUILD_BASENAME=KBUILD_STR(ioctl_linux)"  -D"KBUILD_MODNAME=KBUILD_STR(8812au)" -c -o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_linux.o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_linux.c
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:84,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_linux.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_linux.c: In function ‘rtw_wx_get_scan’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_linux.c:2953:55: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 2953 |                         && _TRUE == rtw_validate_ssid(&(pnetwork->network.Ssid))
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+  mips-linux-gnu-gcc -Wp,-MD,/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/.xmit_linux.o.d -nostdinc -isystem /usr/lib/gcc-cross/mips-linux-gnu/12/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include -Iarch/mips/include/generated -Iinclude  -include /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/include/linux/kconfig.h -D__KERNEL__ -D"VMLINUX_LOAD_ADDRESS=0x80010000" -D"DATAOFFSET=0" -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -mno-check-zero-division -mabi=32 -G 0 -mno-abicalls -fno-pic -pipe -msoft-float -ffreestanding -EB -UMIPSEB -U_MIPSEB -U__MIPSEB -U__MIPSEB__ -UMIPSEL -U_MIPSEL -U__MIPSEL -U__MIPSEL__ -DMIPSEB -D_MIPSEB -D__MIPSEB -D__MIPSEB__ -march=mips32 -Wa,-mips32 -Wa,--trap -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../bcmdrivers/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../shared/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-generic -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -DCONFIG_BIG_ENDIAN -Wno-unused-variable -Wno-unused-value -Wno-unused-label -Wno-unused-parameter -Wno-unused-function -Wno-unused -Wno-uninitialized -Wno-date-time -Wno-misleading-indentation -Wno-error=date-time -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm -DDBG=0 -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/platform -DCONFIG_RTL8812A -DCONFIG_RTL8821A -DCONFIG_MP_INCLUDED -DCONFIG_TRAFFIC_PROTECT -DCONFIG_LOAD_PHY_PARA_FROM_FILE -DREALTEK_CONFIG_PATH=\"\" -DCONFIG_RTW_ADAPTIVITY_EN=0 -DCONFIG_RTW_ADAPTIVITY_MODE=0 -DCONFIG_BR_EXT '-DCONFIG_BR_EXT_BRNAME="'br0'"' -DCONFIG_WIFI_MONITOR -DDM_ODM_SUPPORT_TYPE=0x04  -DMODULE -mlong-calls  -D"KBUILD_STR(s)=#s" -D"KBUILD_BASENAME=KBUILD_STR(xmit_linux)"  -D"KBUILD_MODNAME=KBUILD_STR(8812au)" -c -o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/xmit_linux.o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/xmit_linux.c
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:84,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/xmit_linux.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  mips-linux-gnu-gcc -Wp,-MD,/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/.mlme_linux.o.d -nostdinc -isystem /usr/lib/gcc-cross/mips-linux-gnu/12/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include -Iarch/mips/include/generated -Iinclude  -include /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/include/linux/kconfig.h -D__KERNEL__ -D"VMLINUX_LOAD_ADDRESS=0x80010000" -D"DATAOFFSET=0" -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -mno-check-zero-division -mabi=32 -G 0 -mno-abicalls -fno-pic -pipe -msoft-float -ffreestanding -EB -UMIPSEB -U_MIPSEB -U__MIPSEB -U__MIPSEB__ -UMIPSEL -U_MIPSEL -U__MIPSEL -U__MIPSEL__ -DMIPSEB -D_MIPSEB -D__MIPSEB -D__MIPSEB__ -march=mips32 -Wa,-mips32 -Wa,--trap -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../bcmdrivers/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../shared/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-generic -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -DCONFIG_BIG_ENDIAN -Wno-unused-variable -Wno-unused-value -Wno-unused-label -Wno-unused-parameter -Wno-unused-function -Wno-unused -Wno-uninitialized -Wno-date-time -Wno-misleading-indentation -Wno-error=date-time -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm -DDBG=0 -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/platform -DCONFIG_RTL8812A -DCONFIG_RTL8821A -DCONFIG_MP_INCLUDED -DCONFIG_TRAFFIC_PROTECT -DCONFIG_LOAD_PHY_PARA_FROM_FILE -DREALTEK_CONFIG_PATH=\"\" -DCONFIG_RTW_ADAPTIVITY_EN=0 -DCONFIG_RTW_ADAPTIVITY_MODE=0 -DCONFIG_BR_EXT '-DCONFIG_BR_EXT_BRNAME="'br0'"' -DCONFIG_WIFI_MONITOR -DDM_ODM_SUPPORT_TYPE=0x04  -DMODULE -mlong-calls  -D"KBUILD_STR(s)=#s" -D"KBUILD_BASENAME=KBUILD_STR(mlme_linux)"  -D"KBUILD_MODNAME=KBUILD_STR(8812au)" -c -o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/mlme_linux.o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/mlme_linux.c
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:84,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/mlme_linux.c:24:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  mips-linux-gnu-gcc -Wp,-MD,/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/.recv_linux.o.d -nostdinc -isystem /usr/lib/gcc-cross/mips-linux-gnu/12/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include -Iarch/mips/include/generated -Iinclude  -include /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/include/linux/kconfig.h -D__KERNEL__ -D"VMLINUX_LOAD_ADDRESS=0x80010000" -D"DATAOFFSET=0" -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -mno-check-zero-division -mabi=32 -G 0 -mno-abicalls -fno-pic -pipe -msoft-float -ffreestanding -EB -UMIPSEB -U_MIPSEB -U__MIPSEB -U__MIPSEB__ -UMIPSEL -U_MIPSEL -U__MIPSEL -U__MIPSEL__ -DMIPSEB -D_MIPSEB -D__MIPSEB -D__MIPSEB__ -march=mips32 -Wa,-mips32 -Wa,--trap -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../bcmdrivers/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../shared/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-generic -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -DCONFIG_BIG_ENDIAN -Wno-unused-variable -Wno-unused-value -Wno-unused-label -Wno-unused-parameter -Wno-unused-function -Wno-unused -Wno-uninitialized -Wno-date-time -Wno-misleading-indentation -Wno-error=date-time -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm -DDBG=0 -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/platform -DCONFIG_RTL8812A -DCONFIG_RTL8821A -DCONFIG_MP_INCLUDED -DCONFIG_TRAFFIC_PROTECT -DCONFIG_LOAD_PHY_PARA_FROM_FILE -DREALTEK_CONFIG_PATH=\"\" -DCONFIG_RTW_ADAPTIVITY_EN=0 -DCONFIG_RTW_ADAPTIVITY_MODE=0 -DCONFIG_BR_EXT '-DCONFIG_BR_EXT_BRNAME="'br0'"' -DCONFIG_WIFI_MONITOR -DDM_ODM_SUPPORT_TYPE=0x04  -DMODULE -mlong-calls  -D"KBUILD_STR(s)=#s" -D"KBUILD_BASENAME=KBUILD_STR(recv_linux)"  -D"KBUILD_MODNAME=KBUILD_STR(8812au)" -c -o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/recv_linux.o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/recv_linux.c
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:84,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/recv_linux.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  mips-linux-gnu-gcc -Wp,-MD,/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/.ioctl_cfg80211.o.d -nostdinc -isystem /usr/lib/gcc-cross/mips-linux-gnu/12/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include -Iarch/mips/include/generated -Iinclude  -include /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/include/linux/kconfig.h -D__KERNEL__ -D"VMLINUX_LOAD_ADDRESS=0x80010000" -D"DATAOFFSET=0" -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -mno-check-zero-division -mabi=32 -G 0 -mno-abicalls -fno-pic -pipe -msoft-float -ffreestanding -EB -UMIPSEB -U_MIPSEB -U__MIPSEB -U__MIPSEB__ -UMIPSEL -U_MIPSEL -U__MIPSEL -U__MIPSEL__ -DMIPSEB -D_MIPSEB -D__MIPSEB -D__MIPSEB__ -march=mips32 -Wa,-mips32 -Wa,--trap -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../bcmdrivers/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/../../shared/opensource/include/bcm963xx -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/arch/mips/include/asm/mach-generic -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -fomit-frame-pointer -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO -DCONFIG_BIG_ENDIAN -Wno-unused-variable -Wno-unused-value -Wno-unused-label -Wno-unused-parameter -Wno-unused-function -Wno-unused -Wno-uninitialized -Wno-date-time -Wno-misleading-indentation -Wno-error=date-time -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm -DDBG=0 -I/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/platform -DCONFIG_RTL8812A -DCONFIG_RTL8821A -DCONFIG_MP_INCLUDED -DCONFIG_TRAFFIC_PROTECT -DCONFIG_LOAD_PHY_PARA_FROM_FILE -DREALTEK_CONFIG_PATH=\"\" -DCONFIG_RTW_ADAPTIVITY_EN=0 -DCONFIG_RTW_ADAPTIVITY_MODE=0 -DCONFIG_BR_EXT '-DCONFIG_BR_EXT_BRNAME="'br0'"' -DCONFIG_WIFI_MONITOR -DDM_ODM_SUPPORT_TYPE=0x04  -DMODULE -mlong-calls  -D"KBUILD_STR(s)=#s" -D"KBUILD_BASENAME=KBUILD_STR(ioctl_cfg80211)"  -D"KBUILD_MODNAME=KBUILD_STR(8812au)" -c -o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.o /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c
+In file included from include/linux/kernel.h:20,
+                 from include/linux/cache.h:4,
+                 from include/linux/time.h:7,
+                 from include/linux/stat.h:60,
+                 from include/linux/module.h:10,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/basic_types.h:84,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:31,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:22:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: In function ‘rtw_cfg80211_inform_bss’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:424:43: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  424 |                 NDIS_802_11_SSID *pssid = &pnetwork->network.Ssid;
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:525:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+  525 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: In function ‘rtw_cfg80211_surveydone_event_callback’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:2163:55: warning: taking address of packed member of ‘struct _WLAN_BSSID_EX’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 2163 |                         && _TRUE == rtw_validate_ssid(&(pnetwork->network.Ssid))
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: In function ‘cfg80211_rtw_scan’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:2424:32: warning: the comparison will always evaluate as ‘true’ for the address of ‘ssid’ will never be NULL [-Waddress]
+ 2424 |                 if(ssids->ssid != NULL
+      |                                ^~
+In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/osdep_service_linux.h:98,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/osdep_service.h:41,
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/include/drv_types.h:32:
+include/net/cfg80211.h:896:12: note: ‘ssid’ declared here
+  896 |         u8 ssid[IEEE80211_MAX_SSID_LEN];
+      |            ^~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: In function ‘rtw_cfg80211_indicate_sta_disassoc’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:3715:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 3715 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: At top level:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4606:92: warning: ‘struct cfg80211_chan_def’ declared inside parameter list will not be visible outside of this definition or declaration
+ 4606 | static int cfg80211_rtw_get_channel(struct wiphy *wiphy, struct wireless_dev *wdev, struct cfg80211_chan_def *chandef){
+      |                                                                                            ^~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: In function ‘cfg80211_rtw_get_channel’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4651:17: error: ‘NL80211_CHAN_WIDTH_20’ undeclared (first use in this function); did you mean ‘NL80211_CHAN_HT20’?
+ 4651 |         width = NL80211_CHAN_WIDTH_20;
+      |                 ^~~~~~~~~~~~~~~~~~~~~
+      |                 NL80211_CHAN_HT20
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4651:17: note: each undeclared identifier is reported only once for each function it appears in
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4656:17: error: ‘NL80211_CHAN_WIDTH_40’ undeclared (first use in this function); did you mean ‘NL80211_CHAN_HT20’?
+ 4656 |         width = NL80211_CHAN_WIDTH_40;
+      |                 ^~~~~~~~~~~~~~~~~~~~~
+      |                 NL80211_CHAN_HT20
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4665:17: error: ‘NL80211_CHAN_WIDTH_80’ undeclared (first use in this function); did you mean ‘NL80211_CHAN_HT20’?
+ 4665 |         width = NL80211_CHAN_WIDTH_80;
+      |                 ^~~~~~~~~~~~~~~~~~~~~
+      |                 NL80211_CHAN_HT20
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4674:17: error: ‘NL80211_CHAN_WIDTH_160’ undeclared (first use in this function); did you mean ‘NL80211_CHAN_HT20’?
+ 4674 |         width = NL80211_CHAN_WIDTH_160;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+      |                 NL80211_CHAN_HT20
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4683:17: error: ‘NL80211_CHAN_WIDTH_80P80’ undeclared (first use in this function)
+ 4683 |         width = NL80211_CHAN_WIDTH_80P80;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4697:12: error: invalid use of undefined type ‘struct cfg80211_chan_def’
+ 4697 |     chandef->chan = ieee80211_get_channel(wiphy, control_freq);
+      |            ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4698:15: error: invalid use of undefined type ‘struct cfg80211_chan_def’
+ 4698 |     if(chandef->chan == NULL){
+      |               ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4699:14: error: invalid use of undefined type ‘struct cfg80211_chan_def’
+ 4699 |       chandef->chan = ieee80211_get_channel(wiphy, ieee80211_channel_to_frequency(channel, band));
+      |              ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4701:17: error: invalid use of undefined type ‘struct cfg80211_chan_def’
+ 4701 |       if(chandef->chan == NULL){
+      |                 ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4706:12: error: invalid use of undefined type ‘struct cfg80211_chan_def’
+ 4706 |     chandef->width = width;
+      |            ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4707:12: error: invalid use of undefined type ‘struct cfg80211_chan_def’
+ 4707 |     chandef->center_freq1 = center_freq;
+      |            ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4708:12: error: invalid use of undefined type ‘struct cfg80211_chan_def’
+ 4708 |     chandef->center_freq2 = center_freq2;
+      |            ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: In function ‘rtw_cfg80211_issue_p2p_provision_request’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:4996:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 4996 |         fctrl = &(pwlanhdr->frame_ctl);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: At top level:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6481:68: warning: ‘struct ieee80211_sta_vht_cap’ declared inside parameter list will not be visible outside of this definition or declaration
+ 6481 | static void rtw_cfg80211_create_vht_cap(_adapter *padapter, struct ieee80211_sta_vht_cap *vht_cap)
+      |                                                                    ^~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: In function ‘rtw_cfg80211_create_vht_cap’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6491:16: error: invalid use of undefined type ‘struct ieee80211_sta_vht_cap’
+ 6491 |         vht_cap->vht_supported = 1;
+      |                ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6492:16: error: invalid use of undefined type ‘struct ieee80211_sta_vht_cap’
+ 6492 |         vht_cap->cap = IEEE80211_VHT_CAP_RXLDPC|IEEE80211_VHT_CAP_SHORT_GI_80|IEEE80211_VHT_CAP_TXSTBC|
+      |                ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6492:24: error: ‘IEEE80211_VHT_CAP_RXLDPC’ undeclared (first use in this function); did you mean ‘IEEE80211_HT_CAP_RX_STBC’?
+ 6492 |         vht_cap->cap = IEEE80211_VHT_CAP_RXLDPC|IEEE80211_VHT_CAP_SHORT_GI_80|IEEE80211_VHT_CAP_TXSTBC|
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                        IEEE80211_HT_CAP_RX_STBC
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6492:49: error: ‘IEEE80211_VHT_CAP_SHORT_GI_80’ undeclared (first use in this function); did you mean ‘IEEE80211_HT_CAP_SGI_40’?
+ 6492 |         vht_cap->cap = IEEE80211_VHT_CAP_RXLDPC|IEEE80211_VHT_CAP_SHORT_GI_80|IEEE80211_VHT_CAP_TXSTBC|
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                 IEEE80211_HT_CAP_SGI_40
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6492:79: error: ‘IEEE80211_VHT_CAP_TXSTBC’ undeclared (first use in this function); did you mean ‘IEEE80211_HT_CAP_TX_STBC’?
+ 6492 |         vht_cap->cap = IEEE80211_VHT_CAP_RXLDPC|IEEE80211_VHT_CAP_SHORT_GI_80|IEEE80211_VHT_CAP_TXSTBC|
+      |                                                                               ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                               IEEE80211_HT_CAP_TX_STBC
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6493:17: error: ‘IEEE80211_VHT_CAP_SU_BEAMFORMEE_CAPABLE’ undeclared (first use in this function)
+ 6493 |                 IEEE80211_VHT_CAP_SU_BEAMFORMEE_CAPABLE;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6498:36: error: ‘IEEE80211_VHT_MCS_SUPPORT_0_9’ undeclared (first use in this function)
+ 6498 |                         mcs_map |= IEEE80211_VHT_MCS_SUPPORT_0_9 << (i*2);
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6500:36: error: ‘IEEE80211_VHT_MCS_NOT_SUPPORTED’ undeclared (first use in this function); did you mean ‘IEEE80211_HT_MCS_TX_DEFINED’?
+ 6500 |                         mcs_map |= IEEE80211_VHT_MCS_NOT_SUPPORTED << (i*2);
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    IEEE80211_HT_MCS_TX_DEFINED
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6503:16: error: invalid use of undefined type ‘struct ieee80211_sta_vht_cap’
+ 6503 |         vht_cap->vht_mcs.tx_mcs_map =
+      |                ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6504:16: error: invalid use of undefined type ‘struct ieee80211_sta_vht_cap’
+ 6504 |         vht_cap->vht_mcs.rx_mcs_map = cpu_to_le16(mcs_map);
+      |                ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6505:16: error: invalid use of undefined type ‘struct ieee80211_sta_vht_cap’
+ 6505 |         vht_cap->vht_mcs.tx_highest =
+      |                ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6506:16: error: invalid use of undefined type ‘struct ieee80211_sta_vht_cap’
+ 6506 |         vht_cap->vht_mcs.rx_highest = cpu_to_le16(highest_rates[pHalData->NumTotalRFPath-1]);
+      |                ^~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c: At top level:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6754:24: warning: initialization of ‘struct ieee80211_channel * (*)(struct wiphy *)’ from incompatible pointer type ‘int (*)(struct wiphy *, struct wireless_dev *, struct cfg80211_chan_def *)’ [-Wincompatible-pointer-types]
+ 6754 |         .get_channel = cfg80211_rtw_get_channel,
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.c:6754:24: note: (near initialization for ‘rtw_cfg80211_ops.get_channel’)
+make[2]: *** [scripts/Makefile.build:308: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/os_dep/linux/ioctl_cfg80211.o] Error 1
+make[1]: *** [Makefile:1679: _module_/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au] Error 2
+make[1]: Leaving directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt'
+make: *** [Makefile:1744: modules] Error 2
