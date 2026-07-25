@@ -87,6 +87,22 @@ jobs:
           echo "--- Enjeksiyon sonrasi ilk 10 EXTRA_CFLAGS satiri ---"
           grep -n "EXTRA_CFLAGS" Makefile | head -10
           echo ""
+          echo "--- extern inline fonksiyonlarin coklu tanim (multiple definition) sorunu icin linker bayragi enjekte ediliyor ---"
+          # ieee80211.h icindeki is_zero_mac_addr/is_broadcast_mac_addr/is_multicast_mac_addr
+          # 'extern __inline' ile tanimli - modern GCC (10+) varsayilan olarak
+          # bunlari her .c dosyasinda ayri sembol olarak uretiyor, linkte cakisiyor.
+          # Fonksiyonlarin hepsi ayni header'dan birebir ayni icerikte kopyalandigi
+          # icin --allow-multiple-definition guvenli bir cozum.
+          FIRST_LDFLAGS_LINE=$(grep -n "^EXTRA_LDFLAGS" Makefile | head -1 | cut -d: -f1)
+          echo "Ilk EXTRA_LDFLAGS satiri: $FIRST_LDFLAGS_LINE"
+          if [ -n "$FIRST_LDFLAGS_LINE" ]; then
+            sed -i "${FIRST_LDFLAGS_LINE}i EXTRA_LDFLAGS += -Wl,--allow-multiple-definition" Makefile
+          else
+            echo "EXTRA_LDFLAGS += -Wl,--allow-multiple-definition" >> Makefile
+          fi
+          echo "--- Enjeksiyon sonrasi EXTRA_LDFLAGS satirlari ---"
+          grep -n "EXTRA_LDFLAGS" Makefile
+          echo ""
           echo "--- Eski kernelde eksik radiotap sabitlerini global header'a enjekte ediyoruz ---"
           HEADER_GUARD_LINE=$(grep -n "^#define __BASIC_TYPES_H__" include/basic_types.h | head -1 | cut -d: -f1)
           echo "Header guard satiri: $HEADER_GUARD_LINE"
