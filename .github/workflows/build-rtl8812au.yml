@@ -104,6 +104,19 @@ jobs:
           else
             echo "UYARI: header guard bulunamadi, enjeksiyon atlandi"
           fi
+          echo ""
+          echo "--- 5GHz/VHT bandini kapatiyoruz (kernelde VHT struct/enum destegi yok, once 2.4GHz calissin) ---"
+          # drv_conf.h icinde CONFIG_IEEE80211_BAND_5GHZ, CONFIG_RTL8812A/8821A/8814A
+          # tanimliyken otomatik aciliyor. Bu blogu #if 0 yaparak kapatiyoruz,
+          # boylece VHT-bagimli struct/enum kullanan tum kod (ioctl_cfg80211.c
+          # icindeki rtw_cfg80211_create_vht_cap cagrisi dahil) derleme disi kalir.
+          if grep -q "if defined(CONFIG_RTL8812A) || defined(CONFIG_RTL8821A) || defined(CONFIG_RTL8814A)" include/drv_conf.h; then
+            sed -i 's/#if defined(CONFIG_RTL8812A) || defined(CONFIG_RTL8821A) || defined(CONFIG_RTL8814A)/#if 0 \/* 5GHz\/VHT gecici olarak kapali - kernelde VHT destegi yok *\//' include/drv_conf.h
+            echo "5GHz/VHT blogu kapatildi, dogrulama:"
+            grep -n "if 0.*5GHz" include/drv_conf.h
+          else
+            echo "UYARI: 5GHz blogu bulunamadi, atlandi"
+          fi
 
       - name: Attempt kernel module build
         run: |
