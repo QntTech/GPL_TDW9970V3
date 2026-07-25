@@ -1,4 +1,4 @@
-name: Inspect cfg80211 config state
+name: Inspect built-in cfg80211 symbols
 
 on:
   workflow_dispatch:
@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install nm tool
+        run: sudo apt-get install -y binutils-mips-linux-gnu || sudo apt-get install -y binutils
 
       - name: Download and extract GPL archive
         run: |
@@ -20,31 +23,40 @@ jobs:
           echo "KDIR=$KDIR" >> "$GITHUB_ENV"
           exit 0
 
-      - name: Inspect config state
+      - name: Check symbols in built-in.o and vmlinux
         run: |
           set +e
-          echo "=== extracted/GPL_W9970V3/build/.config icinde CFG80211/WIRELESS satirlari ===" > cfg80211_config_report.txt
-          grep -n "CFG80211\|CONFIG_WIRELESS\b\|WEXT" "extracted/GPL_W9970V3/build/.config" >> cfg80211_config_report.txt 2>&1
-          echo "" >> cfg80211_config_report.txt
+          echo "=== hangi nm mevcut ===" > symbol_report.txt
+          which mips-linux-gnu-nm nm >> symbol_report.txt 2>&1
+          echo "" >> symbol_report.txt
 
-          echo "=== auto.conf icinde CFG80211/WIRELESS satirlari ===" >> cfg80211_config_report.txt
-          grep -n "CFG80211\|CONFIG_WIRELESS\b\|WEXT" "$KDIR/include/config/auto.conf" >> cfg80211_config_report.txt 2>&1
-          echo "" >> cfg80211_config_report.txt
+          echo "=== net/built-in.o boyutu ===" >> symbol_report.txt
+          ls -la "$KDIR/net/built-in.o" >> symbol_report.txt 2>&1
+          echo "" >> symbol_report.txt
 
-          echo "=== auto.conf tam icerigi (kisa oldugu icin) satir sayisi ===" >> cfg80211_config_report.txt
-          wc -l "$KDIR/include/config/auto.conf" >> cfg80211_config_report.txt 2>&1
-          echo "" >> cfg80211_config_report.txt
+          echo "=== net/built-in.o icinde wiphy_new / cfg80211_scan_done araniyor (mips-linux-gnu-nm) ===" >> symbol_report.txt
+          mips-linux-gnu-nm "$KDIR/net/built-in.o" 2>&1 | grep -i "wiphy_new\|cfg80211_scan_done\|wiphy_register" >> symbol_report.txt 2>&1
+          echo "grep exit: $?" >> symbol_report.txt
+          echo "" >> symbol_report.txt
 
-          echo "=== rtl8812au'nun kullandigi ayni auto.conf mu, yoksa modul derlerken baska bir config mi devreye giriyor ===" >> cfg80211_config_report.txt
-          echo "(auto.conf modul derlemesinde otomatik okunuyor, kbuild bunu -include ile isliyor)" >> cfg80211_config_report.txt
-          echo "" >> cfg80211_config_report.txt
+          echo "=== net/wireless altinda herhangi bir .o dosyasi derlenmis mi (core.o vs) ===" >> symbol_report.txt
+          find "$KDIR/net/wireless" -iname "*.o" >> symbol_report.txt 2>&1
+          echo "" >> symbol_report.txt
 
-          echo "=== net/built-in.o icinde cfg80211 sembolleri var mi (built-in olarak derlenmis mi kontrolu) ===" >> cfg80211_config_report.txt
-          find "$KDIR/net" -maxdepth 1 -iname "built-in.o" >> cfg80211_config_report.txt 2>&1
-          nm "$KDIR/net/built-in.o" 2>&1 | grep -i "wiphy_new\|cfg80211_scan_done" >> cfg80211_config_report.txt 2>&1
+          echo "=== TUM built-in.o dosyalari icinde wiphy_new arama (genis tarama) ===" >> symbol_report.txt
+          find "$KDIR" -iname "built-in.o" 2>/dev/null | while read f; do
+            RESULT=$(mips-linux-gnu-nm "$f" 2>/dev/null | grep -i "wiphy_new")
+            if [ -n "$RESULT" ]; then
+              echo "BULUNDU: $f -> $RESULT" >> symbol_report.txt
+            fi
+          done
+          echo "Tarama tamamlandi" >> symbol_report.txt
+          echo "" >> symbol_report.txt
 
-          echo "Tamamlandi"
-          cat cfg80211_config_report.txt
+          echo "=== vmlinux var mi, sembolleri iceriyor mu ===" >> symbol_report.txt
+          find "$KDIR" -maxdepth 1 -iname "vmlinux*" >> symbol_report.txt 2>&1
+
+          cat symbol_report.txt
           exit 0
 
       - name: Cleanup
@@ -55,6 +67,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add cfg80211_config_report.txt
-          git commit -m "cfg80211 config durum raporu" || echo "Degisiklik yok"
+          git add symbol_report.txt
+          git commit -m "cfg80211 sembol arama raporu" || echo "Degisiklik yok"
           git push
