@@ -1,0 +1,12 @@
+=== extracted/GPL_W9970V3/build/.config icinde CFG80211/WIRELESS satirlari ===
+
+=== auto.conf icinde CFG80211/WIRELESS satirlari ===
+
+=== auto.conf tam icerigi (kisa oldugu icin) satir sayisi ===
+556 extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/include/config/auto.conf
+
+=== rtl8812au'nun kullandigi ayni auto.conf mu, yoksa modul derlerken baska bir config mi devreye giriyor ===
+(auto.conf modul derlemesinde otomatik okunuyor, kbuild bunu -include ile isliyor)
+
+=== net/built-in.o icinde cfg80211 sembolleri var mi (built-in olarak derlenmis mi kontrolu) ===
+extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/net/built-in.o
