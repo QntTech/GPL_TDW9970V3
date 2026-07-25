@@ -1,0 +1,141 @@
+=== KDIR: extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt ===
+=== net/wireless dizini var mi ===
+total 712
+drwxr-xr-x  2 runner runner   4096 Mar  2  2016 .
+drwxr-xr-x 55 runner runner   4096 Mar  2  2016 ..
+-rwxr-xr-x  1 runner runner      8 Mar  2  2016 .gitignore
+-rwxr-xr-x  1 runner runner   4345 Mar  2  2016 Kconfig
+-rwxr-xr-x  1 runner runner    858 Mar  2  2016 Makefile
+-rwxr-xr-x  1 runner runner   3285 Mar  2  2016 chan.c
+-rwxr-xr-x  1 runner runner  26942 Mar  2  2016 core.c
+-rwxr-xr-x  1 runner runner  15332 Mar  2  2016 core.h
+-rwxr-xr-x  1 runner runner    759 Mar  2  2016 db.txt
+-rwxr-xr-x  1 runner runner   3115 Mar  2  2016 debugfs.c
+-rwxr-xr-x  1 runner runner    300 Mar  2  2016 debugfs.h
+-rwxr-xr-x  1 runner runner   2109 Mar  2  2016 ethtool.c
+-rwxr-xr-x  1 runner runner    148 Mar  2  2016 ethtool.h
+-rwxr-xr-x  1 runner runner   3462 Mar  2  2016 genregdb.awk
+-rwxr-xr-x  1 runner runner  12187 Mar  2  2016 ibss.c
+-rwxr-xr-x  1 runner runner   7256 Mar  2  2016 lib80211.c
+-rwxr-xr-x  1 runner runner  12054 Mar  2  2016 lib80211_crypt_ccmp.c
+-rwxr-xr-x  1 runner runner  21166 Mar  2  2016 lib80211_crypt_tkip.c
+-rwxr-xr-x  1 runner runner   7250 Mar  2  2016 lib80211_crypt_wep.c
+-rwxr-xr-x  1 runner runner   4456 Mar  2  2016 mesh.c
+-rwxr-xr-x  1 runner runner  26084 Mar  2  2016 mlme.c
+-rwxr-xr-x  1 runner runner 214904 Mar  2  2016 nl80211.c
+-rwxr-xr-x  1 runner runner   5376 Mar  2  2016 nl80211.h
+-rwxr-xr-x  1 runner runner  11887 Mar  2  2016 radiotap.c
+-rwxr-xr-x  1 runner runner  64368 Mar  2  2016 reg.c
+-rwxr-xr-x  1 runner runner   4495 Mar  2  2016 reg.h
+-rwxr-xr-x  1 runner runner    948 Mar  2  2016 regdb.h
+-rwxr-xr-x  1 runner runner  34127 Mar  2  2016 scan.c
+-rwxr-xr-x  1 runner runner  26910 Mar  2  2016 sme.c
+-rwxr-xr-x  1 runner runner   3466 Mar  2  2016 sysfs.c
+-rwxr-xr-x  1 runner runner    197 Mar  2  2016 sysfs.h
+-rwxr-xr-x  1 runner runner  27135 Mar  2  2016 util.c
+-rwxr-xr-x  1 runner runner  39722 Mar  2  2016 wext-compat.c
+-rwxr-xr-x  1 runner runner   2167 Mar  2  2016 wext-compat.h
+-rwxr-xr-x  1 runner runner  29613 Mar  2  2016 wext-core.c
+-rwxr-xr-x  1 runner runner   7027 Mar  2  2016 wext-priv.c
+-rwxr-xr-x  1 runner runner   4047 Mar  2  2016 wext-proc.c
+-rwxr-xr-x  1 runner runner   9469 Mar  2  2016 wext-sme.c
+-rwxr-xr-x  1 runner runner   6719 Mar  2  2016 wext-spy.c
+
+=== net/wireless/Makefile ===
+obj-$(CONFIG_CFG80211) += cfg80211.o
+obj-$(CONFIG_LIB80211) += lib80211.o
+obj-$(CONFIG_LIB80211_CRYPT_WEP) += lib80211_crypt_wep.o
+obj-$(CONFIG_LIB80211_CRYPT_CCMP) += lib80211_crypt_ccmp.o
+obj-$(CONFIG_LIB80211_CRYPT_TKIP) += lib80211_crypt_tkip.o
+
+obj-$(CONFIG_WEXT_CORE) += wext-core.o
+obj-$(CONFIG_WEXT_PROC) += wext-proc.o
+obj-$(CONFIG_WEXT_SPY) += wext-spy.o
+obj-$(CONFIG_WEXT_PRIV) += wext-priv.o
+
+cfg80211-y += core.o sysfs.o radiotap.o util.o reg.o scan.o nl80211.o
+cfg80211-y += mlme.o ibss.o sme.o chan.o ethtool.o mesh.o
+cfg80211-$(CONFIG_CFG80211_DEBUGFS) += debugfs.o
+cfg80211-$(CONFIG_CFG80211_WEXT) += wext-compat.o wext-sme.o
+cfg80211-$(CONFIG_CFG80211_INTERNAL_REGDB) += regdb.o
+
+ccflags-y += -D__CHECK_ENDIAN__
+
+$(obj)/regdb.c: $(src)/db.txt $(src)/genregdb.awk
+	@$(AWK) -f $(srctree)/$(src)/genregdb.awk < $< > $@
+
+clean-files := regdb.c
+
+=== net/wireless/Kconfig (ilk 60 satir) ===
+config WIRELESS_EXT
+	bool
+
+config WEXT_CORE
+	def_bool y
+	depends on CFG80211_WEXT || WIRELESS_EXT
+
+config WEXT_PROC
+	def_bool y
+	depends on PROC_FS
+	depends on WEXT_CORE
+
+config WEXT_SPY
+	bool
+
+config WEXT_PRIV
+	bool
+
+config CFG80211
+	tristate "cfg80211 - wireless configuration API"
+	depends on RFKILL || !RFKILL
+	---help---
+	  cfg80211 is the Linux wireless LAN (802.11) configuration API.
+	  Enable this if you have a wireless device.
+
+	  For more information refer to documentation on the wireless wiki:
+
+	  http://wireless.kernel.org/en/developers/Documentation/cfg80211
+
+	  When built as a module it will be called cfg80211.
+
+config NL80211_TESTMODE
+	bool "nl80211 testmode command"
+	depends on CFG80211
+	help
+	  The nl80211 testmode command helps implementing things like
+	  factory calibration or validation tools for wireless chips.
+
+	  Select this option ONLY for kernels that are specifically
+	  built for such purposes.
+
+	  Debugging tools that are supposed to end up in the hands of
+	  users should better be implemented with debugfs.
+
+	  Say N.
+
+config CFG80211_DEVELOPER_WARNINGS
+	bool "enable developer warnings"
+	depends on CFG80211
+	default n
+	help
+	  This option enables some additional warnings that help
+	  cfg80211 developers and driver developers, but that can
+	  trigger due to races with userspace.
+
+	  For example, when a driver reports that it was disconnected
+	  from the AP, but the user disconnects manually at the same
+	  time, the warning might trigger spuriously due to races.
+
+	  Say Y only if you are developing cfg80211 or a driver based
+
+=== net/Makefile icinde wireless referansi ===
+51:obj-$(CONFIG_WIRELESS)		+= wireless/
+
+=== .config dosyalari araniyor ===
+extracted/GPL_W9970V3/apps/public/busybox-1.19.2/.config
+extracted/GPL_W9970V3/build/.config
+
+=== auto.conf araniyor ===
+extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt/include/config/auto.conf
+
+=== net/wireless altindaki .o/.ko dosyalari ===
