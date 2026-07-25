@@ -208,6 +208,38 @@ jobs:
           echo "--- Doğrulama: kalan korumasız VHT/chan_def referansları ---"
           grep -n "ieee80211_sta_vht_cap\|cfg80211_chan_def\|NL80211_CHAN_WIDTH\|IEEE80211_VHT_" os_dep/linux/ioctl_cfg80211.c
 
+      - name: Inject radiotap constant fallbacks into rtw_radiotap.c
+        run: |
+          if [ ! -d rtl8812au ]; then
+            echo "rtl8812au klasoru yok, adim atlaniyor"
+            exit 0
+          fi
+          cd rtl8812au
+          RADIOTAP_FILE="os_dep/linux/rtw_radiotap.c"
+          if [ ! -f "$RADIOTAP_FILE" ]; then
+            echo "UYARI: $RADIOTAP_FILE bulunamadi, atlandi"
+            exit 0
+          fi
+          INCLUDE_LINE=$(grep -n "^#include <net/ieee80211_radiotap.h>" "$RADIOTAP_FILE" | head -1 | cut -d: -f1)
+          echo "Include satiri: $INCLUDE_LINE"
+          if [ -n "$INCLUDE_LINE" ]; then
+            printf '%s\n' \
+              '#ifndef IEEE80211_RADIOTAP_AMPDU_STATUS' \
+              '#define IEEE80211_RADIOTAP_AMPDU_STATUS 20' \
+              '#endif' \
+              '#ifndef IEEE80211_RADIOTAP_VHT' \
+              '#define IEEE80211_RADIOTAP_VHT 21' \
+              '#endif' > /tmp/radiotap_c_fallback.h
+            head -n "$INCLUDE_LINE" "$RADIOTAP_FILE" > /tmp/radiotap_c_new.c
+            cat /tmp/radiotap_c_fallback.h >> /tmp/radiotap_c_new.c
+            tail -n +$((INCLUDE_LINE + 1)) "$RADIOTAP_FILE" >> /tmp/radiotap_c_new.c
+            mv /tmp/radiotap_c_new.c "$RADIOTAP_FILE"
+            echo "--- Enjeksiyon sonrasi ilk 30 satir ---"
+            head -30 "$RADIOTAP_FILE"
+          else
+            echo "UYARI: include satiri bulunamadi, enjeksiyon atlandi"
+          fi
+
       - name: Attempt kernel module build
         run: |
           set +e
