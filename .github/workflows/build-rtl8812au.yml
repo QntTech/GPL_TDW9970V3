@@ -96,9 +96,9 @@ jobs:
           FIRST_LDFLAGS_LINE=$(grep -n "^EXTRA_LDFLAGS" Makefile | head -1 | cut -d: -f1)
           echo "Ilk EXTRA_LDFLAGS satiri: $FIRST_LDFLAGS_LINE"
           if [ -n "$FIRST_LDFLAGS_LINE" ]; then
-            sed -i "${FIRST_LDFLAGS_LINE}i EXTRA_LDFLAGS += -Wl,--allow-multiple-definition" Makefile
+            sed -i "${FIRST_LDFLAGS_LINE}i EXTRA_LDFLAGS += --allow-multiple-definition" Makefile
           else
-            echo "EXTRA_LDFLAGS += -Wl,--allow-multiple-definition" >> Makefile
+            echo "EXTRA_LDFLAGS += --allow-multiple-definition" >> Makefile
           fi
           echo "--- Enjeksiyon sonrasi EXTRA_LDFLAGS satirlari ---"
           grep -n "EXTRA_LDFLAGS" Makefile
