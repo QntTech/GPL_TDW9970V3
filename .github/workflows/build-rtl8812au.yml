@@ -100,6 +100,21 @@ jobs:
               '#endif' \
               '#ifndef IEEE80211_CHAN_NO_160MHZ' \
               '#define IEEE80211_CHAN_NO_160MHZ (1<<8)' \
+              '#endif' \
+              '#ifndef BB_GAIN_5GLB1' \
+              '#define BB_GAIN_5GLB1 1' \
+              '#endif' \
+              '#ifndef BB_GAIN_5GLB2' \
+              '#define BB_GAIN_5GLB2 2' \
+              '#endif' \
+              '#ifndef BB_GAIN_5GMB1' \
+              '#define BB_GAIN_5GMB1 3' \
+              '#endif' \
+              '#ifndef BB_GAIN_5GMB2' \
+              '#define BB_GAIN_5GMB2 4' \
+              '#endif' \
+              '#ifndef BB_GAIN_5GHB' \
+              '#define BB_GAIN_5GHB 5' \
               '#endif' > /tmp/radiotap_fallback.h
             head -n "$HEADER_GUARD_LINE" include/basic_types.h > /tmp/basic_types_new.h
             cat /tmp/radiotap_fallback.h >> /tmp/basic_types_new.h
