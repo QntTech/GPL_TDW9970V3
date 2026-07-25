@@ -92,9 +92,6 @@ jobs:
           echo "Header guard satiri: $HEADER_GUARD_LINE"
           if [ -n "$HEADER_GUARD_LINE" ]; then
             printf '%s\n' \
-              '#ifndef IEEE80211_RADIOTAP_MCS' \
-              '#define IEEE80211_RADIOTAP_MCS 19' \
-              '#endif' \
               '#ifndef IEEE80211_RADIOTAP_VHT' \
               '#define IEEE80211_RADIOTAP_VHT 21' \
               '#endif' > /tmp/radiotap_fallback.h
