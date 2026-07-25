@@ -1,16 +1,7 @@
-name: Build RTL88x2BU for TD-W9970 kernel
+name: Build cfg80211 module for TD-W9970 kernel
 
 on:
   workflow_dispatch:
-    inputs:
-      driver_repo:
-        description: 'RTL88x2BU driver git URL'
-        required: false
-        default: 'https://github.com/RinCat/RTL88x2BU-Linux-Driver.git'
-      driver_ref:
-        description: 'Branch/tag to checkout'
-        required: false
-        default: 'master'
 
 jobs:
   build:
@@ -48,140 +39,61 @@ jobs:
           fi
           exit 0
 
-      - name: Clone RTL88x2BU driver source
-        run: |
-          set -o pipefail
-          REF="${{ github.event.inputs.driver_ref }}"
-          REPO="${{ github.event.inputs.driver_repo }}"
-          echo "Deneniyor: $REPO @ $REF" > clone_log.txt
-          if git clone --depth 1 -b "$REF" "$REPO" rtl88x2bu >> clone_log.txt 2>&1; then
-            echo "BASARILI: $REF branch/tag ile klonlandi" >> clone_log.txt
-          else
-            echo "UYARI: $REF bulunamadi/basarisiz, default branch deneniyor" >> clone_log.txt
-            rm -rf rtl88x2bu
-            git clone --depth 1 "$REPO" rtl88x2bu >> clone_log.txt 2>&1
-          fi
-          cat clone_log.txt
-          ls rtl88x2bu/ 2>&1 | head -30 || echo "KLASOR OLUSMADI"
-
-      - name: Configure driver Makefile for MIPS platform
-        run: |
-          if [ ! -d rtl88x2bu ]; then
-            echo "rtl88x2bu klasoru yok, adim atlaniyor"
-            exit 0
-          fi
-          cd rtl88x2bu
-          echo "--- Cip secimi dogrulama (CONFIG_RTL8822B) ---"
-          grep -n "^CONFIG_RTL8822B" Makefile
-          echo ""
-          echo "--- Orijinal platform ayarlari ---"
-          grep -n "CONFIG_PLATFORM" Makefile | head -60 > ../platform_options.txt
-          cat ../platform_options.txt
-          # I386 platformunu kapat, MIPS icin manuel flag enjekte edecegiz
-          sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || true
-          echo "--- Duzenleme sonrasi platform durumu ---"
-          grep -n "CONFIG_PLATFORM" Makefile | head -60
-          echo ""
-          echo "--- Big-endian MIPS icin manuel ccflags-y enjekte ediliyor ---"
-          FIRST_CCFLAGS_LINE=$(grep -n "^ccflags-y" Makefile | head -1 | cut -d: -f1)
-          echo "Ilk ccflags-y satiri: $FIRST_CCFLAGS_LINE"
-          sed -i "${FIRST_CCFLAGS_LINE}i ccflags-y += -DCONFIG_BIG_ENDIAN" Makefile
-          echo "--- Enjeksiyon sonrasi ilk 10 ccflags-y satiri ---"
-          grep -n "ccflags-y" Makefile | head -10
-          echo ""
-          echo "--- extern-inline coklu tanim linker sorunu icin ldflags-y enjekte ediliyor ---"
-          FIRST_LDFLAGS_LINE=$(grep -n "^ldflags-y" Makefile | head -1 | cut -d: -f1)
-          echo "Ilk ldflags-y satiri: $FIRST_LDFLAGS_LINE"
-          if [ -n "$FIRST_LDFLAGS_LINE" ]; then
-            sed -i "${FIRST_LDFLAGS_LINE}i ldflags-y += --allow-multiple-definition" Makefile
-          else
-            echo "ldflags-y += --allow-multiple-definition" >> Makefile
-          fi
-          echo "--- Enjeksiyon sonrasi ldflags-y satirlari ---"
-          grep -n "ldflags-y" Makefile
-
-      - name: Inject missing radiotap AMPDU_EOF constants
-        run: |
-          if [ ! -d rtl88x2bu ]; then
-            echo "rtl88x2bu klasoru yok, adim atlaniyor"
-            exit 0
-          fi
-          cd rtl88x2bu
-          RADIOTAP_FILE="core/monitor/rtw_radiotap.c"
-          if [ ! -f "$RADIOTAP_FILE" ]; then
-            echo "UYARI: $RADIOTAP_FILE bulunamadi, atlandi"
-            exit 0
-          fi
-          # Bu kernel (3.4.11) surumu, dosyadaki
-          # "LINUX_VERSION_CODE < KERNEL_VERSION(3,7,0)" dalina dusuyor,
-          # o dal IEEE80211_RADIOTAP_AMPDU_EOF / EOF_KNOWN tanimlamiyor
-          # (sadece 3.7-4.17 araligi tanimliyor). Dosyanin en basina
-          # kosulsuz fallback ekliyoruz.
-          printf '%s\n' '#ifndef IEEE80211_RADIOTAP_AMPDU_EOF' '#define IEEE80211_RADIOTAP_AMPDU_EOF 0x0040' '#endif' '#ifndef IEEE80211_RADIOTAP_AMPDU_EOF_KNOWN' '#define IEEE80211_RADIOTAP_AMPDU_EOF_KNOWN 0x0080' '#endif' > /tmp/ampdu_eof_fallback.h
-          cat /tmp/ampdu_eof_fallback.h "$RADIOTAP_FILE" > /tmp/rtw_radiotap_new.c
-          mv /tmp/rtw_radiotap_new.c "$RADIOTAP_FILE"
-          echo "--- Enjeksiyon sonrasi ilk 15 satir ---"
-          head -15 "$RADIOTAP_FILE"
-
-      - name: Scan for VHT/cfg80211_chan_def/radiotap dependent code (informational)
-        run: |
-          if [ ! -d rtl88x2bu ]; then
-            exit 0
-          fi
-          cd rtl88x2bu
-          echo "--- ieee80211_sta_vht_cap / cfg80211_chan_def referanslari ---"
-          grep -rln "ieee80211_sta_vht_cap\|cfg80211_chan_def" --include="*.c" . || echo "yok"
-          echo ""
-          echo "--- IEEE80211_RADIOTAP_VHT / AMPDU_STATUS referanslari ---"
-          grep -rln "IEEE80211_RADIOTAP_VHT\|IEEE80211_RADIOTAP_AMPDU_STATUS" --include="*.c" . || echo "yok"
-          echo ""
-          echo "--- IEEE80211_CHAN_NO_80MHZ / 160MHZ referanslari ---"
-          grep -rln "IEEE80211_CHAN_NO_80MHZ\|IEEE80211_CHAN_NO_160MHZ" --include="*.c" . || echo "yok"
-          echo ""
-          echo "--- BB_GAIN_5G referanslari ---"
-          grep -rln "BB_GAIN_5G" --include="*.c" . || echo "yok"
-          echo ""
-          echo "--- extern __inline fonksiyonlar (multiple definition riski) ---"
-          grep -rn "extern __inline\|extern inline" --include="*.h" . | head -10 || echo "yok"
-
-      - name: Attempt kernel module build
+      - name: Prepare cfg80211 as external module
         run: |
           set +e
-          if [ ! -d rtl88x2bu ]; then
-            echo "rtl88x2bu klasoru yok, build atlaniyor" | tee build_log.txt
-            exit 0
-          fi
-          cd rtl88x2bu
+          mkdir -p cfg80211_build
+          # net/wireless kaynagini kendi calisma alanimiza kopyaliyoruz
+          # (kernel agacinin kendisini bozmadan, harici modul gibi derlemek icin)
+          cp -r "$KDIR/net/wireless/"* cfg80211_build/
+          cd cfg80211_build
+          rm -f *.o *.ko modules.order Module.symvers .*.cmd 2>/dev/null
+
+          echo "--- cfg80211_build icerigi ---"
+          ls -la
+
+          # regdb.c genregdb.awk ile uretiliyor (db.txt'den), Makefile
+          # bunu $(AWK) ile otomatik yapiyor - awk gerekli
+          which awk gawk mawk 2>&1
+
+          echo "--- Basit bir Kbuild dosyasi olusturuyoruz (harici modul icin) ---"
+          cat > Kbuild << 'KBUILD_EOF'
+          obj-m := cfg80211.o
+          cfg80211-y := core.o sysfs.o radiotap.o util.o reg.o scan.o nl80211.o
+          cfg80211-y += mlme.o ibss.o sme.o chan.o ethtool.o mesh.o
+          cfg80211-y += wext-core.o
+          ccflags-y += -D__CHECK_ENDIAN__
+          KBUILD_EOF
+          cat Kbuild
+          exit 0
+
+      - name: Attempt cfg80211 module build
+        run: |
+          set +e
+          cd cfg80211_build
           echo "=== Derleme baslatiliyor ==="
-          make ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" 2>&1 | tee ../build_log.txt
+          make ARCH=mips CROSS_COMPILE=mips-linux-gnu- -C "$GITHUB_WORKSPACE/$KDIR" M="$PWD" modules 2>&1 | tee ../cfg80211_build_log.txt
           echo "=== Derleme sonucu ==="
-          find . -name "*.ko" 2>/dev/null | tee ../ko_files.txt
-          if [ -s ../ko_files.txt ]; then
-            echo "BASARILI: .ko dosyasi olustu"
-          else
-            echo "BASARISIZ: .ko dosyasi olusmadi, build_log.txt'e bak"
-          fi
+          find . -name "*.ko" | tee ../cfg80211_ko_files.txt
           exit 0
 
       - name: Collect artifacts
         run: |
           mkdir -p output
-          cp build_log.txt output/ 2>/dev/null || true
-          cp clone_log.txt output/ 2>/dev/null || true
-          cp platform_options.txt output/ 2>/dev/null || true
-          find rtl88x2bu -name "*.ko" -exec cp {} output/ \; 2>/dev/null || true
-          tail -300 build_log.txt > output/build_log_tail300.txt 2>/dev/null || true
+          cp cfg80211_build_log.txt output/ 2>/dev/null || true
+          tail -300 cfg80211_build_log.txt > output/cfg80211_build_log_tail300.txt 2>/dev/null || true
+          find cfg80211_build -name "*.ko" -exec cp {} output/ \; 2>/dev/null || true
           ls -la output/
 
       - name: Cleanup large source before commit
-        run: rm -rf extracted rtl88x2bu GPL_W9970V3.tar.gz
+        run: rm -rf extracted cfg80211_build GPL_W9970V3.tar.gz
 
       - name: Push results
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          rm -rf rtl88x2bu_build_output
-          mv output rtl88x2bu_build_output
-          git add rtl88x2bu_build_output/
-          git commit -m "RTL88x2BU derleme denemesi" || echo "Degisiklik yok"
+          rm -rf cfg80211_build_output
+          mv output cfg80211_build_output
+          git add cfg80211_build_output/
+          git commit -m "cfg80211 modul derleme denemesi" || echo "Degisiklik yok"
           git push
