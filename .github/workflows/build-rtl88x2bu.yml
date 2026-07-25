@@ -100,6 +100,29 @@ jobs:
           echo "--- Enjeksiyon sonrasi ldflags-y satirlari ---"
           grep -n "ldflags-y" Makefile
 
+      - name: Inject missing radiotap AMPDU_EOF constants
+        run: |
+          if [ ! -d rtl88x2bu ]; then
+            echo "rtl88x2bu klasoru yok, adim atlaniyor"
+            exit 0
+          fi
+          cd rtl88x2bu
+          RADIOTAP_FILE="core/monitor/rtw_radiotap.c"
+          if [ ! -f "$RADIOTAP_FILE" ]; then
+            echo "UYARI: $RADIOTAP_FILE bulunamadi, atlandi"
+            exit 0
+          fi
+          # Bu kernel (3.4.11) surumu, dosyadaki
+          # "LINUX_VERSION_CODE < KERNEL_VERSION(3,7,0)" dalina dusuyor,
+          # o dal IEEE80211_RADIOTAP_AMPDU_EOF / EOF_KNOWN tanimlamiyor
+          # (sadece 3.7-4.17 araligi tanimliyor). Dosyanin en basina
+          # kosulsuz fallback ekliyoruz.
+          printf '%s\n' '#ifndef IEEE80211_RADIOTAP_AMPDU_EOF' '#define IEEE80211_RADIOTAP_AMPDU_EOF 0x0040' '#endif' '#ifndef IEEE80211_RADIOTAP_AMPDU_EOF_KNOWN' '#define IEEE80211_RADIOTAP_AMPDU_EOF_KNOWN 0x0080' '#endif' > /tmp/ampdu_eof_fallback.h
+          cat /tmp/ampdu_eof_fallback.h "$RADIOTAP_FILE" > /tmp/rtw_radiotap_new.c
+          mv /tmp/rtw_radiotap_new.c "$RADIOTAP_FILE"
+          echo "--- Enjeksiyon sonrasi ilk 15 satir ---"
+          head -15 "$RADIOTAP_FILE"
+
       - name: Scan for VHT/cfg80211_chan_def/radiotap dependent code (informational)
         run: |
           if [ ! -d rtl88x2bu ]; then
