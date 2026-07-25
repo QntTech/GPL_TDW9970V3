@@ -94,6 +94,12 @@ jobs:
             printf '%s\n' \
               '#ifndef IEEE80211_RADIOTAP_VHT' \
               '#define IEEE80211_RADIOTAP_VHT 21' \
+              '#endif' \
+              '#ifndef IEEE80211_CHAN_NO_80MHZ' \
+              '#define IEEE80211_CHAN_NO_80MHZ (1<<7)' \
+              '#endif' \
+              '#ifndef IEEE80211_CHAN_NO_160MHZ' \
+              '#define IEEE80211_CHAN_NO_160MHZ (1<<8)' \
               '#endif' > /tmp/radiotap_fallback.h
             head -n "$HEADER_GUARD_LINE" include/basic_types.h > /tmp/basic_types_new.h
             cat /tmp/radiotap_fallback.h >> /tmp/basic_types_new.h
