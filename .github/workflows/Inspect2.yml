@@ -1,4 +1,4 @@
-name: Inspect built-in cfg80211 symbols
+name: Inspect stock vmlinux for cfg80211
 
 on:
   workflow_dispatch:
@@ -8,9 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install nm tool
-        run: sudo apt-get install -y binutils-mips-linux-gnu || sudo apt-get install -y binutils
 
       - name: Download and extract GPL archive
         run: |
@@ -23,40 +20,30 @@ jobs:
           echo "KDIR=$KDIR" >> "$GITHUB_ENV"
           exit 0
 
-      - name: Check symbols in built-in.o and vmlinux
+      - name: Check stock vmlinux.map for cfg80211
         run: |
           set +e
-          echo "=== hangi nm mevcut ===" > symbol_report.txt
-          which mips-linux-gnu-nm nm >> symbol_report.txt 2>&1
-          echo "" >> symbol_report.txt
+          echo "=== vmlinux.map boyutu ===" > vmlinux_report.txt
+          ls -la "$KDIR/vmlinux.map" >> vmlinux_report.txt 2>&1
+          echo "" >> vmlinux_report.txt
 
-          echo "=== net/built-in.o boyutu ===" >> symbol_report.txt
-          ls -la "$KDIR/net/built-in.o" >> symbol_report.txt 2>&1
-          echo "" >> symbol_report.txt
+          echo "=== vmlinux.map icinde wiphy_new/cfg80211 var mi (STOCK, TP-Link'in kendi resmi build'i) ===" >> vmlinux_report.txt
+          grep -i "wiphy_new\|cfg80211_scan_done\|wiphy_register" "$KDIR/vmlinux.map" >> vmlinux_report.txt 2>&1
+          echo "grep exit: $?" >> vmlinux_report.txt
+          echo "" >> vmlinux_report.txt
 
-          echo "=== net/built-in.o icinde wiphy_new / cfg80211_scan_done araniyor (mips-linux-gnu-nm) ===" >> symbol_report.txt
-          mips-linux-gnu-nm "$KDIR/net/built-in.o" 2>&1 | grep -i "wiphy_new\|cfg80211_scan_done\|wiphy_register" >> symbol_report.txt 2>&1
-          echo "grep exit: $?" >> symbol_report.txt
-          echo "" >> symbol_report.txt
+          echo "=== vmlinux.map icinde herhangi bir cfg80211 gecen satir var mi (daha genis arama) ===" >> vmlinux_report.txt
+          grep -ic "cfg80211" "$KDIR/vmlinux.map" >> vmlinux_report.txt 2>&1
+          echo "" >> vmlinux_report.txt
 
-          echo "=== net/wireless altinda herhangi bir .o dosyasi derlenmis mi (core.o vs) ===" >> symbol_report.txt
-          find "$KDIR/net/wireless" -iname "*.o" >> symbol_report.txt 2>&1
-          echo "" >> symbol_report.txt
+          echo "=== vmlinux.map icinde wl0/brcm ile ilgili semboller (dahili wifi surucusunun gercekten neyi kullandigini gormek icin) ===" >> vmlinux_report.txt
+          grep -ic "wl_iw\|wlc_" "$KDIR/vmlinux.map" >> vmlinux_report.txt 2>&1
+          echo "" >> vmlinux_report.txt
 
-          echo "=== TUM built-in.o dosyalari icinde wiphy_new arama (genis tarama) ===" >> symbol_report.txt
-          find "$KDIR" -iname "built-in.o" 2>/dev/null | while read f; do
-            RESULT=$(mips-linux-gnu-nm "$f" 2>/dev/null | grep -i "wiphy_new")
-            if [ -n "$RESULT" ]; then
-              echo "BULUNDU: $f -> $RESULT" >> symbol_report.txt
-            fi
-          done
-          echo "Tarama tamamlandi" >> symbol_report.txt
-          echo "" >> symbol_report.txt
+          echo "=== vmlinux.map icinde wext (wireless extensions, cfg80211'in eski alternatifi) var mi ===" >> vmlinux_report.txt
+          grep -ic "wext_" "$KDIR/vmlinux.map" >> vmlinux_report.txt 2>&1
 
-          echo "=== vmlinux var mi, sembolleri iceriyor mu ===" >> symbol_report.txt
-          find "$KDIR" -maxdepth 1 -iname "vmlinux*" >> symbol_report.txt 2>&1
-
-          cat symbol_report.txt
+          cat vmlinux_report.txt
           exit 0
 
       - name: Cleanup
@@ -67,6 +54,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add symbol_report.txt
-          git commit -m "cfg80211 sembol arama raporu" || echo "Degisiklik yok"
+          git add vmlinux_report.txt
+          git commit -m "stock vmlinux cfg80211 kontrolu" || echo "Degisiklik yok"
           git push
