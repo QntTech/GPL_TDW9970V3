@@ -1,0 +1,200 @@
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_edcaturbocheck.o: in function `is_broadcast_mac_addr':
+phydm_edcaturbocheck.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_edcaturbocheck.o: in function `is_zero_mac_addr':
+phydm_edcaturbocheck.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dig.o: in function `is_multicast_mac_addr':
+phydm_dig.c:(.text+0x380): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dig.o: in function `is_broadcast_mac_addr':
+phydm_dig.c:(.text+0x3a0): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dig.o: in function `is_zero_mac_addr':
+phydm_dig.c:(.text+0x3f8): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_pathdiv.o: in function `is_multicast_mac_addr':
+phydm_pathdiv.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_pathdiv.o: in function `is_broadcast_mac_addr':
+phydm_pathdiv.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_pathdiv.o: in function `is_zero_mac_addr':
+phydm_pathdiv.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_rainfo.o: in function `is_multicast_mac_addr':
+phydm_rainfo.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_rainfo.o: in function `is_broadcast_mac_addr':
+phydm_rainfo.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_rainfo.o: in function `is_zero_mac_addr':
+phydm_rainfo.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dynamicbbpowersaving.o: in function `is_multicast_mac_addr':
+phydm_dynamicbbpowersaving.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dynamicbbpowersaving.o: in function `is_broadcast_mac_addr':
+phydm_dynamicbbpowersaving.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dynamicbbpowersaving.o: in function `is_zero_mac_addr':
+phydm_dynamicbbpowersaving.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_powertracking_ce.o: in function `is_multicast_mac_addr':
+phydm_powertracking_ce.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_powertracking_ce.o: in function `is_broadcast_mac_addr':
+phydm_powertracking_ce.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_powertracking_ce.o: in function `is_zero_mac_addr':
+phydm_powertracking_ce.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dynamictxpower.o: in function `is_multicast_mac_addr':
+phydm_dynamictxpower.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dynamictxpower.o: in function `is_broadcast_mac_addr':
+phydm_dynamictxpower.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_dynamictxpower.o: in function `is_zero_mac_addr':
+phydm_dynamictxpower.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_adaptivity.o: in function `is_multicast_mac_addr':
+phydm_adaptivity.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_adaptivity.o: in function `is_broadcast_mac_addr':
+phydm_adaptivity.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_adaptivity.o: in function `is_zero_mac_addr':
+phydm_adaptivity.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_cfotracking.o: in function `is_multicast_mac_addr':
+phydm_cfotracking.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_cfotracking.o: in function `is_broadcast_mac_addr':
+phydm_cfotracking.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_cfotracking.o: in function `is_zero_mac_addr':
+phydm_cfotracking.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_noisemonitor.o: in function `is_multicast_mac_addr':
+phydm_noisemonitor.c:(.text+0x2d0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_noisemonitor.o: in function `is_broadcast_mac_addr':
+phydm_noisemonitor.c:(.text+0x2f0): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_noisemonitor.o: in function `is_zero_mac_addr':
+phydm_noisemonitor.c:(.text+0x348): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_acs.o: in function `is_multicast_mac_addr':
+phydm_acs.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_acs.o: in function `is_broadcast_mac_addr':
+phydm_acs.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_acs.o: in function `is_zero_mac_addr':
+phydm_acs.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_beamforming.o: in function `is_multicast_mac_addr':
+phydm_beamforming.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_beamforming.o: in function `is_broadcast_mac_addr':
+phydm_beamforming.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/phydm_beamforming.o: in function `is_zero_mac_addr':
+phydm_beamforming.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/halcomtxbf.o: in function `is_multicast_mac_addr':
+halcomtxbf.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/halcomtxbf.o: in function `is_broadcast_mac_addr':
+halcomtxbf.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/halcomtxbf.o: in function `is_zero_mac_addr':
+halcomtxbf.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/haltxbfinterface.o: in function `is_multicast_mac_addr':
+haltxbfinterface.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/haltxbfinterface.o: in function `is_broadcast_mac_addr':
+haltxbfinterface.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/haltxbfinterface.o: in function `is_zero_mac_addr':
+haltxbfinterface.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_fw.o: in function `is_multicast_mac_addr':
+halhwimg8812a_fw.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_fw.o: in function `is_broadcast_mac_addr':
+halhwimg8812a_fw.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_fw.o: in function `is_zero_mac_addr':
+halhwimg8812a_fw.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_mac.o: in function `is_multicast_mac_addr':
+halhwimg8812a_mac.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_mac.o: in function `is_broadcast_mac_addr':
+halhwimg8812a_mac.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_mac.o: in function `is_zero_mac_addr':
+halhwimg8812a_mac.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_bb.o: in function `is_multicast_mac_addr':
+halhwimg8812a_bb.c:(.text+0x19c): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_bb.o: in function `is_broadcast_mac_addr':
+halhwimg8812a_bb.c:(.text+0x1bc): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_bb.o: in function `is_zero_mac_addr':
+halhwimg8812a_bb.c:(.text+0x214): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_rf.o: in function `is_multicast_mac_addr':
+halhwimg8812a_rf.c:(.text+0x19c): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_rf.o: in function `is_broadcast_mac_addr':
+halhwimg8812a_rf.c:(.text+0x1bc): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halhwimg8812a_rf.o: in function `is_zero_mac_addr':
+halhwimg8812a_rf.c:(.text+0x214): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halphyrf_8812a_ce.o: in function `is_multicast_mac_addr':
+halphyrf_8812a_ce.c:(.text+0x6e4): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halphyrf_8812a_ce.o: in function `is_broadcast_mac_addr':
+halphyrf_8812a_ce.c:(.text+0x704): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/halphyrf_8812a_ce.o: in function `is_zero_mac_addr':
+halphyrf_8812a_ce.c:(.text+0x75c): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/phydm_regconfig8812a.o: in function `is_multicast_mac_addr':
+phydm_regconfig8812a.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/phydm_regconfig8812a.o: in function `is_broadcast_mac_addr':
+phydm_regconfig8812a.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/phydm_regconfig8812a.o: in function `is_zero_mac_addr':
+phydm_regconfig8812a.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/phydm_rtl8812a.o: in function `is_multicast_mac_addr':
+phydm_rtl8812a.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/phydm_rtl8812a.o: in function `is_broadcast_mac_addr':
+phydm_rtl8812a.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8812a/phydm_rtl8812a.o: in function `is_zero_mac_addr':
+phydm_rtl8812a.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/haltxbfjaguar.o: in function `is_multicast_mac_addr':
+haltxbfjaguar.c:(.text+0x220): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/haltxbfjaguar.o: in function `is_broadcast_mac_addr':
+haltxbfjaguar.c:(.text+0x240): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/txbf/haltxbfjaguar.o: in function `is_zero_mac_addr':
+haltxbfjaguar.c:(.text+0x298): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_fw.o: in function `is_multicast_mac_addr':
+halhwimg8821a_fw.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_fw.o: in function `is_broadcast_mac_addr':
+halhwimg8821a_fw.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_fw.o: in function `is_zero_mac_addr':
+halhwimg8821a_fw.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_mac.o: in function `is_multicast_mac_addr':
+halhwimg8821a_mac.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_mac.o: in function `is_broadcast_mac_addr':
+halhwimg8821a_mac.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_mac.o: in function `is_zero_mac_addr':
+halhwimg8821a_mac.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_bb.o: in function `is_multicast_mac_addr':
+halhwimg8821a_bb.c:(.text+0x19c): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_bb.o: in function `is_broadcast_mac_addr':
+halhwimg8821a_bb.c:(.text+0x1bc): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_bb.o: in function `is_zero_mac_addr':
+halhwimg8821a_bb.c:(.text+0x214): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_rf.o: in function `is_multicast_mac_addr':
+halhwimg8821a_rf.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_rf.o: in function `is_broadcast_mac_addr':
+halhwimg8821a_rf.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halhwimg8821a_rf.o: in function `is_zero_mac_addr':
+halhwimg8821a_rf.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halphyrf_8821a_ce.o: in function `is_multicast_mac_addr':
+halphyrf_8821a_ce.c:(.text+0x5a8): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halphyrf_8821a_ce.o: in function `is_broadcast_mac_addr':
+halphyrf_8821a_ce.c:(.text+0x5c8): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/halphyrf_8821a_ce.o: in function `is_zero_mac_addr':
+halphyrf_8821a_ce.c:(.text+0x620): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_regconfig8821a.o: in function `is_multicast_mac_addr':
+phydm_regconfig8821a.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_regconfig8821a.o: in function `is_broadcast_mac_addr':
+phydm_regconfig8821a.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_regconfig8821a.o: in function `is_zero_mac_addr':
+phydm_regconfig8821a.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_rtl8821a.o: in function `is_multicast_mac_addr':
+phydm_rtl8821a.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_rtl8821a.o: in function `is_broadcast_mac_addr':
+phydm_rtl8821a.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_rtl8821a.o: in function `is_zero_mac_addr':
+phydm_rtl8821a.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_iqk_8821a_ce.o: in function `is_multicast_mac_addr':
+phydm_iqk_8821a_ce.c:(.text+0xc0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_iqk_8821a_ce.o: in function `is_broadcast_mac_addr':
+phydm_iqk_8821a_ce.c:(.text+0xe0): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/hal/phydm/rtl8821a/phydm_iqk_8821a_ce.o: in function `is_zero_mac_addr':
+phydm_iqk_8821a_ce.c:(.text+0x138): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mp.o: in function `is_multicast_mac_addr':
+rtw_mp.c:(.text+0x384): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mp.o: in function `is_broadcast_mac_addr':
+rtw_mp.c:(.text+0x3a4): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mp.o: in function `is_zero_mac_addr':
+rtw_mp.c:(.text+0x3fc): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mp_ioctl.o: in function `is_multicast_mac_addr':
+rtw_mp_ioctl.c:(.text+0x17ec): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mp_ioctl.o: in function `is_broadcast_mac_addr':
+rtw_mp_ioctl.c:(.text+0x180c): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_mp_ioctl.o: in function `is_zero_mac_addr':
+rtw_mp_ioctl.c:(.text+0x1864): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_bt_mp.o: in function `is_multicast_mac_addr':
+rtw_bt_mp.c:(.text+0x0): multiple definition of `is_multicast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x188): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_bt_mp.o: in function `is_broadcast_mac_addr':
+rtw_bt_mp.c:(.text+0x20): multiple definition of `is_broadcast_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x1a8): first defined here
+mips-linux-gnu-ld: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_bt_mp.o: in function `is_zero_mac_addr':
+rtw_bt_mp.c:(.text+0x78): multiple definition of `is_zero_mac_addr'; /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/core/rtw_cmd.o:rtw_cmd.c:(.text+0x200): first defined here
+make[2]: *** [scripts/Makefile.build:452: /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au/8812au.o] Error 1
+make[1]: *** [Makefile:1679: _module_/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl8812au] Error 2
+make[1]: Leaving directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt'
+make: *** [Makefile:1744: modules] Error 2
