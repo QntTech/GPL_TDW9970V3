@@ -125,38 +125,6 @@ In file included from include/linux/kernel.h:20,
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_p2p_GO_request’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:4281:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
- 4281 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_p2p_GO_response’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:4680:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
- 4680 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_p2p_GO_confirm’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:5093:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
- 5093 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_p2p_invitation_request’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:5329:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
- 5329 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_p2p_invitation_response’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:5626:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
- 5626 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_p2p_provision_request’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:5862:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
- 5862 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_probersp_p2p’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:5999:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
- 5999 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘_issue_probereq_p2p’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:6294:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
- 6294 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_beacon’:
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:8010:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
  8010 |         fctrl = &(pwlanhdr->frame_ctl);
@@ -197,10 +165,6 @@ include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:10150:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
 10150 |         fctrl = &(pwlanhdr->frame_ctl);
       |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_action_SA_Query’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:10222:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
-10222 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c: In function ‘issue_action_ba’:
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mlme_ext.c:10325:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
 10325 |         fctrl = &(pwlanhdr->frame_ctl);
@@ -238,26 +202,6 @@ In file included from include/linux/kernel.h:20,
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
-In function ‘_rtw_mi_p2p_chk_state’,
-    inlined from ‘_rtw_mi_process’ at /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c:483:18,
-    inlined from ‘rtw_mi_p2p_chk_state’ at /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c:1237:9:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c:1229:24: warning: array subscript ‘enum P2P_STATE[0]’ is partly outside array bounds of ‘u8[1]’ {aka ‘unsigned char[1]’} [-Warray-bounds]
- 1229 |         enum P2P_STATE state = *(enum P2P_STATE *)data;
-      |                        ^~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c: In function ‘rtw_mi_p2p_chk_state’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c:1235:12: note: object ‘in_data’ of size 1
- 1235 |         u8 in_data = p2p_state;
-      |            ^~~~~~~
-In function ‘_rtw_mi_p2p_chk_state’,
-    inlined from ‘_rtw_mi_process’ at /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c:483:18,
-    inlined from ‘rtw_mi_buddy_p2p_chk_state’ at /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c:1243:9:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c:1229:24: warning: array subscript ‘enum P2P_STATE[0]’ is partly outside array bounds of ‘u8[1]’ {aka ‘unsigned char[1]’} [-Warray-bounds]
- 1229 |         enum P2P_STATE state = *(enum P2P_STATE *)data;
-      |                        ^~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c: In function ‘rtw_mi_buddy_p2p_chk_state’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mi.c:1241:12: note: object ‘in_data’ of size 1
- 1241 |         u8 in_data  = p2p_state;
-      |            ^~~~~~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_wlan_util.o
 In file included from include/linux/kernel.h:20,
                  from include/linux/cache.h:4,
@@ -325,17 +269,6 @@ include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it
    22 | int ____ilog2_NaN(void);
       | ^~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/monitor/rtw_radiotap.o
-In file included from include/linux/kernel.h:20,
-                 from include/linux/cache.h:4,
-                 from include/linux/time.h:7,
-                 from include/linux/stat.h:60,
-                 from include/linux/module.h:10,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/basic_types.h:76,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/drv_types.h:26,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/monitor/rtw_radiotap.c:25:
-include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
-   22 | int ____ilog2_NaN(void);
-      | ^~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_recv.o
 In file included from include/linux/kernel.h:20,
                  from include/linux/cache.h:4,
@@ -348,17 +281,6 @@ In file included from include/linux/kernel.h:20,
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_recv.c: In function ‘validate_mp_recv_frame’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_recv.c:3842:25: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
- 3842 |                         for (i = 0; i < precv_frame->u.hdr.len; i = i + 8)
-      |                         ^~~
-In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/drv_types.h:60:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/rtw_debug.h:167:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
-  167 |         do {\
-      |         ^~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_recv.c:3845:33: note: in expansion of macro ‘RTW_INFO’
- 3845 |                                 RTW_INFO("#############################\n");
-      |                                 ^~~~~~~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_sta_mgt.o
 In file included from include/linux/kernel.h:20,
                  from include/linux/cache.h:4,
@@ -461,22 +383,6 @@ In file included from include/linux/kernel.h:20,
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_p2p.c: In function ‘issue_group_disc_req’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_p2p.c:171:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
-  171 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_p2p.c: In function ‘issue_p2p_devdisc_resp’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_p2p.c:231:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
-  231 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_p2p.c: In function ‘issue_p2p_provision_resp’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_p2p.c:308:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
-  308 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_p2p.c: In function ‘issue_p2p_presence_resp’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_p2p.c:412:17: warning: taking address of packed member of ‘struct rtw_ieee80211_hdr’ may result in an unaligned pointer value [-Waddress-of-packed-member]
-  412 |         fctrl = &(pwlanhdr->frame_ctl);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_rson.o
 In file included from include/linux/kernel.h:20,
                  from include/linux/cache.h:4,
@@ -1096,9 +1002,6 @@ In file included from include/linux/kernel.h:20,
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/rtw_proc.c:28:16: warning: ‘rtw_proc’ is static but used in inline function ‘get_rtw_drv_proc’ which is not static
-   28 |         return rtw_proc;
-      |                ^~~~~~~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/nlrtw.o
 In file included from include/linux/kernel.h:20,
                  from include/linux/cache.h:4,
@@ -1120,18 +1023,6 @@ In file included from include/linux/kernel.h:20,
                  from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/basic_types.h:76,
                  from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/drv_types.h:26,
                  from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/rtw_rhashtable.c:16:
-include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
-   22 | int ____ilog2_NaN(void);
-      | ^~~
-  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/ioctl_mp.o
-In file included from include/linux/kernel.h:20,
-                 from include/linux/cache.h:4,
-                 from include/linux/time.h:7,
-                 from include/linux/stat.h:60,
-                 from include/linux/module.h:10,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/basic_types.h:76,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/drv_types.h:26,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/ioctl_mp.c:17:
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
@@ -1237,20 +1128,6 @@ include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it
    22 | int ____ilog2_NaN(void);
       | ^~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/hal_btcoex.o
-In file included from include/linux/kernel.h:20,
-                 from include/linux/cache.h:4,
-                 from include/linux/time.h:7,
-                 from include/linux/stat.h:60,
-                 from include/linux/module.h:10,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/basic_types.h:76,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/drv_types.h:26,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/../hal/phydm/phydm_types.h:257,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/../hal/phydm/phydm_precomp.h:29,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/hal_data.h:20,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/hal_btcoex.c:19:
-include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
-   22 | int ____ilog2_NaN(void);
-      | ^~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/hal_mp.o
 In file included from include/linux/kernel.h:20,
                  from include/linux/cache.h:4,
@@ -2536,57 +2413,19 @@ In file included from include/linux/kernel.h:20,
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
-  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/btc/halbtc8822b1ant.o
-In file included from include/linux/kernel.h:20,
-                 from include/linux/cache.h:4,
-                 from include/linux/time.h:7,
-                 from include/linux/stat.h:60,
-                 from include/linux/module.h:10,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/basic_types.h:76,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/drv_types.h:26,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/btc/mp_precomp.h:18,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/btc/halbtc8822b1ant.c:16:
-include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
-   22 | int ____ilog2_NaN(void);
-      | ^~~
-  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/btc/halbtc8822b2ant.o
-In file included from include/linux/kernel.h:20,
-                 from include/linux/cache.h:4,
-                 from include/linux/time.h:7,
-                 from include/linux/stat.h:60,
-                 from include/linux/module.h:10,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/basic_types.h:76,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/drv_types.h:26,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/btc/mp_precomp.h:18,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/hal/btc/halbtc8822b2ant.c:16:
-include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
-   22 | int ____ilog2_NaN(void);
-      | ^~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/platform/platform_ops.o
-  CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mp.o
-In file included from include/linux/kernel.h:20,
-                 from include/linux/cache.h:4,
-                 from include/linux/time.h:7,
-                 from include/linux/stat.h:60,
-                 from include/linux/module.h:10,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/basic_types.h:76,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/include/drv_types.h:26,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/core/rtw_mp.c:16:
-include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
-   22 | int ____ilog2_NaN(void);
-      | ^~~
-  LD [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/88x2bu.o
+  LD [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/8812bu.o
   Building modules, stage 2.
   MODPOST 1 modules
-  CC      /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/88x2bu.mod.o
+  CC      /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/8812bu.mod.o
 In file included from include/linux/kernel.h:20,
                  from include/linux/cache.h:4,
                  from include/linux/time.h:7,
                  from include/linux/stat.h:60,
                  from include/linux/module.h:10,
-                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/88x2bu.mod.c:1:
+                 from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/8812bu.mod.c:1:
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
-  LD [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/88x2bu.ko
+  LD [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/8812bu.ko
 make[1]: Leaving directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/extracted/GPL_W9970V3/4.16L.03/kernel/linux-3.4rt'
