@@ -49,7 +49,7 @@ jobs:
             CFLAGS="-march=mips32 -mtune=mips32" \
             2>&1 | tee ../libnl_configure_log.txt
           echo "=== make baslatiliyor ==="
-          make -j$(nproc) 2>&1 | tee ../libnl_build_log.txt
+          make -j$(nproc) CFLAGS="-march=mips32 -mtune=mips32" 2>&1 | tee ../libnl_build_log.txt
           echo "=== make install ==="
           make install 2>&1 | tee ../libnl_install_log.txt
           echo "=== Sonuc ==="
