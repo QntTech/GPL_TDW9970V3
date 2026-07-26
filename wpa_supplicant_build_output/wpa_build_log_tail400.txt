@@ -1,15 +1,3 @@
-Package libnl-3.0 was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libnl-3.0.pc'
-to the PKG_CONFIG_PATH environment variable
-Package 'libnl-3.0', required by 'virtual:world', not found
-Package dbus-1 was not found in the pkg-config search path.
-Perhaps you should add the directory containing `dbus-1.pc'
-to the PKG_CONFIG_PATH environment variable
-Package 'dbus-1', required by 'virtual:world', not found
-Package dbus-1 was not found in the pkg-config search path.
-Perhaps you should add the directory containing `dbus-1.pc'
-to the PKG_CONFIG_PATH environment variable
-Package 'dbus-1', required by 'virtual:world', not found
   CC  eap_register.c
   CC  notify.c
 In function ‘wpa_bss_update’,
@@ -25,37 +13,37 @@ In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/wpa_src/src/
 bss.c:680:24: note: in expansion of macro ‘os_realloc’
   680 |                 nbss = os_realloc(bss, sizeof(*bss) + res->ie_len +
       |                        ^~~~~~~~~~
-  CC  bss.c
   CC  ../src/utils/common.c
   CC  ../src/utils/wpa_debug.c
+  CC  bss.c
   CC  ../src/utils/bitfield.c
   CC  ../src/utils/wpabuf.c
   CC  op_classes.c
   CC  ../src/utils/os_unix.c
   CC  wmm_ac.c
+  CC  ../src/utils/eloop.c
   CC  rrm.c
   CC  config.c
-  CC  ../src/utils/eloop.c
   CC  ../src/rsn_supp/wpa_ft.c
   CC  ../src/common/sae.c
   CC  config_file.c
   CC  ../src/rsn_supp/preauth.c
   CC  dpp_supplicant.c
-  CC  ../src/rsn_supp/pmksa_cache.c
   CC  ../src/rsn_supp/wpa_ie.c
-  CC  ../src/rsn_supp/wpa.c
+  CC  ../src/rsn_supp/pmksa_cache.c
   CC  ibss_rsn.c
+  CC  ../src/rsn_supp/wpa.c
   CC  ../src/common/wpa_common.c
   CC  p2p_supplicant_sd.c
   CC  ../src/p2p/p2p_utils.c
-  CC  ../src/p2p/p2p_parse.c
   CC  ../src/common/dpp.c
+  CC  ../src/p2p/p2p_parse.c
   CC  ../src/p2p/p2p_build.c
   CC  ../src/p2p/p2p_go_neg.c
   CC  ../src/p2p/p2p.c
   CC  ../src/p2p/p2p_sd.c
-  CC  ../src/p2p/p2p_dev_disc.c
   CC  ../src/p2p/p2p_invitation.c
+  CC  ../src/p2p/p2p_dev_disc.c
   CC  ../src/ap/p2p_hostapd.c
   CC  ../src/p2p/p2p_pd.c
   CC  wifi_display.c
@@ -67,12 +55,12 @@ bss.c:680:24: note: in expansion of macro ‘os_realloc’
   CC  ../src/eap_peer/eap_md5.c
   CC  ../src/eap_peer/eap_peap.c
   CC  ../src/eap_peer/mschapv2.c
-  CC  ../src/eap_peer/eap_gtc.c
   CC  ../src/eap_peer/eap_mschapv2.c
-  CC  ../src/eap_peer/eap_otp.c
   CC  ../src/eap_peer/eap_ttls.c
-  CC  interworking.c
+  CC  ../src/eap_peer/eap_gtc.c
+  CC  ../src/eap_peer/eap_otp.c
   CC  ../src/eap_peer/eap_leap.c
+  CC  interworking.c
   CC  ../src/eap_common/eap_fast_common.c
   CC  ../src/eap_peer/eap_pax.c
   CC  ../src/eap_common/eap_pax_common.c
@@ -91,8 +79,8 @@ bss.c:680:24: note: in expansion of macro ‘os_realloc’
   CC  ../src/wps/wps_common.c
   CC  ../src/wps/wps_attr_parse.c
   CC  ../src/wps/wps_attr_process.c
-  CC  wps_supplicant.c
   CC  ../src/wps/wps_attr_build.c
+  CC  wps_supplicant.c
   CC  ../src/wps/wps_dev_attr.c
   CC  ../src/eap_peer/eap_ikev2.c
   CC  ../src/eap_common/eap_ikev2_common.c
@@ -117,8 +105,8 @@ bss.c:680:24: note: in expansion of macro ‘os_realloc’
   CC  ../src/ap/sta_info.c
   CC  ../src/ap/ieee802_11_auth.c
   CC  ../src/eapol_auth/eapol_auth_sm.c
-  CC  ../src/ap/ieee802_11_shared.c
   CC  ../src/ap/ieee802_1x.c
+  CC  ../src/ap/ieee802_11_shared.c
   CC  ../src/ap/drv_callbacks.c
   CC  ../src/ap/bss_load.c
   CC  ../src/ap/eap_user_db.c
@@ -126,12 +114,12 @@ bss.c:680:24: note: in expansion of macro ‘os_realloc’
   CC  ../src/ap/ap_drv_ops.c
   CC  ../src/ap/rrm.c
   CC  ../src/ap/beacon.c
-  CC  ../src/ap/ieee802_11_vht.c
   CC  ../src/ap/ieee802_11_ht.c
-  CC  ../src/eap_server/eap_server_methods.c
+  CC  ../src/ap/ieee802_11_vht.c
   CC  ../src/eap_server/eap_server_identity.c
-  CC  ../src/ap/ap_list.c
+  CC  ../src/eap_server/eap_server_methods.c
   CC  ../src/ap/wmm.c
+  CC  ../src/ap/ap_list.c
   CC  ../src/ap/ctrl_iface_ap.c
   CC  ../src/eap_server/eap_server.c
   CC  ../src/ap/hw_features.c
@@ -145,8 +133,8 @@ bss.c:680:24: note: in expansion of macro ‘os_realloc’
   CC  ../src/ap/wpa_auth_ie.c
   CC  ../src/common/dragonfly.c
   CC  ../src/ap/pmksa_cache_auth.c
-  CC  ../src/eap_common/chap.c
   CC  ../src/crypto/ms_funcs.c
+  CC  ../src/eap_common/chap.c
   CC  ../src/ap/gas_serv.c
   CC  ../src/crypto/tls_openssl_ocsp.c
   CC  ../src/eap_peer/eap_tls_common.c
@@ -159,18 +147,60 @@ bss.c:680:24: note: in expansion of macro ‘os_realloc’
   CC  ../src/crypto/sha512-kdf.c
   CC  ../src/crypto/sha256-prf.c
   CC  ../src/crypto/sha256-tlsprf.c
-  CC  ../src/crypto/crypto_openssl.c
   CC  ../src/crypto/sha384-prf.c
   CC  ../src/crypto/sha512-prf.c
+  CC  ../src/crypto/crypto_openssl.c
   CC  ../src/crypto/dh_groups.c
   CC  ../src/common/ctrl_iface_common.c
   CC  ../src/crypto/random.c
-dbus/dbus_dict_helpers.c:10:10: fatal error: dbus/dbus.h: No such file or directory
-   10 | #include <dbus/dbus.h>
-      |          ^~~~~~~~~~~~~
-compilation terminated.
-make: *** [Makefile:1990: dbus/dbus_dict_helpers.o] Error 1
-make: *** Waiting for unfinished jobs....
+  CC  ../src/utils/base64.c
   CC  ../src/crypto/tls_openssl.c
   CC  ctrl_iface_unix.c
+  CC  ../src/common/hw_features_common.c
+  CC  ../src/common/ieee802_11_common.c
+  CC  ../src/eap_common/eap_common.c
+  CC  ../src/crypto/sha1-prf.c
+  CC  ../src/crypto/sha1-tprf.c
+  CC  ../src/crypto/sha1-tlsprf.c
+  CC  sme.c
+  CC  bgscan.c
+  CC  bgscan_simple.c
+  CC  ../src/common/gas.c
+  CC  ../src/common/gas_server.c
+  CC  offchannel.c
+  CC  gas_query.c
+  CC  ../src/utils/json.c
+  CC  ../src/drivers/driver_common.c
+  CC  blacklist.c
+  CC  wpas_glue.c
+  CC  events.c
+  CC  scan.c
+  CC  main.c
   CC  ctrl_iface.c
+  CC  ../src/drivers/driver_wired.c
+  CC  ../src/drivers/driver_wired_common.c
+  CC  wpa_supplicant.c
+  CC  ../src/drivers/driver_nl80211_monitor.c
+  CC  ../src/drivers/driver_nl80211_capa.c
+  CC  ../src/drivers/driver_nl80211_event.c
+  CC  ../src/drivers/netlink.c
+  CC  ../src/drivers/driver_nl80211_scan.c
+  CC  ../src/drivers/linux_ioctl.c
+  CC  ../src/drivers/rfkill.c
+  CC  ../src/utils/radiotap.c
+  CC  ../src/drivers/drivers.c
+  CC  ../src/common/wpa_ctrl.c
+  CC  ../src/l2_packet/l2_packet_linux.c
+  CC  ../src/utils/edit_simple.c
+  CC  ../src/common/cli.c
+  CC  wpa_passphrase.c
+  sed systemd/wpa_supplicant.service.in
+  sed systemd/wpa_supplicant.service.arg.in
+  sed systemd/wpa_supplicant-nl80211.service.arg.in
+  sed systemd/wpa_supplicant-wired.service.arg.in
+  sed dbus/fi.w1.wpa_supplicant1.service.in
+  LD  wpa_passphrase
+  CC  wpa_cli.c
+  LD  wpa_cli
+  CC  ../src/drivers/driver_nl80211.c
+  LD  wpa_supplicant
