@@ -69,6 +69,12 @@ jobs:
           # OpenSSL TLS backend acik
           sed -i 's/^#CONFIG_TLS=openssl/CONFIG_TLS=openssl/' .config
           grep -n "^CONFIG_TLS" .config
+          # D-Bus kontrol arayuzu kapatiliyor - libdbus'a ihtiyacimiz yok,
+          # wpa_cli/config dosyasi ile kontrol edecegiz
+          sed -i 's/^CONFIG_CTRL_IFACE_DBUS_NEW=y/#CONFIG_CTRL_IFACE_DBUS_NEW=y/' .config
+          sed -i 's/^CONFIG_CTRL_IFACE_DBUS_INTRO=y/#CONFIG_CTRL_IFACE_DBUS_INTRO=y/' .config
+          echo "--- D-Bus durumu (kapali olmali) ---"
+          grep -n "CTRL_IFACE_DBUS" .config
           echo "--- .config son hali (aktif satirlar) ---"
           grep -v "^#" .config | grep -v "^$"
 
@@ -79,6 +85,8 @@ jobs:
           export CC=mips-linux-gnu-gcc
           export EXTRA_CFLAGS="-I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
           export LIBS="-L/tmp/deps/openssl_install/lib -L/tmp/deps/libnl_install/lib"
+          export PKG_CONFIG_PATH="/tmp/deps/libnl_install/lib/pkgconfig:/tmp/deps/openssl_install/lib/pkgconfig"
+          export PKG_CONFIG_SYSROOT_DIR="/"
           echo "=== make baslatiliyor ==="
           make -j$(nproc) 2>&1 | tee ../../wpa_build_log.txt
           echo "=== Sonuc ==="
