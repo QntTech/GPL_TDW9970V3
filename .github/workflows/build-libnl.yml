@@ -1,0 +1,88 @@
+name: Build libnl for TD-W9970 (mips uclibc target)
+
+on:
+  workflow_dispatch:
+    inputs:
+      libnl_ref:
+        description: 'libnl git tag'
+        required: false
+        default: 'libnl3_4_0'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MIPS toolchain and autotools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-mips-linux-gnu build-essential autoconf automake libtool bison flex pkg-config
+          mips-linux-gnu-gcc --version
+
+      - name: Clone libnl source
+        run: |
+          set +e
+          REF="${{ github.event.inputs.libnl_ref }}"
+          git clone --depth 1 -b "$REF" https://github.com/thom311/libnl.git libnl_src 2>&1 | tee clone_log.txt
+          ls libnl_src/ | head -20
+
+      - name: Generate configure script
+        run: |
+          set +e
+          cd libnl_src
+          autoreconf -fi 2>&1 | tee ../autoreconf_log.txt
+          ls configure 2>&1
+
+      - name: Configure and build libnl
+        run: |
+          set +e
+          cd libnl_src
+          mkdir -p /tmp/libnl_install
+          ./configure \
+            --host=mips-linux-gnu \
+            --prefix=/tmp/libnl_install \
+            --disable-shared \
+            --enable-static \
+            --disable-cli \
+            CC=mips-linux-gnu-gcc \
+            2>&1 | tee ../libnl_configure_log.txt
+          echo "=== make baslatiliyor ==="
+          make -j$(nproc) 2>&1 | tee ../libnl_build_log.txt
+          echo "=== make install ==="
+          make install 2>&1 | tee ../libnl_install_log.txt
+          echo "=== Sonuc ==="
+          find /tmp/libnl_install -name "*.a" -o -name "*.so*" | tee ../libnl_output_files.txt
+
+      - name: Collect artifacts
+        run: |
+          mkdir -p output
+          cp clone_log.txt output/ 2>/dev/null || true
+          cp autoreconf_log.txt output/ 2>/dev/null || true
+          cp libnl_configure_log.txt output/ 2>/dev/null || true
+          tail -300 libnl_build_log.txt > output/libnl_build_log_tail300.txt 2>/dev/null || true
+          cp libnl_install_log.txt output/ 2>/dev/null || true
+          cp libnl_output_files.txt output/ 2>/dev/null || true
+          ls -la output/
+
+      - name: Package install directory
+        run: |
+          if [ -d /tmp/libnl_install ]; then
+            tar -czf output/libnl_install.tar.gz -C /tmp libnl_install
+            ls -la output/libnl_install.tar.gz
+          else
+            echo "libnl_install dizini yok, paketlenemedi"
+          fi
+
+      - name: Cleanup large source before commit
+        run: rm -rf libnl_src
+
+      - name: Push results
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          rm -rf libnl_build_output
+          mv output libnl_build_output
+          git add libnl_build_output/
+          git commit -m "libnl MIPS derleme denemesi" || echo "Degisiklik yok"
+          git push
