@@ -1,0 +1,300 @@
+lib/route/cls/ematch_syntax.y:84.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+   84 | %token <i> META_LOADAVG_2 "loadavg_2"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:85.21-25: warning: POSIX Yacc does not support string literals [-Wyacc]
+   85 | %token <i> META_DEV "dev"
+      |                     ^~~~~
+lib/route/cls/ematch_syntax.y:86.22-27: warning: POSIX Yacc does not support string literals [-Wyacc]
+   86 | %token <i> META_PRIO "prio"
+      |                      ^~~~~~
+lib/route/cls/ematch_syntax.y:87.23-29: warning: POSIX Yacc does not support string literals [-Wyacc]
+   87 | %token <i> META_PROTO "proto"
+      |                       ^~~~~~~
+lib/route/cls/ematch_syntax.y:88.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+   88 | %token <i> META_PKTTYPE "pkttype"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:89.24-31: warning: POSIX Yacc does not support string literals [-Wyacc]
+   89 | %token <i> META_PKTLEN "pktlen"
+      |                        ^~~~~~~~
+lib/route/cls/ematch_syntax.y:90.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+   90 | %token <i> META_DATALEN "datalen"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:91.24-31: warning: POSIX Yacc does not support string literals [-Wyacc]
+   91 | %token <i> META_MACLEN "maclen"
+      |                        ^~~~~~~~
+lib/route/cls/ematch_syntax.y:92.22-27: warning: POSIX Yacc does not support string literals [-Wyacc]
+   92 | %token <i> META_MARK "mark"
+      |                      ^~~~~~
+lib/route/cls/ematch_syntax.y:93.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+   93 | %token <i> META_TCINDEX "tcindex"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:94.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+   94 | %token <i> META_RTCLASSID "rtclassid"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:95.23-29: warning: POSIX Yacc does not support string literals [-Wyacc]
+   95 | %token <i> META_RTIIF "rtiif"
+      |                       ^~~~~~~
+lib/route/cls/ematch_syntax.y:96.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+   96 | %token <i> META_SK_FAMILY "sk_family"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:97.26-35: warning: POSIX Yacc does not support string literals [-Wyacc]
+   97 | %token <i> META_SK_STATE "sk_state"
+      |                          ^~~~~~~~~~
+lib/route/cls/ematch_syntax.y:98.26-35: warning: POSIX Yacc does not support string literals [-Wyacc]
+   98 | %token <i> META_SK_REUSE "sk_reuse"
+      |                          ^~~~~~~~~~
+lib/route/cls/ematch_syntax.y:99.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+   99 | %token <i> META_SK_REFCNT "sk_refcnt"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:100.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+  100 | %token <i> META_SK_RCVBUF "sk_rcvbuf"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:101.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+  101 | %token <i> META_SK_SNDBUF "sk_sndbuf"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:102.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  102 | %token <i> META_SK_SHUTDOWN "sk_shutdown"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:103.26-35: warning: POSIX Yacc does not support string literals [-Wyacc]
+  103 | %token <i> META_SK_PROTO "sk_proto"
+      |                          ^~~~~~~~~~
+lib/route/cls/ematch_syntax.y:104.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+  104 | %token <i> META_SK_TYPE "sk_type"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:105.31-45: warning: POSIX Yacc does not support string literals [-Wyacc]
+  105 | %token <i> META_SK_RMEM_ALLOC "sk_rmem_alloc"
+      |                               ^~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:106.31-45: warning: POSIX Yacc does not support string literals [-Wyacc]
+  106 | %token <i> META_SK_WMEM_ALLOC "sk_wmem_alloc"
+      |                               ^~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:107.32-47: warning: POSIX Yacc does not support string literals [-Wyacc]
+  107 | %token <i> META_SK_WMEM_QUEUED "sk_wmem_queued"
+      |                                ^~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:108.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  108 | %token <i> META_SK_RCV_QLEN "sk_rcv_qlen"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:109.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  109 | %token <i> META_SK_SND_QLEN "sk_snd_qlen"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:110.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  110 | %token <i> META_SK_ERR_QLEN "sk_err_qlen"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:111.35-53: warning: POSIX Yacc does not support string literals [-Wyacc]
+  111 | %token <i> META_SK_FORWARD_ALLOCS "sk_forward_allocs"
+      |                                   ^~~~~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:112.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+  112 | %token <i> META_SK_ALLOCS "sk_allocs"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:113.31-45: warning: POSIX Yacc does not support string literals [-Wyacc]
+  113 | %token <i> META_SK_ROUTE_CAPS "sk_route_caps"
+      |                               ^~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:114.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+  114 | %token <i> META_SK_HASH "sk_hash"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:115.31-45: warning: POSIX Yacc does not support string literals [-Wyacc]
+  115 | %token <i> META_SK_LINGERTIME "sk_lingertime"
+      |                               ^~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:116.32-47: warning: POSIX Yacc does not support string literals [-Wyacc]
+  116 | %token <i> META_SK_ACK_BACKLOG "sk_ack_backlog"
+      |                                ^~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:117.36-55: warning: POSIX Yacc does not support string literals [-Wyacc]
+  117 | %token <i> META_SK_MAX_ACK_BACKLOG "sk_max_ack_backlog"
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:118.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+  118 | %token <i> META_SK_PRIO "sk_prio"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:119.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  119 | %token <i> META_SK_RCVLOWAT "sk_rcvlowat"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:120.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  120 | %token <i> META_SK_RCVTIMEO "sk_rcvtimeo"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:121.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  121 | %token <i> META_SK_SNDTIMEO "sk_sndtimeo"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:122.32-47: warning: POSIX Yacc does not support string literals [-Wyacc]
+  122 | %token <i> META_SK_SENDMSG_OFF "sk_sendmsg_off"
+      |                                ^~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:123.34-51: warning: POSIX Yacc does not support string literals [-Wyacc]
+  123 | %token <i> META_SK_WRITE_PENDING "sk_write_pending"
+      |                                  ^~~~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:124.22-27: warning: POSIX Yacc does not support string literals [-Wyacc]
+  124 | %token <i> META_VLAN "vlan"
+      |                      ^~~~~~
+lib/route/cls/ematch_syntax.y:125.24-31: warning: POSIX Yacc does not support string literals [-Wyacc]
+  125 | %token <i> META_RXHASH "rxhash"
+      |                        ^~~~~~~~
+lib/route/cls/ematch_syntax.y:126.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+  126 | %token <i> META_DEVNAME "devname"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:127.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  127 | %token <i> META_SK_BOUND_IF "sk_bound_if"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:141.1-11: warning: POSIX Yacc does not support %destructor [-Wyacc]
+  141 | %destructor { free($$); NL_DBG(2, "string destructor\n"); } <s>
+      | ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:142.1-11: warning: POSIX Yacc does not support %destructor [-Wyacc]
+  142 | %destructor { rtnl_pktloc_put($$); NL_DBG(2, "pktloc destructor\n"); ...
+      | ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:143.1-11: warning: POSIX Yacc does not support %destructor [-Wyacc]
+  143 | %destructor { free($$.data); NL_DBG(2, "quoted destructor\n"); } <q>
+      | ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:144.1-11: warning: POSIX Yacc does not support %destructor [-Wyacc]
+  144 | %destructor { rtnl_meta_value_put($$); NL_DBG(2, "meta value destruct...
+      | ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:203.24-26: warning: POSIX Yacc does not support string literals [-Wyacc]
+  203 | 	| EMATCH_NBYTE "(" pktloc KW_EQ pattern ")"
+      |                        ^~~
+lib/route/cls/ematch_syntax.y:203.49-51: warning: POSIX Yacc does not support string literals [-Wyacc]
+  203 | 	| EMATCH_NBYTE "(" pktloc KW_EQ pattern ")"
+      |                                                 ^~~
+lib/route/cls/ematch_syntax.y:221.23-25: warning: POSIX Yacc does not support string literals [-Wyacc]
+  221 | 	| EMATCH_TEXT "(" STR QUOTED text_from text_to ")"
+      |                       ^~~
+lib/route/cls/ematch_syntax.y:221.56-58: warning: POSIX Yacc does not support string literals [-Wyacc]
+  221 | 	| EMATCH_TEXT "(" STR QUOTED text_from text_to ")"
+      |                                                        ^~~
+lib/route/cls/ematch_syntax.y:248.23-25: warning: POSIX Yacc does not support string literals [-Wyacc]
+  248 | 	| EMATCH_META "(" meta_value operand meta_value ")"
+      |                       ^~~
+lib/route/cls/ematch_syntax.y:248.57-59: warning: POSIX Yacc does not support string literals [-Wyacc]
+  248 | 	| EMATCH_META "(" meta_value operand meta_value ")"
+      |                                                         ^~~
+lib/route/cls/ematch_syntax.y:267.11-13: warning: POSIX Yacc does not support string literals [-Wyacc]
+  267 | 	| "(" expr ")"
+      |           ^~~
+lib/route/cls/ematch_syntax.y:267.20-22: warning: POSIX Yacc does not support string literals [-Wyacc]
+  267 | 	| "(" expr ")"
+      |                    ^~~
+lib/route/cls/ematch_syntax.y:295.20-22: warning: POSIX Yacc does not support string literals [-Wyacc]
+  295 | 	EMATCH_CMP "(" cmp_expr ")"
+      |                    ^~~
+lib/route/cls/ematch_syntax.y:295.33-35: warning: POSIX Yacc does not support string literals [-Wyacc]
+  295 | 	EMATCH_CMP "(" cmp_expr ")"
+      |                                 ^~~
+lib/route/cls/ematch_syntax.y:324.11-16: warning: POSIX Yacc does not support string literals [-Wyacc]
+  324 | 	| "from" pktloc
+      |           ^~~~~~
+lib/route/cls/ematch_syntax.y:331.11-14: warning: POSIX Yacc does not support string literals [-Wyacc]
+  331 | 	| "to" pktloc
+      |           ^~~~
+lib/route/cls/ematch_syntax.y:449.23-25: warning: POSIX Yacc does not support string literals [-Wyacc]
+  449 | 	| align LAYER "+" NUMBER mask
+      |                       ^~~
+lib/route/cls/ematch_syntax.y:476.17-20: warning: POSIX Yacc does not support string literals [-Wyacc]
+  476 | 	| ALIGN "at"
+      |                 ^~~~
+lib/route/cls/ematch_syntax.y:478.18-21: warning: POSIX Yacc does not support string literals [-Wyacc]
+  478 | 	| NUMBER "at"
+      |                  ^~~~
+  CC       lib/idiag/libnl_idiag_3_la-idiag_msg_obj.lo
+  CC       lib/idiag/libnl_idiag_3_la-idiag_req_obj.lo
+  CC       lib/idiag/libnl_idiag_3_la-idiag.lo
+lib/route/pktloc_syntax.y: warning: fix-its can be applied.  Rerun with option '--update'. [-Wother]
+  CC       lib/genl/libnl_genl_3_la-ctrl.lo
+  CC       lib/genl/libnl_genl_3_la-family.lo
+  CC       lib/genl/libnl_genl_3_la-genl.lo
+lib/route/cls/ematch_syntax.y: warning: fix-its can be applied.  Rerun with option '--update'. [-Wother]
+  CC       lib/genl/libnl_genl_3_la-mngt.lo
+  CC       lib/netfilter/libnl_nf_3_la-ct.lo
+  CC       lib/netfilter/libnl_nf_3_la-ct_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-log.lo
+  CC       lib/netfilter/libnl_nf_3_la-log_msg.lo
+  CC       lib/netfilter/libnl_nf_3_la-log_msg_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-log_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-netfilter.lo
+  CC       lib/netfilter/libnl_nf_3_la-nfnl.lo
+  CC       lib/netfilter/libnl_nf_3_la-queue.lo
+  CC       lib/netfilter/libnl_nf_3_la-queue_msg.lo
+  CC       lib/netfilter/libnl_nf_3_la-queue_msg_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-queue_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-exp.lo
+  CC       lib/netfilter/libnl_nf_3_la-exp_obj.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-ae.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-lifetime.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-sa.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-selector.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-sp.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-template.lo
+  CCLD     lib/libnl-3.la
+  CC       lib/fib_lookup/libnl_route_3_la-lookup.lo
+  CC       lib/fib_lookup/libnl_route_3_la-request.lo
+  CC       lib/route/libnl_route_3_la-act.lo
+  CC       lib/route/act/libnl_route_3_la-gact.lo
+  CC       lib/route/act/libnl_route_3_la-mirred.lo
+  CC       lib/route/act/libnl_route_3_la-skbedit.lo
+  CC       lib/route/libnl_route_3_la-addr.lo
+  CC       lib/route/libnl_route_3_la-class.lo
+  CC       lib/route/libnl_route_3_la-classid.lo
+  CC       lib/route/cls/libnl_route_3_la-basic.lo
+  CC       lib/route/libnl_route_3_la-cls.lo
+  CC       lib/route/cls/libnl_route_3_la-cgroup.lo
+  CC       lib/route/cls/libnl_route_3_la-ematch.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-cmp.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-container.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-meta.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-nbyte.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-text.lo
+  CC       lib/route/cls/libnl_route_3_la-fw.lo
+  CC       lib/route/cls/libnl_route_3_la-police.lo
+  CC       lib/route/cls/libnl_route_3_la-u32.lo
+  CC       lib/route/link/libnl_route_3_la-api.lo
+  CC       lib/route/link/libnl_route_3_la-bonding.lo
+  CC       lib/route/link/libnl_route_3_la-bridge.lo
+  CC       lib/route/libnl_route_3_la-link.lo
+  CC       lib/route/link/libnl_route_3_la-can.lo
+  CC       lib/route/link/libnl_route_3_la-dummy.lo
+  CC       lib/route/link/libnl_route_3_la-ifb.lo
+  CC       lib/route/link/libnl_route_3_la-inet6.lo
+  CC       lib/route/link/libnl_route_3_la-inet.lo
+  CC       lib/route/link/libnl_route_3_la-ip6tnl.lo
+  CC       lib/route/link/libnl_route_3_la-ipip.lo
+  CC       lib/route/link/libnl_route_3_la-ipgre.lo
+  CC       lib/route/link/libnl_route_3_la-ipvlan.lo
+  CC       lib/route/link/libnl_route_3_la-ipvti.lo
+  CC       lib/route/link/libnl_route_3_la-macsec.lo
+  CC       lib/route/link/libnl_route_3_la-macvlan.lo
+  CC       lib/route/link/libnl_route_3_la-ppp.lo
+  CC       lib/route/link/libnl_route_3_la-sit.lo
+  CC       lib/route/link/libnl_route_3_la-sriov.lo
+  CC       lib/route/link/libnl_route_3_la-veth.lo
+  CC       lib/route/link/libnl_route_3_la-vlan.lo
+  CC       lib/route/link/libnl_route_3_la-vrf.lo
+  CC       lib/route/link/libnl_route_3_la-vxlan.lo
+  CC       lib/route/libnl_route_3_la-neigh.lo
+  CC       lib/route/libnl_route_3_la-neightbl.lo
+  CC       lib/route/libnl_route_3_la-netconf.lo
+  CC       lib/route/libnl_route_3_la-nexthop.lo
+  CC       lib/route/libnl_route_3_la-nexthop_encap.lo
+  CC       lib/route/libnl_route_3_la-nh_encap_mpls.lo
+  CC       lib/route/libnl_route_3_la-pktloc.lo
+  CC       lib/route/qdisc/libnl_route_3_la-blackhole.lo
+  CC       lib/route/libnl_route_3_la-qdisc.lo
+  CC       lib/route/qdisc/libnl_route_3_la-cbq.lo
+  CC       lib/route/qdisc/libnl_route_3_la-dsmark.lo
+  CC       lib/route/qdisc/libnl_route_3_la-fifo.lo
+  CC       lib/route/qdisc/libnl_route_3_la-fq_codel.lo
+  CC       lib/route/qdisc/libnl_route_3_la-hfsc.lo
+  CC       lib/route/qdisc/libnl_route_3_la-htb.lo
+  CC       lib/route/qdisc/libnl_route_3_la-ingress.lo
+  CC       lib/route/qdisc/libnl_route_3_la-netem.lo
+  CC       lib/route/qdisc/libnl_route_3_la-plug.lo
+  CC       lib/route/qdisc/libnl_route_3_la-prio.lo
+  CC       lib/route/qdisc/libnl_route_3_la-red.lo
+  CC       lib/route/qdisc/libnl_route_3_la-sfq.lo
+  CC       lib/route/qdisc/libnl_route_3_la-tbf.lo
+  CC       lib/route/libnl_route_3_la-route.lo
+  CC       lib/route/libnl_route_3_la-route_obj.lo
+  CC       lib/route/libnl_route_3_la-route_utils.lo
+  CC       lib/route/libnl_route_3_la-rtnl.lo
+  CC       lib/route/libnl_route_3_la-rule.lo
+  CC       lib/route/libnl_route_3_la-tc.lo
+  CC       lib/route/libnl_route_3_la-pktloc_grammar.lo
+  CC       lib/route/libnl_route_3_la-pktloc_syntax.lo
+  CC       lib/route/cls/libnl_route_3_la-ematch_grammar.lo
+  CC       lib/route/cls/libnl_route_3_la-ematch_syntax.lo
+  CCLD     lib/libnl-idiag-3.la
+  CCLD     lib/libnl-genl-3.la
+  CCLD     lib/libnl-xfrm-3.la
+  CCLD     lib/libnl-route-3.la
+  CCLD     lib/libnl-nf-3.la
