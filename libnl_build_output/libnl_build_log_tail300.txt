@@ -189,12 +189,12 @@ lib/route/cls/ematch_syntax.y:478.18-21: warning: POSIX Yacc does not support st
       |                  ^~~~
   CC       lib/idiag/libnl_idiag_3_la-idiag_msg_obj.lo
   CC       lib/idiag/libnl_idiag_3_la-idiag_req_obj.lo
-  CC       lib/idiag/libnl_idiag_3_la-idiag.lo
 lib/route/pktloc_syntax.y: warning: fix-its can be applied.  Rerun with option '--update'. [-Wother]
+  CC       lib/idiag/libnl_idiag_3_la-idiag.lo
   CC       lib/genl/libnl_genl_3_la-ctrl.lo
   CC       lib/genl/libnl_genl_3_la-family.lo
-  CC       lib/genl/libnl_genl_3_la-genl.lo
 lib/route/cls/ematch_syntax.y: warning: fix-its can be applied.  Rerun with option '--update'. [-Wother]
+  CC       lib/genl/libnl_genl_3_la-genl.lo
   CC       lib/genl/libnl_genl_3_la-mngt.lo
   CC       lib/netfilter/libnl_nf_3_la-ct.lo
   CC       lib/netfilter/libnl_nf_3_la-ct_obj.lo
@@ -248,8 +248,8 @@ lib/route/cls/ematch_syntax.y: warning: fix-its can be applied.  Rerun with opti
   CC       lib/route/link/libnl_route_3_la-inet6.lo
   CC       lib/route/link/libnl_route_3_la-inet.lo
   CC       lib/route/link/libnl_route_3_la-ip6tnl.lo
-  CC       lib/route/link/libnl_route_3_la-ipip.lo
   CC       lib/route/link/libnl_route_3_la-ipgre.lo
+  CC       lib/route/link/libnl_route_3_la-ipip.lo
   CC       lib/route/link/libnl_route_3_la-ipvlan.lo
   CC       lib/route/link/libnl_route_3_la-ipvti.lo
   CC       lib/route/link/libnl_route_3_la-macsec.lo
