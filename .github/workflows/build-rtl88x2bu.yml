@@ -207,6 +207,21 @@ jobs:
           fi
           exit 0
 
+      - name: Strip debug info from built module (modem has very limited RAM)
+        run: |
+          if [ ! -d rtl88x2bu ]; then
+            echo "rtl88x2bu klasoru yok, strip atlaniyor"
+            exit 0
+          fi
+          cd rtl88x2bu
+          for ko in $(find . -name "*.ko"); do
+            echo "--- Strip oncesi boyut: $ko ---"
+            ls -la "$ko"
+            mips-linux-gnu-strip --strip-debug "$ko"
+            echo "--- Strip sonrasi boyut: $ko ---"
+            ls -la "$ko"
+          done
+
       - name: Collect artifacts
         run: |
           mkdir -p output
