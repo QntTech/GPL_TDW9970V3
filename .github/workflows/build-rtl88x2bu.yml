@@ -64,6 +64,27 @@ jobs:
           cat clone_log.txt
           ls rtl88x2bu/ 2>&1 | head -30 || echo "KLASOR OLUSMADI"
 
+      - name: Shrink build - disable debug logging and unneeded features (modem has ~58MB RAM total)
+        run: |
+          if [ ! -d rtl88x2bu ]; then
+            echo "rtl88x2bu klasoru yok, adim atlaniyor"
+            exit 0
+          fi
+          cd rtl88x2bu
+          echo "--- Kucultme oncesi ilgili CONFIG satirlari ---"
+          grep -n "^CONFIG_RTW_DEBUG\|^CONFIG_PROC_DEBUG\|^CONFIG_MP_INCLUDED\|^CONFIG_WIFI_MONITOR\|^CONFIG_P2P\|^CONFIG_BT_COEXIST\|^CONFIG_80211W" Makefile
+          # RTW_DEBUG ve PROC_DEBUG en buyuk .text/.rodata sisiricileri (log string'leri + debug kod yollari)
+          sed -i 's/^CONFIG_RTW_DEBUG = y/CONFIG_RTW_DEBUG = n/' Makefile
+          sed -i 's/^CONFIG_PROC_DEBUG = y/CONFIG_PROC_DEBUG = n/' Makefile
+          # Bizim senaryoda (basit STA client + AP) gerekmeyen ozellikler
+          sed -i 's/^CONFIG_MP_INCLUDED = y/CONFIG_MP_INCLUDED = n/' Makefile
+          sed -i 's/^CONFIG_WIFI_MONITOR = y/CONFIG_WIFI_MONITOR = n/' Makefile
+          sed -i 's/^CONFIG_P2P = y/CONFIG_P2P = n/' Makefile
+          sed -i 's/^CONFIG_BT_COEXIST = y/CONFIG_BT_COEXIST = n/' Makefile
+          sed -i 's/^CONFIG_80211W = y/CONFIG_80211W = n/' Makefile
+          echo "--- Kucultme sonrasi ilgili CONFIG satirlari ---"
+          grep -n "^CONFIG_RTW_DEBUG\|^CONFIG_PROC_DEBUG\|^CONFIG_MP_INCLUDED\|^CONFIG_WIFI_MONITOR\|^CONFIG_P2P\|^CONFIG_BT_COEXIST\|^CONFIG_80211W" Makefile
+
       - name: Configure driver Makefile for MIPS platform
         run: |
           if [ ! -d rtl88x2bu ]; then
