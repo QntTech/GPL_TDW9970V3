@@ -1,2 +1,0 @@
-/tmp/openssl_install/lib/libcrypto.a
-/tmp/openssl_install/lib/libssl.a
