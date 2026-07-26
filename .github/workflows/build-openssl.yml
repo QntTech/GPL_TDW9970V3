@@ -1,0 +1,76 @@
+name: Build OpenSSL for TD-W9970 (mips uclibc target)
+
+on:
+  workflow_dispatch:
+    inputs:
+      openssl_ref:
+        description: 'OpenSSL git tag'
+        required: false
+        default: 'OpenSSL_1_0_2u'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MIPS toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-mips-linux-gnu build-essential
+          mips-linux-gnu-gcc --version
+
+      - name: Clone OpenSSL source
+        run: |
+          set +e
+          REF="${{ github.event.inputs.openssl_ref }}"
+          git clone --depth 1 -b "$REF" https://github.com/openssl/openssl.git openssl_src 2>&1 | tee clone_log.txt
+          ls openssl_src/ | head -20
+
+      - name: Configure and build OpenSSL
+        run: |
+          set +e
+          cd openssl_src
+          mkdir -p /tmp/openssl_install
+          ./Configure linux-mips32 \
+            --prefix=/tmp/openssl_install \
+            --cross-compile-prefix=mips-linux-gnu- \
+            no-asm no-shared no-tests \
+            2>&1 | tee ../openssl_configure_log.txt
+          echo "=== make baslatiliyor ==="
+          make -j$(nproc) 2>&1 | tee ../openssl_build_log.txt
+          echo "=== make install ==="
+          make install_sw 2>&1 | tee ../openssl_install_log.txt
+          echo "=== Sonuc ==="
+          find /tmp/openssl_install -name "*.a" -o -name "*.so*" | tee ../openssl_output_files.txt
+
+      - name: Collect artifacts
+        run: |
+          mkdir -p output
+          cp openssl_configure_log.txt output/ 2>/dev/null || true
+          tail -300 openssl_build_log.txt > output/openssl_build_log_tail300.txt 2>/dev/null || true
+          cp openssl_install_log.txt output/ 2>/dev/null || true
+          cp openssl_output_files.txt output/ 2>/dev/null || true
+          ls -la output/
+
+      - name: Package install directory
+        run: |
+          if [ -d /tmp/openssl_install ]; then
+            tar -czf output/openssl_install.tar.gz -C /tmp openssl_install
+            ls -la output/openssl_install.tar.gz
+          else
+            echo "openssl_install dizini yok, paketlenemedi"
+          fi
+
+      - name: Cleanup large source before commit
+        run: rm -rf openssl_src
+
+      - name: Push results
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          rm -rf openssl_build_output
+          mv output openssl_build_output
+          git add openssl_build_output/
+          git commit -m "OpenSSL MIPS derleme denemesi" || echo "Degisiklik yok"
+          git push
