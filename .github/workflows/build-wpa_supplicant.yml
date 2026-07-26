@@ -83,9 +83,15 @@ jobs:
           set +e
           cd wpa_src/wpa_supplicant
           export CC=mips-linux-gnu-gcc
-          export EXTRA_CFLAGS="-I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
+          # BCM63168D0 has a Broadcom BMIPS4350 core (MIPS32 Release 1) - the
+          # toolchain's default target is likely a newer MIPS32r2+ ISA, which
+          # produces instructions the modem's CPU can't execute ("Illegal
+          # instruction" at runtime even though the binary loads fine).
+          export ARCHFLAGS="-march=mips32 -mtune=mips32"
+          export EXTRA_CFLAGS="$ARCHFLAGS -I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
+          export CFLAGS="$ARCHFLAGS"
           export LIBS="-L/tmp/deps/openssl_install/lib -L/tmp/deps/libnl_install/lib"
-          export LDFLAGS="-static"
+          export LDFLAGS="-static $ARCHFLAGS"
           export PKG_CONFIG_PATH="/tmp/deps/libnl_install/lib/pkgconfig:/tmp/deps/openssl_install/lib/pkgconfig"
           export PKG_CONFIG_SYSROOT_DIR="/"
           echo "=== make baslatiliyor ==="
