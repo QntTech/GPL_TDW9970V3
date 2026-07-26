@@ -82,23 +82,33 @@ jobs:
         run: |
           set +e
           cd wpa_src/wpa_supplicant
-          export CC=mips-linux-gnu-gcc
           # BCM63168D0 has a Broadcom BMIPS4350 core (MIPS32 Release 1) - the
-          # toolchain's default target is likely a newer MIPS32r2+ ISA, which
+          # toolchain's default target is a newer MIPS32r2+ ISA, which
           # produces instructions the modem's CPU can't execute ("Illegal
           # instruction" at runtime even though the binary loads fine).
+          # Exporting CFLAGS as an env var didn't work last time (the
+          # Makefile's own "CFLAGS = ..." assignment overrides an exported
+          # env var in GNU Make) - so this time we bake -march into CC
+          # itself AND pass CFLAGS/LDFLAGS as make command-line arguments,
+          # since command-line make variables have the highest precedence
+          # and override any in-Makefile assignment.
           export ARCHFLAGS="-march=mips32 -mtune=mips32"
+          export CC="mips-linux-gnu-gcc $ARCHFLAGS"
           export EXTRA_CFLAGS="$ARCHFLAGS -I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
-          export CFLAGS="$ARCHFLAGS"
           export LIBS="-L/tmp/deps/openssl_install/lib -L/tmp/deps/libnl_install/lib"
-          export LDFLAGS="-static $ARCHFLAGS"
           export PKG_CONFIG_PATH="/tmp/deps/libnl_install/lib/pkgconfig:/tmp/deps/openssl_install/lib/pkgconfig"
           export PKG_CONFIG_SYSROOT_DIR="/"
           echo "=== make baslatiliyor ==="
-          make -j$(nproc) 2>&1 | tee ../../wpa_build_log.txt
+          make -j$(nproc) \
+            CC="mips-linux-gnu-gcc $ARCHFLAGS" \
+            CFLAGS="$ARCHFLAGS" \
+            LDFLAGS="-static $ARCHFLAGS" \
+            2>&1 | tee ../../wpa_build_log.txt
           echo "=== Sonuc ==="
           find . -maxdepth 1 -name "wpa_supplicant" -o -maxdepth 1 -name "wpa_cli" | tee ../../wpa_output_files.txt
           file wpa_supplicant 2>&1 || echo "wpa_supplicant dosyasi yok"
+          echo "=== ELF flags kontrolu (mips32r2 gormemeliyiz) ==="
+          readelf -h wpa_supplicant 2>&1 | grep -i flags || echo "readelf basarisiz"
 
       - name: Collect artifacts
         run: |
