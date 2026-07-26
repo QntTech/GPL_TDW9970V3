@@ -85,6 +85,7 @@ jobs:
           export CC=mips-linux-gnu-gcc
           export EXTRA_CFLAGS="-I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
           export LIBS="-L/tmp/deps/openssl_install/lib -L/tmp/deps/libnl_install/lib"
+          export LDFLAGS="-static"
           export PKG_CONFIG_PATH="/tmp/deps/libnl_install/lib/pkgconfig:/tmp/deps/openssl_install/lib/pkgconfig"
           export PKG_CONFIG_SYSROOT_DIR="/"
           echo "=== make baslatiliyor ==="
