@@ -1,0 +1,109 @@
+name: Build wpa_supplicant for TD-W9970 (mips uclibc target)
+
+on:
+  workflow_dispatch:
+    inputs:
+      wpa_ref:
+        description: 'wpa_supplicant git tag'
+        required: false
+        default: 'hostap_2_9'
+      openssl_artifact_url:
+        description: 'openssl_install.tar.gz indirme URLsi (bos birakilirsa dosya adiyla ayni repo klasorunden aranir)'
+        required: false
+        default: ''
+      libnl_artifact_url:
+        description: 'libnl_install.tar.gz indirme URLsi'
+        required: false
+        default: ''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MIPS toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-mips-linux-gnu build-essential pkg-config
+          mips-linux-gnu-gcc --version
+
+      - name: Extract pre-built OpenSSL and libnl from repo
+        run: |
+          set +e
+          echo "--- Repo icindeki openssl_install.tar.gz ve libnl_install.tar.gz araniyor ---"
+          find . -name "openssl_install.tar.gz" -o -name "libnl_install.tar.gz"
+          mkdir -p /tmp/deps
+          OPENSSL_TAR=$(find . -name "openssl_install.tar.gz" | head -1)
+          LIBNL_TAR=$(find . -name "libnl_install.tar.gz" | head -1)
+          echo "OpenSSL tar: $OPENSSL_TAR"
+          echo "libnl tar: $LIBNL_TAR"
+          if [ -n "$OPENSSL_TAR" ]; then
+            tar -xzf "$OPENSSL_TAR" -C /tmp/deps
+          fi
+          if [ -n "$LIBNL_TAR" ]; then
+            tar -xzf "$LIBNL_TAR" -C /tmp/deps
+          fi
+          echo "--- /tmp/deps icerigi ---"
+          find /tmp/deps -maxdepth 3
+
+      - name: Clone wpa_supplicant source
+        run: |
+          set +e
+          REF="${{ github.event.inputs.wpa_ref }}"
+          git clone --depth 1 -b "$REF" https://github.com/philiptaron/wpa_supplicant.git wpa_src 2>&1 | tee clone_log.txt
+          ls wpa_src/wpa_supplicant/ | head -10
+
+      - name: Configure .config for cross-compile
+        run: |
+          if [ ! -d wpa_src ]; then
+            echo "wpa_src klasoru yok, adim atlaniyor"
+            exit 0
+          fi
+          cd wpa_src/wpa_supplicant
+          cp defconfig .config
+          # WEXT bu kernelde desteklenmiyor (struct net icinde wext_nlevents yok), kapatiyoruz
+          sed -i 's/^CONFIG_DRIVER_WEXT=y/#CONFIG_DRIVER_WEXT=y/' .config
+          # nl80211 zaten acik, dogrulama
+          grep -n "^CONFIG_DRIVER_NL80211" .config
+          # OpenSSL TLS backend acik
+          sed -i 's/^#CONFIG_TLS=openssl/CONFIG_TLS=openssl/' .config
+          grep -n "^CONFIG_TLS" .config
+          echo "--- .config son hali (aktif satirlar) ---"
+          grep -v "^#" .config | grep -v "^$"
+
+      - name: Build wpa_supplicant
+        run: |
+          set +e
+          cd wpa_src/wpa_supplicant
+          export CC=mips-linux-gnu-gcc
+          export EXTRA_CFLAGS="-I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
+          export LIBS="-L/tmp/deps/openssl_install/lib -L/tmp/deps/libnl_install/lib"
+          echo "=== make baslatiliyor ==="
+          make -j$(nproc) 2>&1 | tee ../../wpa_build_log.txt
+          echo "=== Sonuc ==="
+          find . -maxdepth 1 -name "wpa_supplicant" -o -maxdepth 1 -name "wpa_cli" | tee ../../wpa_output_files.txt
+          file wpa_supplicant 2>&1 || echo "wpa_supplicant dosyasi yok"
+
+      - name: Collect artifacts
+        run: |
+          mkdir -p output
+          cp clone_log.txt output/ 2>/dev/null || true
+          tail -400 wpa_build_log.txt > output/wpa_build_log_tail400.txt 2>/dev/null || true
+          cp wpa_output_files.txt output/ 2>/dev/null || true
+          find wpa_src/wpa_supplicant -maxdepth 1 -name "wpa_supplicant" -exec cp {} output/ \; 2>/dev/null || true
+          find wpa_src/wpa_supplicant -maxdepth 1 -name "wpa_cli" -exec cp {} output/ \; 2>/dev/null || true
+          ls -la output/
+
+      - name: Cleanup large source before commit
+        run: rm -rf wpa_src
+
+      - name: Push results
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          rm -rf wpa_supplicant_build_output
+          mv output wpa_supplicant_build_output
+          git add wpa_supplicant_build_output/
+          git commit -m "wpa_supplicant MIPS derleme denemesi" || echo "Degisiklik yok"
+          git push
