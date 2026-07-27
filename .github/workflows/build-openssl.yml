@@ -14,11 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install MIPS toolchain
+      - name: Install MIPS musl toolchain (big-endian, soft-float - matches this modem)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc-mips-linux-gnu build-essential
-          mips-linux-gnu-gcc --version
+          set +e
+          curl -sL -o mips-toolchain.tgz "https://musl.cc/mips-linux-muslsf-cross.tgz"
+          tar -xzf mips-toolchain.tgz
+          echo "TOOLCHAIN_BIN=$PWD/mips-linux-muslsf-cross/bin" >> "$GITHUB_ENV"
+          export PATH="$PWD/mips-linux-muslsf-cross/bin:$PATH"
+          mips-linux-muslsf-gcc --version
 
       - name: Clone OpenSSL source
         run: |
@@ -30,13 +33,13 @@ jobs:
       - name: Configure and build OpenSSL
         run: |
           set +e
+          export PATH="$TOOLCHAIN_BIN:$PATH"
           cd openssl_src
           mkdir -p /tmp/openssl_install
           ./Configure linux-mips32 \
             --prefix=/tmp/openssl_install \
-            --cross-compile-prefix=mips-linux-gnu- \
+            --cross-compile-prefix=mips-linux-muslsf- \
             no-asm no-shared no-tests \
-            -march=mips32 -mtune=mips32 -Wa,-mips32 -Wa,--trap \
             2>&1 | tee ../openssl_configure_log.txt
           echo "=== make baslatiliyor ==="
           make -j$(nproc) 2>&1 | tee ../openssl_build_log.txt
