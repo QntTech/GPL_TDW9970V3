@@ -1,6 +1,0 @@
-/tmp/libnl_install/lib/libnl-xfrm-3.a
-/tmp/libnl_install/lib/libnl-nf-3.a
-/tmp/libnl_install/lib/libnl-route-3.a
-/tmp/libnl_install/lib/libnl-3.a
-/tmp/libnl_install/lib/libnl-idiag-3.a
-/tmp/libnl_install/lib/libnl-genl-3.a
