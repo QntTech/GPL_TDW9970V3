@@ -36,7 +36,7 @@ jobs:
             --prefix=/tmp/openssl_install \
             --cross-compile-prefix=mips-linux-gnu- \
             no-asm no-shared no-tests \
-            -march=mips32 -mtune=mips32 \
+            -march=mips32 -mtune=mips32 -Wa,-mips32 -Wa,--trap \
             2>&1 | tee ../openssl_configure_log.txt
           echo "=== make baslatiliyor ==="
           make -j$(nproc) 2>&1 | tee ../openssl_build_log.txt
