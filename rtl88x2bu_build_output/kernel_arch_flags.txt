@@ -1,2 +1,0 @@
--march=mips32
--mips32
