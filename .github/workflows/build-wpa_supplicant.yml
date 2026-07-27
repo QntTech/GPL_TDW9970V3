@@ -22,11 +22,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install MIPS toolchain
+      - name: Install MIPS musl toolchain (big-endian, soft-float - matches this modem)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc-mips-linux-gnu build-essential pkg-config
-          mips-linux-gnu-gcc --version
+          set +e
+          # Ubuntu's gcc-mips-linux-gnu always links prebuilt glibc/libgcc
+          # objects targeting mips32r2 (Debian/Ubuntu's official MIPS glibc
+          # port ABI), regardless of -march/-Wa flags passed for our own
+          # source code. Static binaries built with it produce "Illegal
+          # instruction" on this modem's older BMIPS4350 (mips32 r1) core.
+          # musl is built to support static linking cleanly and this
+          # prebuilt toolchain targets mips32r1 soft-float big-endian,
+          # matching the modem exactly (kernel uses -msoft-float, binaries
+          # are MSB/big-endian).
+          curl -sL -o mips-toolchain.tgz "https://musl.cc/mips-linux-muslsf-cross.tgz"
+          ls -la mips-toolchain.tgz
+          tar -xzf mips-toolchain.tgz
+          echo "TOOLCHAIN_BIN=$PWD/mips-linux-muslsf-cross/bin" >> "$GITHUB_ENV"
+          export PATH="$PWD/mips-linux-muslsf-cross/bin:$PATH"
+          mips-linux-muslsf-gcc --version
+          mips-linux-muslsf-gcc -dumpmachine
 
       - name: Extract pre-built OpenSSL and libnl from repo
         run: |
@@ -81,12 +95,8 @@ jobs:
       - name: Build wpa_supplicant
         run: |
           set +e
+          export PATH="$TOOLCHAIN_BIN:$PATH"
           cd wpa_src/wpa_supplicant
-          # BCM63168D0 has a Broadcom BMIPS4350 core (MIPS32 Release 1) - the
-          # toolchain's default target is a newer MIPS32r2+ ISA, which
-          # produces instructions the modem's CPU can't execute ("Illegal
-          # instruction" at runtime even though the binary loads fine).
-          #
           # IMPORTANT: do NOT pass CFLAGS via make command-line or export -
           # this Makefile builds CFLAGS as "CFLAGS = -MMD -O2 -Wall -g" then
           # "CFLAGS += $(EXTRA_CFLAGS)" and "CFLAGS += -I../src -I../src/utils"
@@ -96,18 +106,10 @@ jobs:
           # or directory". EXTRA_CFLAGS is the Makefile's own intended
           # extension point (line 25: CFLAGS += $(EXTRA_CFLAGS)), so only use
           # that - it's additive and safe.
-          export CC=mips-linux-gnu-gcc
-          # Matches the kernel's own arch/mips/Makefile cflags for
-          # CONFIG_CPU_BMIPS (the config this SoC's kernel build actually
-          # uses): "-march=mips32 -Wa,-mips32 -Wa,--trap". The -Wa,* flags
-          # are passed through gcc to the assembler - without them, gcc's
-          # -march alone still let the assembler emit mips32r2 encodings on
-          # this toolchain (confirmed via readelf -h showing mips32r2 even
-          # after adding -march=mips32 previously).
-          export ARCHFLAGS="-march=mips32 -mtune=mips32 -Wa,-mips32 -Wa,--trap"
-          export EXTRA_CFLAGS="$ARCHFLAGS -I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
+          export CC=mips-linux-muslsf-gcc
+          export EXTRA_CFLAGS="-I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
           export LIBS="-L/tmp/deps/openssl_install/lib -L/tmp/deps/libnl_install/lib"
-          export LDFLAGS="-static $ARCHFLAGS"
+          export LDFLAGS="-static"
           export PKG_CONFIG_PATH="/tmp/deps/libnl_install/lib/pkgconfig:/tmp/deps/openssl_install/lib/pkgconfig"
           export PKG_CONFIG_SYSROOT_DIR="/"
           echo "=== make baslatiliyor ==="
