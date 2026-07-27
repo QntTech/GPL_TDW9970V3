@@ -86,24 +86,25 @@ jobs:
           # toolchain's default target is a newer MIPS32r2+ ISA, which
           # produces instructions the modem's CPU can't execute ("Illegal
           # instruction" at runtime even though the binary loads fine).
-          # Exporting CFLAGS as an env var didn't work last time (the
-          # Makefile's own "CFLAGS = ..." assignment overrides an exported
-          # env var in GNU Make) - so this time we bake -march into CC
-          # itself AND pass CFLAGS/LDFLAGS as make command-line arguments,
-          # since command-line make variables have the highest precedence
-          # and override any in-Makefile assignment.
+          #
+          # IMPORTANT: do NOT pass CFLAGS via make command-line or export -
+          # this Makefile builds CFLAGS as "CFLAGS = -MMD -O2 -Wall -g" then
+          # "CFLAGS += $(EXTRA_CFLAGS)" and "CFLAGS += -I../src -I../src/utils"
+          # (line 25-27). A command-line/env CFLAGS override replaces the
+          # ENTIRE chain (all := and += included), which deleted the -I
+          # include paths and broke the build with "includes.h: No such file
+          # or directory". EXTRA_CFLAGS is the Makefile's own intended
+          # extension point (line 25: CFLAGS += $(EXTRA_CFLAGS)), so only use
+          # that - it's additive and safe.
+          export CC=mips-linux-gnu-gcc
           export ARCHFLAGS="-march=mips32 -mtune=mips32"
-          export CC="mips-linux-gnu-gcc $ARCHFLAGS"
           export EXTRA_CFLAGS="$ARCHFLAGS -I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
           export LIBS="-L/tmp/deps/openssl_install/lib -L/tmp/deps/libnl_install/lib"
+          export LDFLAGS="-static $ARCHFLAGS"
           export PKG_CONFIG_PATH="/tmp/deps/libnl_install/lib/pkgconfig:/tmp/deps/openssl_install/lib/pkgconfig"
           export PKG_CONFIG_SYSROOT_DIR="/"
           echo "=== make baslatiliyor ==="
-          make -j$(nproc) \
-            CC="mips-linux-gnu-gcc $ARCHFLAGS" \
-            CFLAGS="$ARCHFLAGS" \
-            LDFLAGS="-static $ARCHFLAGS" \
-            2>&1 | tee ../../wpa_build_log.txt
+          make -j$(nproc) 2>&1 | tee ../../wpa_build_log.txt
           echo "=== Sonuc ==="
           find . -maxdepth 1 -name "wpa_supplicant" -o -maxdepth 1 -name "wpa_cli" | tee ../../wpa_output_files.txt
           file wpa_supplicant 2>&1 || echo "wpa_supplicant dosyasi yok"
