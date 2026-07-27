@@ -25,22 +25,26 @@ jobs:
       - name: Install MIPS musl toolchain (big-endian, soft-float - matches this modem)
         run: |
           set +e
-          # Ubuntu's gcc-mips-linux-gnu always links prebuilt glibc/libgcc
-          # objects targeting mips32r2 (Debian/Ubuntu's official MIPS glibc
-          # port ABI), regardless of -march/-Wa flags passed for our own
-          # source code. Static binaries built with it produce "Illegal
-          # instruction" on this modem's older BMIPS4350 (mips32 r1) core.
-          # musl is built to support static linking cleanly and this
-          # prebuilt toolchain targets mips32r1 soft-float big-endian,
-          # matching the modem exactly (kernel uses -msoft-float, binaries
-          # are MSB/big-endian).
-          curl -sL -o mips-toolchain.tgz "https://musl.cc/mips-linux-muslsf-cross.tgz"
-          ls -la mips-toolchain.tgz
-          tar -xzf mips-toolchain.tgz
-          echo "TOOLCHAIN_BIN=$PWD/mips-linux-muslsf-cross/bin" >> "$GITHUB_ENV"
-          export PATH="$PWD/mips-linux-muslsf-cross/bin:$PATH"
-          mips-linux-muslsf-gcc --version
-          mips-linux-muslsf-gcc -dumpmachine
+          # musl.cc has been stale/offline since ~2021 (confirmed empty
+          # download in a previous run). Using the actively maintained
+          # cross-tools/musl-cross GitHub releases instead, which serves
+          # from github.com/objects.githubusercontent.com (reliable from
+          # Actions runners).
+          curl -sL -o mips-toolchain.tar.xz "https://github.com/cross-tools/musl-cross/releases/download/20260515/mips-unknown-linux-muslsf.tar.xz"
+          ls -la mips-toolchain.tar.xz
+          mkdir -p mips-toolchain
+          tar -xJf mips-toolchain.tar.xz -C mips-toolchain
+          echo "--- Toolchain klasor yapisi ---"
+          find mips-toolchain -maxdepth 3 -type d
+          echo "--- gcc binary'sini bul ---"
+          GCC_BIN=$(find mips-toolchain -maxdepth 4 -name "*-gcc" -type f | head -1)
+          echo "Bulunan gcc: $GCC_BIN"
+          TOOLCHAIN_BIN_DIR=$(dirname "$GCC_BIN")
+          GCC_PREFIX=$(basename "$GCC_BIN" | sed 's/-gcc$//')
+          echo "TOOLCHAIN_BIN=$TOOLCHAIN_BIN_DIR" >> "$GITHUB_ENV"
+          echo "GCC_PREFIX=$GCC_PREFIX" >> "$GITHUB_ENV"
+          export PATH="$TOOLCHAIN_BIN_DIR:$PATH"
+          "$GCC_PREFIX-gcc" --version
 
       - name: Extract pre-built OpenSSL and libnl from repo
         run: |
@@ -106,7 +110,7 @@ jobs:
           # or directory". EXTRA_CFLAGS is the Makefile's own intended
           # extension point (line 25: CFLAGS += $(EXTRA_CFLAGS)), so only use
           # that - it's additive and safe.
-          export CC=mips-linux-muslsf-gcc
+          export CC="$GCC_PREFIX-gcc"
           export EXTRA_CFLAGS="-I/tmp/deps/openssl_install/include -I/tmp/deps/libnl_install/include/libnl3"
           export LIBS="-L/tmp/deps/openssl_install/lib -L/tmp/deps/libnl_install/lib"
           export LDFLAGS="-static"
