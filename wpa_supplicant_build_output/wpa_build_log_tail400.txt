@@ -1,0 +1,9 @@
+Package libnl-3.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libnl-3.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libnl-3.0', required by 'virtual:world', not found
+/bin/sh: 1: mips-unknown-linux-muslsf-gcc: not found
+/bin/sh: 1: mips-unknown-linux-muslsf-gcc: not found
+make: *** [Makefile:1990: config.o] Error 127
+make: *** Waiting for unfinished jobs....
+make: *** [Makefile:1990: notify.o] Error 127
