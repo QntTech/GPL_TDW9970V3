@@ -48,6 +48,17 @@ jobs:
           fi
           exit 0
 
+      - name: DIAGNOSTIC - dump kernel's actual CPU arch config (for wpa_supplicant -march matching)
+        run: |
+          set +e
+          echo "=== .config icinde CONFIG_CPU_* ve mimari ile ilgili satirlar ==="
+          grep -E "^CONFIG_CPU_|^CONFIG_MIPS|^CONFIG_SYS_HAS_CPU|^CONFIG_CPU_MIPS32" "$KDIR/.config" 2>/dev/null | tee cpu_config_dump.txt
+          echo "=== Makefile'da arch/mips altinda -march/-mcpu kullanan satirlar ==="
+          grep -rn "\-march=\|\-mcpu=\|cflags-y\|cflags-\$" "$KDIR/arch/mips/Makefile" 2>/dev/null | head -40 | tee -a cpu_config_dump.txt
+          echo "=== Ust dizin Makefile'inda genel mimari bayraklari ==="
+          grep -n "KBUILD_CFLAGS\s*+=.*march\|KBUILD_CFLAGS\s*+=.*mips" "$KDIR/Makefile" "$KDIR/arch/mips/Makefile" 2>/dev/null | tee -a cpu_config_dump.txt
+          cat cpu_config_dump.txt
+
       - name: Clone RTL88x2BU driver source
         run: |
           set -o pipefail
@@ -218,9 +229,11 @@ jobs:
           fi
           cd rtl88x2bu
           echo "=== Derleme baslatiliyor ==="
-          make ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" 2>&1 | tee ../build_log.txt
+          make ARCH=mips CROSS_COMPILE=mips-linux-gnu- KSRC="$GITHUB_WORKSPACE/$KDIR" V=1 2>&1 | tee ../build_log.txt
           echo "=== Derleme sonucu ==="
           find . -name "*.ko" 2>/dev/null | tee ../ko_files.txt
+          echo "=== DIAGNOSTIC: kernel'in gercekten kullandigi -march/-mcpu/-mips bayraklari ==="
+          grep -oE "\-march=[a-zA-Z0-9]+|\-mcpu=[a-zA-Z0-9]+|-mips[0-9]+r?[0-9]*" ../build_log.txt | sort -u | tee ../kernel_arch_flags.txt
           if [ -s ../ko_files.txt ]; then
             echo "BASARILI: .ko dosyasi olustu"
           else
@@ -249,6 +262,8 @@ jobs:
           cp build_log.txt output/ 2>/dev/null || true
           cp clone_log.txt output/ 2>/dev/null || true
           cp platform_options.txt output/ 2>/dev/null || true
+          cp cpu_config_dump.txt output/ 2>/dev/null || true
+          cp kernel_arch_flags.txt output/ 2>/dev/null || true
           find rtl88x2bu -name "*.ko" -exec cp {} output/ \; 2>/dev/null || true
           tail -300 build_log.txt > output/build_log_tail300.txt 2>/dev/null || true
           ls -la output/
