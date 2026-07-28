@@ -22,6 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install pkg-config
+        run: sudo apt-get update && sudo apt-get install -y pkg-config
+
       - name: Install MIPS musl toolchain (big-endian, soft-float - matches this modem)
         run: |
           set +e
@@ -39,12 +42,12 @@ jobs:
           echo "--- gcc binary'sini bul ---"
           GCC_BIN=$(find mips-toolchain -maxdepth 4 -name "*-gcc" -type f | head -1)
           echo "Bulunan gcc: $GCC_BIN"
-          TOOLCHAIN_BIN_DIR=$(dirname "$GCC_BIN")
+          TOOLCHAIN_BIN_DIR="$PWD/$(dirname "$GCC_BIN")"
           GCC_PREFIX=$(basename "$GCC_BIN" | sed 's/-gcc$//')
           echo "TOOLCHAIN_BIN=$TOOLCHAIN_BIN_DIR" >> "$GITHUB_ENV"
           echo "GCC_PREFIX=$GCC_PREFIX" >> "$GITHUB_ENV"
           export PATH="$TOOLCHAIN_BIN_DIR:$PATH"
-          "$GCC_PREFIX-gcc" --version
+          "$TOOLCHAIN_BIN_DIR/$GCC_PREFIX-gcc" --version
 
       - name: Extract pre-built OpenSSL and libnl from repo
         run: |
@@ -99,7 +102,13 @@ jobs:
       - name: Build wpa_supplicant
         run: |
           set +e
+          echo "=== Teshis: TOOLCHAIN_BIN ve GCC_PREFIX degerleri ==="
+          echo "TOOLCHAIN_BIN=$TOOLCHAIN_BIN"
+          echo "GCC_PREFIX=$GCC_PREFIX"
+          echo "PWD=$PWD"
+          ls -la "$TOOLCHAIN_BIN" 2>&1 | head -10
           export PATH="$TOOLCHAIN_BIN:$PATH"
+          which "$GCC_PREFIX-gcc" 2>&1 || echo "gcc PATH'te bulunamadi"
           cd wpa_src/wpa_supplicant
           # IMPORTANT: do NOT pass CFLAGS via make command-line or export -
           # this Makefile builds CFLAGS as "CFLAGS = -MMD -O2 -Wall -g" then
