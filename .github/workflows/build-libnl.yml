@@ -48,6 +48,35 @@ jobs:
           autoreconf -fi 2>&1 | tee ../autoreconf_log.txt
           ls configure 2>&1
 
+      - name: Patch musl in6_addr redefinition conflict (known upstream fix)
+        run: |
+          set +e
+          # libnl bundles its own copy of kernel headers under
+          # include/linux-private/linux/. if_bridge.h includes
+          # <linux/in6.h> which redefines struct in6_addr,
+          # sockaddr_in6, and ipv6_mreq - these are already fully
+          # defined by musl's own <netinet/in.h>, causing a hard
+          # redefinition error (glibc silently tolerates this
+          # duplication via header guards, musl does not). This is
+          # the same fix used upstream by OpenEmbedded, Buildroot,
+          # and Alpine for libnl+musl builds: drop the redundant
+          # kernel header include, musl's own header already
+          # provides everything if_bridge.h needs.
+          FILE="libnl_src/include/linux-private/linux/if_bridge.h"
+          if [ -f "$FILE" ]; then
+            grep -n "include.*linux/in6.h" "$FILE"
+            sed -i '/#include <linux\/in6\.h>/d' "$FILE"
+            echo "--- Patch sonrasi ---"
+            grep -n "in6" "$FILE" || echo "in6.h include kaldirildi"
+          else
+            echo "UYARI: $FILE bulunamadi"
+          fi
+          FILE2="libnl_src/include/linux-private/linux/ipv6.h"
+          if [ -f "$FILE2" ]; then
+            grep -n "include.*linux/in6.h" "$FILE2"
+            sed -i '/#include <linux\/in6\.h>/d' "$FILE2"
+          fi
+
       - name: Configure and build libnl
         run: |
           set +e
