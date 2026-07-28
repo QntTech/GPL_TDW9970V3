@@ -1,9 +1,0 @@
-making all in crypto...
-make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
-make[1]: Entering directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/openssl_src/crypto'
-/usr/bin/perl ../util/mkbuildinf.pl "mips-unknown-linux-muslsf-gcc -I. -I.. -I../include  -DOPENSSL_THREADS -D_REENTRANT -DDSO_DLFCN -DHAVE_DLFCN_H -mabi=32 -O3 -Wall -DBN_DIV3W" "linux-mips32" >buildinf.h
-mips-unknown-linux-muslsf-gcc -I. -I.. -I../include  -DOPENSSL_THREADS -D_REENTRANT -DDSO_DLFCN -DHAVE_DLFCN_H -mabi=32 -O3 -Wall -DBN_DIV3W   -c -o cryptlib.o cryptlib.c
-make[1]: mips-unknown-linux-muslsf-gcc: No such file or directory
-make[1]: *** [<builtin>: cryptlib.o] Error 127
-make[1]: Leaving directory '/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/openssl_src/crypto'
-make: *** [Makefile:288: build_crypto] Error 1
