@@ -1,300 +1,300 @@
-      |        ^~~~~~~~~~~~
-./include/linux-private/linux/in6.h:65:1: error: redefinition of struct or union 'struct ipv6_mreq'
-   65 | };
-      | ^
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:42:8: note: originally defined here
-   42 | struct ipv6_mreq {
-      |        ^~~~~~~~~
-./include/linux-private/linux/in6.h:169:9: warning: 'IPV6_ADD_MEMBERSHIP' redefined
-  169 | #define IPV6_ADD_MEMBERSHIP     20
-      |         ^~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:374:9: note: this is the location of the previous definition
-  374 | #define IPV6_ADD_MEMBERSHIP     IPV6_JOIN_GROUP
-      |         ^~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/in6.h:170:9: warning: 'IPV6_DROP_MEMBERSHIP' redefined
-  170 | #define IPV6_DROP_MEMBERSHIP    21
-      |         ^~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:375:9: note: this is the location of the previous definition
-  375 | #define IPV6_DROP_MEMBERSHIP    IPV6_LEAVE_GROUP
-      |         ^~~~~~~~~~~~~~~~~~~~
-In file included from ./include/linux-private/linux/in6.h:25,
-                 from ./include/linux-private/linux/ipv6.h:5,
-                 from ./include/netlink-private/netlink.h:54,
-                 from lib/attr.c:12:
-./include/linux-private/linux/libc-compat.h:121:9: warning: '__UAPI_DEF_IN_ADDR' redefined
-  121 | #define __UAPI_DEF_IN_ADDR              1
-      |         ^~~~~~~~~~~~~~~~~~
-In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/arpa/inet.h:9,
-                 from ./include/netlink-private/netlink.h:32:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:399:9: note: this is the location of the previous definition
-  399 | #define __UAPI_DEF_IN_ADDR      0
-      |         ^~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:122:9: warning: '__UAPI_DEF_IN_IPPROTO' redefined
-  122 | #define __UAPI_DEF_IN_IPPROTO           1
-      |         ^~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:400:9: note: this is the location of the previous definition
-  400 | #define __UAPI_DEF_IN_IPPROTO   0
-      |         ^~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:123:9: warning: '__UAPI_DEF_IN_PKTINFO' redefined
-  123 | #define __UAPI_DEF_IN_PKTINFO           1
-      |         ^~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:401:9: note: this is the location of the previous definition
-  401 | #define __UAPI_DEF_IN_PKTINFO   0
-      |         ^~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:124:9: warning: '__UAPI_DEF_IP_MREQ' redefined
-  124 | #define __UAPI_DEF_IP_MREQ              1
-      |         ^~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:402:9: note: this is the location of the previous definition
-  402 | #define __UAPI_DEF_IP_MREQ      0
-      |         ^~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:125:9: warning: '__UAPI_DEF_SOCKADDR_IN' redefined
-  125 | #define __UAPI_DEF_SOCKADDR_IN          1
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:403:9: note: this is the location of the previous definition
-  403 | #define __UAPI_DEF_SOCKADDR_IN  0
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:126:9: warning: '__UAPI_DEF_IN_CLASS' redefined
-  126 | #define __UAPI_DEF_IN_CLASS             1
-      |         ^~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:404:9: note: this is the location of the previous definition
-  404 | #define __UAPI_DEF_IN_CLASS     0
-      |         ^~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:129:9: warning: '__UAPI_DEF_IN6_ADDR' redefined
-  129 | #define __UAPI_DEF_IN6_ADDR             1
-      |         ^~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:405:9: note: this is the location of the previous definition
-  405 | #define __UAPI_DEF_IN6_ADDR     0
-      |         ^~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:130:9: warning: '__UAPI_DEF_IN6_ADDR_ALT' redefined
-  130 | #define __UAPI_DEF_IN6_ADDR_ALT         1
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:406:9: note: this is the location of the previous definition
-  406 | #define __UAPI_DEF_IN6_ADDR_ALT 0
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:131:9: warning: '__UAPI_DEF_SOCKADDR_IN6' redefined
-  131 | #define __UAPI_DEF_SOCKADDR_IN6         1
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:407:9: note: this is the location of the previous definition
-  407 | #define __UAPI_DEF_SOCKADDR_IN6 0
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:132:9: warning: '__UAPI_DEF_IPV6_MREQ' redefined
-  132 | #define __UAPI_DEF_IPV6_MREQ            1
-      |         ^~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:408:9: note: this is the location of the previous definition
-  408 | #define __UAPI_DEF_IPV6_MREQ    0
-      |         ^~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:133:9: warning: '__UAPI_DEF_IPPROTO_V6' redefined
-  133 | #define __UAPI_DEF_IPPROTO_V6           1
-      |         ^~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:409:9: note: this is the location of the previous definition
-  409 | #define __UAPI_DEF_IPPROTO_V6   0
-      |         ^~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:134:9: warning: '__UAPI_DEF_IPV6_OPTIONS' redefined
-  134 | #define __UAPI_DEF_IPV6_OPTIONS         1
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:410:9: note: this is the location of the previous definition
-  410 | #define __UAPI_DEF_IPV6_OPTIONS 0
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:135:9: warning: '__UAPI_DEF_IN6_PKTINFO' redefined
-  135 | #define __UAPI_DEF_IN6_PKTINFO          1
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:411:9: note: this is the location of the previous definition
-  411 | #define __UAPI_DEF_IN6_PKTINFO  0
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:136:9: warning: '__UAPI_DEF_IP6_MTUINFO' redefined
-  136 | #define __UAPI_DEF_IP6_MTUINFO          1
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:412:9: note: this is the location of the previous definition
-  412 | #define __UAPI_DEF_IP6_MTUINFO  0
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/in6.h:40:9: warning: 's6_addr' redefined
-   40 | #define s6_addr                 in6_u.u6_addr8
+lib/route/cls/ematch_syntax.y:97.26-35: warning: POSIX Yacc does not support string literals [-Wyacc]
+   97 | %token <i> META_SK_STATE "sk_state"
+      |                          ^~~~~~~~~~
+lib/route/cls/ematch_syntax.y:98.26-35: warning: POSIX Yacc does not support string literals [-Wyacc]
+   98 | %token <i> META_SK_REUSE "sk_reuse"
+      |                          ^~~~~~~~~~
+lib/route/cls/ematch_syntax.y:99.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+   99 | %token <i> META_SK_REFCNT "sk_refcnt"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:100.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+  100 | %token <i> META_SK_RCVBUF "sk_rcvbuf"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:101.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+  101 | %token <i> META_SK_SNDBUF "sk_sndbuf"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:102.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  102 | %token <i> META_SK_SHUTDOWN "sk_shutdown"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:103.26-35: warning: POSIX Yacc does not support string literals [-Wyacc]
+  103 | %token <i> META_SK_PROTO "sk_proto"
+      |                          ^~~~~~~~~~
+lib/route/cls/ematch_syntax.y:104.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+  104 | %token <i> META_SK_TYPE "sk_type"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:105.31-45: warning: POSIX Yacc does not support string literals [-Wyacc]
+  105 | %token <i> META_SK_RMEM_ALLOC "sk_rmem_alloc"
+      |                               ^~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:106.31-45: warning: POSIX Yacc does not support string literals [-Wyacc]
+  106 | %token <i> META_SK_WMEM_ALLOC "sk_wmem_alloc"
+      |                               ^~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:107.32-47: warning: POSIX Yacc does not support string literals [-Wyacc]
+  107 | %token <i> META_SK_WMEM_QUEUED "sk_wmem_queued"
+      |                                ^~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:108.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  108 | %token <i> META_SK_RCV_QLEN "sk_rcv_qlen"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:109.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  109 | %token <i> META_SK_SND_QLEN "sk_snd_qlen"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:110.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  110 | %token <i> META_SK_ERR_QLEN "sk_err_qlen"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:111.35-53: warning: POSIX Yacc does not support string literals [-Wyacc]
+  111 | %token <i> META_SK_FORWARD_ALLOCS "sk_forward_allocs"
+      |                                   ^~~~~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:112.27-37: warning: POSIX Yacc does not support string literals [-Wyacc]
+  112 | %token <i> META_SK_ALLOCS "sk_allocs"
+      |                           ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:113.31-45: warning: POSIX Yacc does not support string literals [-Wyacc]
+  113 | %token <i> META_SK_ROUTE_CAPS "sk_route_caps"
+      |                               ^~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:114.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+  114 | %token <i> META_SK_HASH "sk_hash"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:115.31-45: warning: POSIX Yacc does not support string literals [-Wyacc]
+  115 | %token <i> META_SK_LINGERTIME "sk_lingertime"
+      |                               ^~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:116.32-47: warning: POSIX Yacc does not support string literals [-Wyacc]
+  116 | %token <i> META_SK_ACK_BACKLOG "sk_ack_backlog"
+      |                                ^~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:117.36-55: warning: POSIX Yacc does not support string literals [-Wyacc]
+  117 | %token <i> META_SK_MAX_ACK_BACKLOG "sk_max_ack_backlog"
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:118.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+  118 | %token <i> META_SK_PRIO "sk_prio"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:119.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  119 | %token <i> META_SK_RCVLOWAT "sk_rcvlowat"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:120.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  120 | %token <i> META_SK_RCVTIMEO "sk_rcvtimeo"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:121.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  121 | %token <i> META_SK_SNDTIMEO "sk_sndtimeo"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:122.32-47: warning: POSIX Yacc does not support string literals [-Wyacc]
+  122 | %token <i> META_SK_SENDMSG_OFF "sk_sendmsg_off"
+      |                                ^~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:123.34-51: warning: POSIX Yacc does not support string literals [-Wyacc]
+  123 | %token <i> META_SK_WRITE_PENDING "sk_write_pending"
+      |                                  ^~~~~~~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:124.22-27: warning: POSIX Yacc does not support string literals [-Wyacc]
+  124 | %token <i> META_VLAN "vlan"
+      |                      ^~~~~~
+lib/route/cls/ematch_syntax.y:125.24-31: warning: POSIX Yacc does not support string literals [-Wyacc]
+  125 | %token <i> META_RXHASH "rxhash"
+      |                        ^~~~~~~~
+lib/route/cls/ematch_syntax.y:126.25-33: warning: POSIX Yacc does not support string literals [-Wyacc]
+  126 | %token <i> META_DEVNAME "devname"
+      |                         ^~~~~~~~~
+lib/route/cls/ematch_syntax.y:127.29-41: warning: POSIX Yacc does not support string literals [-Wyacc]
+  127 | %token <i> META_SK_BOUND_IF "sk_bound_if"
+      |                             ^~~~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:141.1-11: warning: POSIX Yacc does not support %destructor [-Wyacc]
+  141 | %destructor { free($$); NL_DBG(2, "string destructor\n"); } <s>
+      | ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:142.1-11: warning: POSIX Yacc does not support %destructor [-Wyacc]
+  142 | %destructor { rtnl_pktloc_put($$); NL_DBG(2, "pktloc destructor\n"); ...
+      | ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:143.1-11: warning: POSIX Yacc does not support %destructor [-Wyacc]
+  143 | %destructor { free($$.data); NL_DBG(2, "quoted destructor\n"); } <q>
+      | ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:144.1-11: warning: POSIX Yacc does not support %destructor [-Wyacc]
+  144 | %destructor { rtnl_meta_value_put($$); NL_DBG(2, "meta value destruct...
+      | ^~~~~~~~~~~
+lib/route/cls/ematch_syntax.y:203.24-26: warning: POSIX Yacc does not support string literals [-Wyacc]
+  203 | 	| EMATCH_NBYTE "(" pktloc KW_EQ pattern ")"
+      |                        ^~~
+lib/route/cls/ematch_syntax.y:203.49-51: warning: POSIX Yacc does not support string literals [-Wyacc]
+  203 | 	| EMATCH_NBYTE "(" pktloc KW_EQ pattern ")"
+      |                                                 ^~~
+lib/route/cls/ematch_syntax.y:221.23-25: warning: POSIX Yacc does not support string literals [-Wyacc]
+  221 | 	| EMATCH_TEXT "(" STR QUOTED text_from text_to ")"
+      |                       ^~~
+lib/route/cls/ematch_syntax.y:221.56-58: warning: POSIX Yacc does not support string literals [-Wyacc]
+  221 | 	| EMATCH_TEXT "(" STR QUOTED text_from text_to ")"
+      |                                                        ^~~
+lib/route/cls/ematch_syntax.y:248.23-25: warning: POSIX Yacc does not support string literals [-Wyacc]
+  248 | 	| EMATCH_META "(" meta_value operand meta_value ")"
+      |                       ^~~
+lib/route/cls/ematch_syntax.y:248.57-59: warning: POSIX Yacc does not support string literals [-Wyacc]
+  248 | 	| EMATCH_META "(" meta_value operand meta_value ")"
+      |                                                         ^~~
+lib/route/cls/ematch_syntax.y:267.11-13: warning: POSIX Yacc does not support string literals [-Wyacc]
+  267 | 	| "(" expr ")"
+      |           ^~~
+lib/route/cls/ematch_syntax.y:267.20-22: warning: POSIX Yacc does not support string literals [-Wyacc]
+  267 | 	| "(" expr ")"
+      |                    ^~~
+lib/route/cls/ematch_syntax.y:295.20-22: warning: POSIX Yacc does not support string literals [-Wyacc]
+  295 | 	EMATCH_CMP "(" cmp_expr ")"
+      |                    ^~~
+lib/route/cls/ematch_syntax.y:295.33-35: warning: POSIX Yacc does not support string literals [-Wyacc]
+  295 | 	EMATCH_CMP "(" cmp_expr ")"
+      |                                 ^~~
+lib/route/cls/ematch_syntax.y:324.11-16: warning: POSIX Yacc does not support string literals [-Wyacc]
+  324 | 	| "from" pktloc
+      |           ^~~~~~
+lib/route/cls/ematch_syntax.y:331.11-14: warning: POSIX Yacc does not support string literals [-Wyacc]
+  331 | 	| "to" pktloc
+      |           ^~~~
+lib/route/cls/ematch_syntax.y:449.23-25: warning: POSIX Yacc does not support string literals [-Wyacc]
+  449 | 	| align LAYER "+" NUMBER mask
+      |                       ^~~
+lib/route/cls/ematch_syntax.y:476.17-20: warning: POSIX Yacc does not support string literals [-Wyacc]
+  476 | 	| ALIGN "at"
+      |                 ^~~~
+lib/route/cls/ematch_syntax.y:478.18-21: warning: POSIX Yacc does not support string literals [-Wyacc]
+  478 | 	| NUMBER "at"
+      |                  ^~~~
+  CC       lib/idiag/libnl_idiag_3_la-idiag_vegasinfo_obj.lo
+  CC       lib/idiag/libnl_idiag_3_la-idiag_msg_obj.lo
+lib/route/pktloc_syntax.y: warning: fix-its can be applied.  Rerun with option '--update'. [-Wother]
+  CC       lib/idiag/libnl_idiag_3_la-idiag_req_obj.lo
+  CC       lib/idiag/libnl_idiag_3_la-idiag.lo
+lib/route/cls/ematch_syntax.y: warning: fix-its can be applied.  Rerun with option '--update'. [-Wother]
+  CC       lib/genl/libnl_genl_3_la-ctrl.lo
+  CC       lib/genl/libnl_genl_3_la-family.lo
+  CC       lib/genl/libnl_genl_3_la-genl.lo
+  CC       lib/genl/libnl_genl_3_la-mngt.lo
+In function 'genl_family_add_grp',
+    inlined from 'family_clone' at lib/genl/family.c:81:9,
+    inlined from 'family_clone' at lib/genl/family.c:66:12:
+lib/genl/family.c:376:9: warning: 'strncpy' output may be truncated copying 15 bytes from a string of length 15 [-Wstringop-truncation]
+  376 |         strncpy(grp->name, name, GENL_NAMSIZ - 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC       lib/netfilter/libnl_nf_3_la-ct.lo
+  CC       lib/netfilter/libnl_nf_3_la-ct_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-log.lo
+  CC       lib/netfilter/libnl_nf_3_la-log_msg.lo
+  CC       lib/netfilter/libnl_nf_3_la-log_msg_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-log_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-netfilter.lo
+  CC       lib/netfilter/libnl_nf_3_la-nfnl.lo
+  CC       lib/netfilter/libnl_nf_3_la-queue.lo
+  CC       lib/netfilter/libnl_nf_3_la-queue_msg.lo
+  CC       lib/netfilter/libnl_nf_3_la-queue_msg_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-queue_obj.lo
+  CC       lib/netfilter/libnl_nf_3_la-exp.lo
+  CC       lib/netfilter/libnl_nf_3_la-exp_obj.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-ae.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-lifetime.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-sa.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-selector.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-sp.lo
+  CC       lib/xfrm/libnl_xfrm_3_la-template.lo
+  CCLD     lib/libnl-3.la
+  CC       lib/fib_lookup/libnl_route_3_la-lookup.lo
+  CC       lib/fib_lookup/libnl_route_3_la-request.lo
+  CC       lib/route/libnl_route_3_la-act.lo
+  CC       lib/route/act/libnl_route_3_la-gact.lo
+  CC       lib/route/act/libnl_route_3_la-mirred.lo
+  CC       lib/route/act/libnl_route_3_la-skbedit.lo
+  CC       lib/route/libnl_route_3_la-addr.lo
+  CC       lib/route/libnl_route_3_la-class.lo
+  CC       lib/route/libnl_route_3_la-classid.lo
+  CC       lib/route/cls/libnl_route_3_la-basic.lo
+  CC       lib/route/libnl_route_3_la-cls.lo
+  CC       lib/route/cls/libnl_route_3_la-cgroup.lo
+  CC       lib/route/cls/libnl_route_3_la-ematch.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-cmp.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-container.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-meta.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-nbyte.lo
+  CC       lib/route/cls/ematch/libnl_route_3_la-text.lo
+  CC       lib/route/cls/libnl_route_3_la-fw.lo
+lib/route/cls/ematch/text.c: In function 'rtnl_ematch_text_set_algo':
+lib/route/cls/ematch/text.c:94:9: warning: 'strncpy' specified bound 16 equals destination size [-Wstringop-truncation]
+   94 |         strncpy(t->cfg.algo, algo, sizeof(t->cfg.algo));
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC       lib/route/cls/libnl_route_3_la-police.lo
+  CC       lib/route/cls/libnl_route_3_la-u32.lo
+  CC       lib/route/link/libnl_route_3_la-api.lo
+  CC       lib/route/link/libnl_route_3_la-bonding.lo
+  CC       lib/route/link/libnl_route_3_la-bridge.lo
+  CC       lib/route/libnl_route_3_la-link.lo
+  CC       lib/route/link/libnl_route_3_la-can.lo
+  CC       lib/route/link/libnl_route_3_la-dummy.lo
+  CC       lib/route/link/libnl_route_3_la-ifb.lo
+  CC       lib/route/link/libnl_route_3_la-inet6.lo
+  CC       lib/route/link/libnl_route_3_la-inet.lo
+  CC       lib/route/link/libnl_route_3_la-ip6tnl.lo
+lib/route/link/inet6.c: In function 'inet6_dump_details':
+lib/route/link/inet6.c:383:17: warning: 'strncpy' output may be truncated copying between 0 and 63 bytes from a string of length 63 [-Wstringop-truncation]
+  383 |                 strncpy(&buf[offset], buf2, strlen(buf2));
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC       lib/route/link/libnl_route_3_la-ipgre.lo
+  CC       lib/route/link/libnl_route_3_la-ipip.lo
+  CC       lib/route/link/libnl_route_3_la-ipvlan.lo
+  CC       lib/route/link/libnl_route_3_la-ipvti.lo
+  CC       lib/route/link/libnl_route_3_la-macsec.lo
+  CC       lib/route/link/libnl_route_3_la-macvlan.lo
+  CC       lib/route/link/libnl_route_3_la-ppp.lo
+  CC       lib/route/link/libnl_route_3_la-sit.lo
+  CC       lib/route/link/libnl_route_3_la-sriov.lo
+  CC       lib/route/link/libnl_route_3_la-veth.lo
+  CC       lib/route/link/libnl_route_3_la-vlan.lo
+  CC       lib/route/link/libnl_route_3_la-vrf.lo
+  CC       lib/route/link/libnl_route_3_la-vxlan.lo
+  CC       lib/route/libnl_route_3_la-neigh.lo
+  CC       lib/route/libnl_route_3_la-neightbl.lo
+  CC       lib/route/libnl_route_3_la-netconf.lo
+  CC       lib/route/libnl_route_3_la-nexthop.lo
+  CC       lib/route/libnl_route_3_la-nexthop_encap.lo
+  CC       lib/route/libnl_route_3_la-nh_encap_mpls.lo
+  CC       lib/route/libnl_route_3_la-pktloc.lo
+  CC       lib/route/qdisc/libnl_route_3_la-blackhole.lo
+  CC       lib/route/libnl_route_3_la-qdisc.lo
+  CC       lib/route/qdisc/libnl_route_3_la-cbq.lo
+  CC       lib/route/qdisc/libnl_route_3_la-dsmark.lo
+  CC       lib/route/qdisc/libnl_route_3_la-fifo.lo
+  CC       lib/route/qdisc/libnl_route_3_la-fq_codel.lo
+  CC       lib/route/qdisc/libnl_route_3_la-hfsc.lo
+  CC       lib/route/qdisc/libnl_route_3_la-htb.lo
+  CC       lib/route/qdisc/libnl_route_3_la-ingress.lo
+  CC       lib/route/qdisc/libnl_route_3_la-netem.lo
+  CC       lib/route/qdisc/libnl_route_3_la-plug.lo
+  CC       lib/route/qdisc/libnl_route_3_la-prio.lo
+lib/route/qdisc/netem.c: In function 'rtnl_netem_set_delay_distribution':
+lib/route/qdisc/netem.c:914:40: warning: 'calloc' sizes specified with 'sizeof' in the earlier argument and not in the later argument [-Wcalloc-transposed-args]
+  914 |         line = (char *) calloc (sizeof(char), len + 1);
+      |                                        ^~~~
+lib/route/qdisc/netem.c:914:40: note: earlier argument should specify number of elements, later size of each element
+  CC       lib/route/qdisc/libnl_route_3_la-red.lo
+  CC       lib/route/qdisc/libnl_route_3_la-sfq.lo
+  CC       lib/route/qdisc/libnl_route_3_la-tbf.lo
+  CC       lib/route/libnl_route_3_la-route.lo
+  CC       lib/route/libnl_route_3_la-route_obj.lo
+  CC       lib/route/libnl_route_3_la-route_utils.lo
+  CC       lib/route/libnl_route_3_la-rtnl.lo
+  CC       lib/route/libnl_route_3_la-rule.lo
+  CC       lib/route/libnl_route_3_la-tc.lo
+  CC       lib/route/libnl_route_3_la-pktloc_grammar.lo
+  CC       lib/route/libnl_route_3_la-pktloc_syntax.lo
+In function 'rtnl_tc_set_kind',
+    inlined from 'rtnl_tc_msg_parse' at lib/route/tc.c:80:2:
+lib/route/tc.c:516:9: warning: 'strncpy' output may be truncated copying 31 bytes from a string of length 31 [-Wstringop-truncation]
+  516 |         strncpy(tc->tc_kind, kind, sizeof(tc->tc_kind) - 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lib/route/pktloc_syntax.c: In function 'pktloc_parse':
+lib/route/pktloc_syntax.c:72:25: warning: variable 'pktloc_nerrs' set but not used [-Wunused-but-set-variable=]
+   72 | #define yynerrs         pktloc_nerrs
+      |                         ^~~~~~~~~~~~
+lib/route/pktloc_syntax.c:1233:9: note: in expansion of macro 'yynerrs'
+ 1233 |     int yynerrs = 0;
       |         ^~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:30:9: note: this is the location of the previous definition
-   30 | #define s6_addr __in6_union.__s6_addr
+  CC       lib/route/cls/libnl_route_3_la-ematch_grammar.lo
+  CC       lib/route/cls/libnl_route_3_la-ematch_syntax.lo
+  CCLD     lib/libnl-idiag-3.la
+lib/route/cls/ematch_syntax.c: In function 'ematch_parse':
+lib/route/cls/ematch_syntax.c:72:25: warning: variable 'ematch_nerrs' set but not used [-Wunused-but-set-variable=]
+   72 | #define yynerrs         ematch_nerrs
+      |                         ^~~~~~~~~~~~
+lib/route/cls/ematch_syntax.c:1364:9: note: in expansion of macro 'yynerrs'
+ 1364 |     int yynerrs = 0;
       |         ^~~~~~~
-./include/linux-private/linux/in6.h:42:9: warning: 's6_addr16' redefined
-   42 | #define s6_addr16               in6_u.u6_addr16
-      |         ^~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:31:9: note: this is the location of the previous definition
-   31 | #define s6_addr16 __in6_union.__s6_addr16
-      |         ^~~~~~~~~
-./include/linux-private/linux/in6.h:43:9: warning: 's6_addr32' redefined
-   43 | #define s6_addr32               in6_u.u6_addr32
-      |         ^~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:32:9: note: this is the location of the previous definition
-   32 | #define s6_addr32 __in6_union.__s6_addr32
-      |         ^~~~~~~~~
-./include/linux-private/linux/in6.h:45:1: error: redefinition of struct or union 'struct in6_addr'
-   45 | };
-      | ^
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:23:8: note: originally defined here
-   23 | struct in6_addr {
-      |        ^~~~~~~~
-./include/linux-private/linux/in6.h:55:1: error: redefinition of struct or union 'struct sockaddr_in6'
-   55 | };
-      | ^
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:34:8: note: originally defined here
-   34 | struct sockaddr_in6 {
-      |        ^~~~~~~~~~~~
-./include/linux-private/linux/in6.h:65:1: error: redefinition of struct or union 'struct ipv6_mreq'
-   65 | };
-      | ^
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:42:8: note: originally defined here
-   42 | struct ipv6_mreq {
-      |        ^~~~~~~~~
-./include/linux-private/linux/in6.h:169:9: warning: 'IPV6_ADD_MEMBERSHIP' redefined
-  169 | #define IPV6_ADD_MEMBERSHIP     20
-      |         ^~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:374:9: note: this is the location of the previous definition
-  374 | #define IPV6_ADD_MEMBERSHIP     IPV6_JOIN_GROUP
-      |         ^~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/in6.h:170:9: warning: 'IPV6_DROP_MEMBERSHIP' redefined
-  170 | #define IPV6_DROP_MEMBERSHIP    21
-      |         ^~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:375:9: note: this is the location of the previous definition
-  375 | #define IPV6_DROP_MEMBERSHIP    IPV6_LEAVE_GROUP
-      |         ^~~~~~~~~~~~~~~~~~~~
-In file included from ./include/linux-private/linux/in6.h:25,
-                 from ./include/linux-private/linux/ipv6.h:5,
-                 from ./include/netlink-private/netlink.h:54,
-                 from lib/cache_mngr.c:35:
-./include/linux-private/linux/libc-compat.h:121:9: warning: '__UAPI_DEF_IN_ADDR' redefined
-  121 | #define __UAPI_DEF_IN_ADDR              1
-      |         ^~~~~~~~~~~~~~~~~~
-In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/arpa/inet.h:9,
-                 from ./include/netlink-private/netlink.h:32:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:399:9: note: this is the location of the previous definition
-  399 | #define __UAPI_DEF_IN_ADDR      0
-      |         ^~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:122:9: warning: '__UAPI_DEF_IN_IPPROTO' redefined
-  122 | #define __UAPI_DEF_IN_IPPROTO           1
-      |         ^~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:400:9: note: this is the location of the previous definition
-  400 | #define __UAPI_DEF_IN_IPPROTO   0
-      |         ^~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:123:9: warning: '__UAPI_DEF_IN_PKTINFO' redefined
-  123 | #define __UAPI_DEF_IN_PKTINFO           1
-      |         ^~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:401:9: note: this is the location of the previous definition
-  401 | #define __UAPI_DEF_IN_PKTINFO   0
-      |         ^~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:124:9: warning: '__UAPI_DEF_IP_MREQ' redefined
-  124 | #define __UAPI_DEF_IP_MREQ              1
-      |         ^~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:402:9: note: this is the location of the previous definition
-  402 | #define __UAPI_DEF_IP_MREQ      0
-      |         ^~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:125:9: warning: '__UAPI_DEF_SOCKADDR_IN' redefined
-  125 | #define __UAPI_DEF_SOCKADDR_IN          1
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:403:9: note: this is the location of the previous definition
-  403 | #define __UAPI_DEF_SOCKADDR_IN  0
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:126:9: warning: '__UAPI_DEF_IN_CLASS' redefined
-  126 | #define __UAPI_DEF_IN_CLASS             1
-      |         ^~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:404:9: note: this is the location of the previous definition
-  404 | #define __UAPI_DEF_IN_CLASS     0
-      |         ^~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:129:9: warning: '__UAPI_DEF_IN6_ADDR' redefined
-  129 | #define __UAPI_DEF_IN6_ADDR             1
-      |         ^~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:405:9: note: this is the location of the previous definition
-  405 | #define __UAPI_DEF_IN6_ADDR     0
-      |         ^~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:130:9: warning: '__UAPI_DEF_IN6_ADDR_ALT' redefined
-  130 | #define __UAPI_DEF_IN6_ADDR_ALT         1
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:406:9: note: this is the location of the previous definition
-  406 | #define __UAPI_DEF_IN6_ADDR_ALT 0
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:131:9: warning: '__UAPI_DEF_SOCKADDR_IN6' redefined
-  131 | #define __UAPI_DEF_SOCKADDR_IN6         1
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:407:9: note: this is the location of the previous definition
-  407 | #define __UAPI_DEF_SOCKADDR_IN6 0
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:132:9: warning: '__UAPI_DEF_IPV6_MREQ' redefined
-  132 | #define __UAPI_DEF_IPV6_MREQ            1
-      |         ^~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:408:9: note: this is the location of the previous definition
-  408 | #define __UAPI_DEF_IPV6_MREQ    0
-      |         ^~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:133:9: warning: '__UAPI_DEF_IPPROTO_V6' redefined
-  133 | #define __UAPI_DEF_IPPROTO_V6           1
-      |         ^~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:409:9: note: this is the location of the previous definition
-  409 | #define __UAPI_DEF_IPPROTO_V6   0
-      |         ^~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:134:9: warning: '__UAPI_DEF_IPV6_OPTIONS' redefined
-  134 | #define __UAPI_DEF_IPV6_OPTIONS         1
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:410:9: note: this is the location of the previous definition
-  410 | #define __UAPI_DEF_IPV6_OPTIONS 0
-      |         ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:135:9: warning: '__UAPI_DEF_IN6_PKTINFO' redefined
-  135 | #define __UAPI_DEF_IN6_PKTINFO          1
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:411:9: note: this is the location of the previous definition
-  411 | #define __UAPI_DEF_IN6_PKTINFO  0
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/libc-compat.h:136:9: warning: '__UAPI_DEF_IP6_MTUINFO' redefined
-  136 | #define __UAPI_DEF_IP6_MTUINFO          1
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:412:9: note: this is the location of the previous definition
-  412 | #define __UAPI_DEF_IP6_MTUINFO  0
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/in6.h:40:9: warning: 's6_addr' redefined
-   40 | #define s6_addr                 in6_u.u6_addr8
-      |         ^~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:30:9: note: this is the location of the previous definition
-   30 | #define s6_addr __in6_union.__s6_addr
-      |         ^~~~~~~
-./include/linux-private/linux/in6.h:42:9: warning: 's6_addr16' redefined
-   42 | #define s6_addr16               in6_u.u6_addr16
-      |         ^~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:31:9: note: this is the location of the previous definition
-   31 | #define s6_addr16 __in6_union.__s6_addr16
-      |         ^~~~~~~~~
-./include/linux-private/linux/in6.h:43:9: warning: 's6_addr32' redefined
-   43 | #define s6_addr32               in6_u.u6_addr32
-      |         ^~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:32:9: note: this is the location of the previous definition
-   32 | #define s6_addr32 __in6_union.__s6_addr32
-      |         ^~~~~~~~~
-./include/linux-private/linux/in6.h:45:1: error: redefinition of struct or union 'struct in6_addr'
-   45 | };
-      | ^
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:23:8: note: originally defined here
-   23 | struct in6_addr {
-      |        ^~~~~~~~
-./include/linux-private/linux/in6.h:55:1: error: redefinition of struct or union 'struct sockaddr_in6'
-   55 | };
-      | ^
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:34:8: note: originally defined here
-   34 | struct sockaddr_in6 {
-      |        ^~~~~~~~~~~~
-./include/linux-private/linux/in6.h:65:1: error: redefinition of struct or union 'struct ipv6_mreq'
-   65 | };
-      | ^
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:42:8: note: originally defined here
-   42 | struct ipv6_mreq {
-      |        ^~~~~~~~~
-./include/linux-private/linux/in6.h:169:9: warning: 'IPV6_ADD_MEMBERSHIP' redefined
-  169 | #define IPV6_ADD_MEMBERSHIP     20
-      |         ^~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:374:9: note: this is the location of the previous definition
-  374 | #define IPV6_ADD_MEMBERSHIP     IPV6_JOIN_GROUP
-      |         ^~~~~~~~~~~~~~~~~~~
-./include/linux-private/linux/in6.h:170:9: warning: 'IPV6_DROP_MEMBERSHIP' redefined
-  170 | #define IPV6_DROP_MEMBERSHIP    21
-      |         ^~~~~~~~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:375:9: note: this is the location of the previous definition
-  375 | #define IPV6_DROP_MEMBERSHIP    IPV6_LEAVE_GROUP
-      |         ^~~~~~~~~~~~~~~~~~~~
-make: *** [Makefile:3939: lib/libnl_3_la-addr.lo] Error 1
-make: *** Waiting for unfinished jobs....
-make: *** [Makefile:3960: lib/libnl_3_la-cache_mngr.lo] Error 1
-make: *** [Makefile:3946: lib/libnl_3_la-attr.lo] Error 1
-make: *** [Makefile:3953: lib/libnl_3_la-cache.lo] Error 1
+  CCLD     lib/libnl-genl-3.la
+  CCLD     lib/libnl-xfrm-3.la
+  CCLD     lib/libnl-route-3.la
+  CCLD     lib/libnl-nf-3.la
