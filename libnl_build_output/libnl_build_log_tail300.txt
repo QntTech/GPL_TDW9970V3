@@ -1,0 +1,300 @@
+      |        ^~~~~~~~~~~~
+./include/linux-private/linux/in6.h:65:1: error: redefinition of struct or union 'struct ipv6_mreq'
+   65 | };
+      | ^
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:42:8: note: originally defined here
+   42 | struct ipv6_mreq {
+      |        ^~~~~~~~~
+./include/linux-private/linux/in6.h:169:9: warning: 'IPV6_ADD_MEMBERSHIP' redefined
+  169 | #define IPV6_ADD_MEMBERSHIP     20
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:374:9: note: this is the location of the previous definition
+  374 | #define IPV6_ADD_MEMBERSHIP     IPV6_JOIN_GROUP
+      |         ^~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/in6.h:170:9: warning: 'IPV6_DROP_MEMBERSHIP' redefined
+  170 | #define IPV6_DROP_MEMBERSHIP    21
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:375:9: note: this is the location of the previous definition
+  375 | #define IPV6_DROP_MEMBERSHIP    IPV6_LEAVE_GROUP
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from ./include/linux-private/linux/in6.h:25,
+                 from ./include/linux-private/linux/ipv6.h:5,
+                 from ./include/netlink-private/netlink.h:54,
+                 from lib/attr.c:12:
+./include/linux-private/linux/libc-compat.h:121:9: warning: '__UAPI_DEF_IN_ADDR' redefined
+  121 | #define __UAPI_DEF_IN_ADDR              1
+      |         ^~~~~~~~~~~~~~~~~~
+In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/arpa/inet.h:9,
+                 from ./include/netlink-private/netlink.h:32:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:399:9: note: this is the location of the previous definition
+  399 | #define __UAPI_DEF_IN_ADDR      0
+      |         ^~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:122:9: warning: '__UAPI_DEF_IN_IPPROTO' redefined
+  122 | #define __UAPI_DEF_IN_IPPROTO           1
+      |         ^~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:400:9: note: this is the location of the previous definition
+  400 | #define __UAPI_DEF_IN_IPPROTO   0
+      |         ^~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:123:9: warning: '__UAPI_DEF_IN_PKTINFO' redefined
+  123 | #define __UAPI_DEF_IN_PKTINFO           1
+      |         ^~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:401:9: note: this is the location of the previous definition
+  401 | #define __UAPI_DEF_IN_PKTINFO   0
+      |         ^~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:124:9: warning: '__UAPI_DEF_IP_MREQ' redefined
+  124 | #define __UAPI_DEF_IP_MREQ              1
+      |         ^~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:402:9: note: this is the location of the previous definition
+  402 | #define __UAPI_DEF_IP_MREQ      0
+      |         ^~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:125:9: warning: '__UAPI_DEF_SOCKADDR_IN' redefined
+  125 | #define __UAPI_DEF_SOCKADDR_IN          1
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:403:9: note: this is the location of the previous definition
+  403 | #define __UAPI_DEF_SOCKADDR_IN  0
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:126:9: warning: '__UAPI_DEF_IN_CLASS' redefined
+  126 | #define __UAPI_DEF_IN_CLASS             1
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:404:9: note: this is the location of the previous definition
+  404 | #define __UAPI_DEF_IN_CLASS     0
+      |         ^~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:129:9: warning: '__UAPI_DEF_IN6_ADDR' redefined
+  129 | #define __UAPI_DEF_IN6_ADDR             1
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:405:9: note: this is the location of the previous definition
+  405 | #define __UAPI_DEF_IN6_ADDR     0
+      |         ^~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:130:9: warning: '__UAPI_DEF_IN6_ADDR_ALT' redefined
+  130 | #define __UAPI_DEF_IN6_ADDR_ALT         1
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:406:9: note: this is the location of the previous definition
+  406 | #define __UAPI_DEF_IN6_ADDR_ALT 0
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:131:9: warning: '__UAPI_DEF_SOCKADDR_IN6' redefined
+  131 | #define __UAPI_DEF_SOCKADDR_IN6         1
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:407:9: note: this is the location of the previous definition
+  407 | #define __UAPI_DEF_SOCKADDR_IN6 0
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:132:9: warning: '__UAPI_DEF_IPV6_MREQ' redefined
+  132 | #define __UAPI_DEF_IPV6_MREQ            1
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:408:9: note: this is the location of the previous definition
+  408 | #define __UAPI_DEF_IPV6_MREQ    0
+      |         ^~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:133:9: warning: '__UAPI_DEF_IPPROTO_V6' redefined
+  133 | #define __UAPI_DEF_IPPROTO_V6           1
+      |         ^~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:409:9: note: this is the location of the previous definition
+  409 | #define __UAPI_DEF_IPPROTO_V6   0
+      |         ^~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:134:9: warning: '__UAPI_DEF_IPV6_OPTIONS' redefined
+  134 | #define __UAPI_DEF_IPV6_OPTIONS         1
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:410:9: note: this is the location of the previous definition
+  410 | #define __UAPI_DEF_IPV6_OPTIONS 0
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:135:9: warning: '__UAPI_DEF_IN6_PKTINFO' redefined
+  135 | #define __UAPI_DEF_IN6_PKTINFO          1
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:411:9: note: this is the location of the previous definition
+  411 | #define __UAPI_DEF_IN6_PKTINFO  0
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:136:9: warning: '__UAPI_DEF_IP6_MTUINFO' redefined
+  136 | #define __UAPI_DEF_IP6_MTUINFO          1
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:412:9: note: this is the location of the previous definition
+  412 | #define __UAPI_DEF_IP6_MTUINFO  0
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/in6.h:40:9: warning: 's6_addr' redefined
+   40 | #define s6_addr                 in6_u.u6_addr8
+      |         ^~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:30:9: note: this is the location of the previous definition
+   30 | #define s6_addr __in6_union.__s6_addr
+      |         ^~~~~~~
+./include/linux-private/linux/in6.h:42:9: warning: 's6_addr16' redefined
+   42 | #define s6_addr16               in6_u.u6_addr16
+      |         ^~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:31:9: note: this is the location of the previous definition
+   31 | #define s6_addr16 __in6_union.__s6_addr16
+      |         ^~~~~~~~~
+./include/linux-private/linux/in6.h:43:9: warning: 's6_addr32' redefined
+   43 | #define s6_addr32               in6_u.u6_addr32
+      |         ^~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:32:9: note: this is the location of the previous definition
+   32 | #define s6_addr32 __in6_union.__s6_addr32
+      |         ^~~~~~~~~
+./include/linux-private/linux/in6.h:45:1: error: redefinition of struct or union 'struct in6_addr'
+   45 | };
+      | ^
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:23:8: note: originally defined here
+   23 | struct in6_addr {
+      |        ^~~~~~~~
+./include/linux-private/linux/in6.h:55:1: error: redefinition of struct or union 'struct sockaddr_in6'
+   55 | };
+      | ^
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:34:8: note: originally defined here
+   34 | struct sockaddr_in6 {
+      |        ^~~~~~~~~~~~
+./include/linux-private/linux/in6.h:65:1: error: redefinition of struct or union 'struct ipv6_mreq'
+   65 | };
+      | ^
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:42:8: note: originally defined here
+   42 | struct ipv6_mreq {
+      |        ^~~~~~~~~
+./include/linux-private/linux/in6.h:169:9: warning: 'IPV6_ADD_MEMBERSHIP' redefined
+  169 | #define IPV6_ADD_MEMBERSHIP     20
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:374:9: note: this is the location of the previous definition
+  374 | #define IPV6_ADD_MEMBERSHIP     IPV6_JOIN_GROUP
+      |         ^~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/in6.h:170:9: warning: 'IPV6_DROP_MEMBERSHIP' redefined
+  170 | #define IPV6_DROP_MEMBERSHIP    21
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:375:9: note: this is the location of the previous definition
+  375 | #define IPV6_DROP_MEMBERSHIP    IPV6_LEAVE_GROUP
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from ./include/linux-private/linux/in6.h:25,
+                 from ./include/linux-private/linux/ipv6.h:5,
+                 from ./include/netlink-private/netlink.h:54,
+                 from lib/cache_mngr.c:35:
+./include/linux-private/linux/libc-compat.h:121:9: warning: '__UAPI_DEF_IN_ADDR' redefined
+  121 | #define __UAPI_DEF_IN_ADDR              1
+      |         ^~~~~~~~~~~~~~~~~~
+In file included from /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/arpa/inet.h:9,
+                 from ./include/netlink-private/netlink.h:32:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:399:9: note: this is the location of the previous definition
+  399 | #define __UAPI_DEF_IN_ADDR      0
+      |         ^~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:122:9: warning: '__UAPI_DEF_IN_IPPROTO' redefined
+  122 | #define __UAPI_DEF_IN_IPPROTO           1
+      |         ^~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:400:9: note: this is the location of the previous definition
+  400 | #define __UAPI_DEF_IN_IPPROTO   0
+      |         ^~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:123:9: warning: '__UAPI_DEF_IN_PKTINFO' redefined
+  123 | #define __UAPI_DEF_IN_PKTINFO           1
+      |         ^~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:401:9: note: this is the location of the previous definition
+  401 | #define __UAPI_DEF_IN_PKTINFO   0
+      |         ^~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:124:9: warning: '__UAPI_DEF_IP_MREQ' redefined
+  124 | #define __UAPI_DEF_IP_MREQ              1
+      |         ^~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:402:9: note: this is the location of the previous definition
+  402 | #define __UAPI_DEF_IP_MREQ      0
+      |         ^~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:125:9: warning: '__UAPI_DEF_SOCKADDR_IN' redefined
+  125 | #define __UAPI_DEF_SOCKADDR_IN          1
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:403:9: note: this is the location of the previous definition
+  403 | #define __UAPI_DEF_SOCKADDR_IN  0
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:126:9: warning: '__UAPI_DEF_IN_CLASS' redefined
+  126 | #define __UAPI_DEF_IN_CLASS             1
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:404:9: note: this is the location of the previous definition
+  404 | #define __UAPI_DEF_IN_CLASS     0
+      |         ^~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:129:9: warning: '__UAPI_DEF_IN6_ADDR' redefined
+  129 | #define __UAPI_DEF_IN6_ADDR             1
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:405:9: note: this is the location of the previous definition
+  405 | #define __UAPI_DEF_IN6_ADDR     0
+      |         ^~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:130:9: warning: '__UAPI_DEF_IN6_ADDR_ALT' redefined
+  130 | #define __UAPI_DEF_IN6_ADDR_ALT         1
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:406:9: note: this is the location of the previous definition
+  406 | #define __UAPI_DEF_IN6_ADDR_ALT 0
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:131:9: warning: '__UAPI_DEF_SOCKADDR_IN6' redefined
+  131 | #define __UAPI_DEF_SOCKADDR_IN6         1
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:407:9: note: this is the location of the previous definition
+  407 | #define __UAPI_DEF_SOCKADDR_IN6 0
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:132:9: warning: '__UAPI_DEF_IPV6_MREQ' redefined
+  132 | #define __UAPI_DEF_IPV6_MREQ            1
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:408:9: note: this is the location of the previous definition
+  408 | #define __UAPI_DEF_IPV6_MREQ    0
+      |         ^~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:133:9: warning: '__UAPI_DEF_IPPROTO_V6' redefined
+  133 | #define __UAPI_DEF_IPPROTO_V6           1
+      |         ^~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:409:9: note: this is the location of the previous definition
+  409 | #define __UAPI_DEF_IPPROTO_V6   0
+      |         ^~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:134:9: warning: '__UAPI_DEF_IPV6_OPTIONS' redefined
+  134 | #define __UAPI_DEF_IPV6_OPTIONS         1
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:410:9: note: this is the location of the previous definition
+  410 | #define __UAPI_DEF_IPV6_OPTIONS 0
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:135:9: warning: '__UAPI_DEF_IN6_PKTINFO' redefined
+  135 | #define __UAPI_DEF_IN6_PKTINFO          1
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:411:9: note: this is the location of the previous definition
+  411 | #define __UAPI_DEF_IN6_PKTINFO  0
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/libc-compat.h:136:9: warning: '__UAPI_DEF_IP6_MTUINFO' redefined
+  136 | #define __UAPI_DEF_IP6_MTUINFO          1
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:412:9: note: this is the location of the previous definition
+  412 | #define __UAPI_DEF_IP6_MTUINFO  0
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/in6.h:40:9: warning: 's6_addr' redefined
+   40 | #define s6_addr                 in6_u.u6_addr8
+      |         ^~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:30:9: note: this is the location of the previous definition
+   30 | #define s6_addr __in6_union.__s6_addr
+      |         ^~~~~~~
+./include/linux-private/linux/in6.h:42:9: warning: 's6_addr16' redefined
+   42 | #define s6_addr16               in6_u.u6_addr16
+      |         ^~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:31:9: note: this is the location of the previous definition
+   31 | #define s6_addr16 __in6_union.__s6_addr16
+      |         ^~~~~~~~~
+./include/linux-private/linux/in6.h:43:9: warning: 's6_addr32' redefined
+   43 | #define s6_addr32               in6_u.u6_addr32
+      |         ^~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:32:9: note: this is the location of the previous definition
+   32 | #define s6_addr32 __in6_union.__s6_addr32
+      |         ^~~~~~~~~
+./include/linux-private/linux/in6.h:45:1: error: redefinition of struct or union 'struct in6_addr'
+   45 | };
+      | ^
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:23:8: note: originally defined here
+   23 | struct in6_addr {
+      |        ^~~~~~~~
+./include/linux-private/linux/in6.h:55:1: error: redefinition of struct or union 'struct sockaddr_in6'
+   55 | };
+      | ^
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:34:8: note: originally defined here
+   34 | struct sockaddr_in6 {
+      |        ^~~~~~~~~~~~
+./include/linux-private/linux/in6.h:65:1: error: redefinition of struct or union 'struct ipv6_mreq'
+   65 | };
+      | ^
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:42:8: note: originally defined here
+   42 | struct ipv6_mreq {
+      |        ^~~~~~~~~
+./include/linux-private/linux/in6.h:169:9: warning: 'IPV6_ADD_MEMBERSHIP' redefined
+  169 | #define IPV6_ADD_MEMBERSHIP     20
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:374:9: note: this is the location of the previous definition
+  374 | #define IPV6_ADD_MEMBERSHIP     IPV6_JOIN_GROUP
+      |         ^~~~~~~~~~~~~~~~~~~
+./include/linux-private/linux/in6.h:170:9: warning: 'IPV6_DROP_MEMBERSHIP' redefined
+  170 | #define IPV6_DROP_MEMBERSHIP    21
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/sysroot/usr/include/netinet/in.h:375:9: note: this is the location of the previous definition
+  375 | #define IPV6_DROP_MEMBERSHIP    IPV6_LEAVE_GROUP
+      |         ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:3939: lib/libnl_3_la-addr.lo] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Makefile:3960: lib/libnl_3_la-cache_mngr.lo] Error 1
+make: *** [Makefile:3946: lib/libnl_3_la-attr.lo] Error 1
+make: *** [Makefile:3953: lib/libnl_3_la-cache.lo] Error 1

@@ -1,0 +1,166 @@
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for mips-unknown-linux-muslsf-strip... mips-unknown-linux-muslsf-strip
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking for mips-unknown-linux-muslsf-gcc... mips-unknown-linux-muslsf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether mips-unknown-linux-muslsf-gcc accepts -g... yes
+checking for mips-unknown-linux-muslsf-gcc option to enable C11 features... none needed
+checking whether mips-unknown-linux-muslsf-gcc understands -c and -o together... yes
+checking dependency style of mips-unknown-linux-muslsf-gcc... gcc3
+checking for mips-unknown-linux-muslsf-ar... mips-unknown-linux-muslsf-ar
+checking the archiver (mips-unknown-linux-muslsf-ar) interface... ar
+checking for mips-unknown-linux-muslsf-gcc... (cached) mips-unknown-linux-muslsf-gcc
+checking whether the compiler supports GNU C... (cached) yes
+checking whether mips-unknown-linux-muslsf-gcc accepts -g... (cached) yes
+checking for mips-unknown-linux-muslsf-gcc option to enable C11 features... (cached) none needed
+checking whether mips-unknown-linux-muslsf-gcc understands -c and -o together... (cached) yes
+checking dependency style of mips-unknown-linux-muslsf-gcc... (cached) gcc3
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... mips-unknown-linux-muslsf
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by mips-unknown-linux-muslsf-gcc... /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/bin/ld
+checking if the linker (/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/bin/mips-unknown-linux-muslsf-nm -B
+checking the name lister (/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/bin/mips-unknown-linux-muslsf-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3145728
+checking how to convert x86_64-pc-linux-gnu file names to mips-unknown-linux-muslsf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/bin/ld option to reload object files... -r
+checking for mips-unknown-linux-muslsf-file... no
+checking for file... file
+configure: WARNING: using cross tools not prefixed with host triplet
+checking for mips-unknown-linux-muslsf-objdump... mips-unknown-linux-muslsf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for mips-unknown-linux-muslsf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for mips-unknown-linux-muslsf-ar... (cached) mips-unknown-linux-muslsf-ar
+checking for archiver @FILE support... @
+checking for mips-unknown-linux-muslsf-strip... (cached) mips-unknown-linux-muslsf-strip
+checking for mips-unknown-linux-muslsf-ranlib... mips-unknown-linux-muslsf-ranlib
+checking command to parse /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/bin/mips-unknown-linux-muslsf-nm -B output from mips-unknown-linux-muslsf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mips-unknown-linux-muslsf-mt... no
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if mips-unknown-linux-muslsf-gcc supports -fno-rtti -fno-exceptions... no
+checking for mips-unknown-linux-muslsf-gcc option to produce PIC... -fPIC -DPIC
+checking if mips-unknown-linux-muslsf-gcc PIC flag -fPIC -DPIC works... yes
+checking if mips-unknown-linux-muslsf-gcc static flag -static works... yes
+checking if mips-unknown-linux-muslsf-gcc supports -c -o file.o... yes
+checking if mips-unknown-linux-muslsf-gcc supports -c -o file.o... (cached) yes
+checking whether the mips-unknown-linux-muslsf-gcc linker (/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/mips-toolchain/mips-unknown-linux-muslsf/mips-unknown-linux-muslsf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking for flex... flex
+checking for bison... bison -y
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for mips-unknown-linux-muslsf-pkg-config... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for check >= 0.9.0... no
+configure: WARNING: *** Disabling building of unit tests
+checking for dlfcn.h... (cached) yes
+checking for pthread_mutex_lock in -lpthread... yes
+checking for strerror_l... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libnl-3.0.pc
+config.status: creating libnl-route-3.0.pc
+config.status: creating libnl-genl-3.0.pc
+config.status: creating libnl-nf-3.0.pc
+config.status: creating libnl-cli-3.0.pc
+config.status: creating libnl-xfrm-3.0.pc
+config.status: creating libnl-idiag-3.0.pc
+config.status: creating python/setup.py
+config.status: creating include/netlink/version.h
+config.status: creating lib/defs.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in doc (/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/libnl_src/doc)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/tmp/libnl_install'  '--host=mips-unknown-linux-muslsf' '--disable-shared' '--enable-static' '--disable-cli' 'CC=mips-unknown-linux-muslsf-gcc' 'host_alias=mips-unknown-linux-muslsf' --cache-file=/dev/null --srcdir=.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for mips-unknown-linux-muslsf-strip... mips-unknown-linux-muslsf-strip
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for python... yes
+checking for doxygen... no
+checking for dot... no
+configure: WARNING: *** graphviz not found, disabling building of API reference
+checking for asciidoc... no
+configure: WARNING: *** asciidoc not found, disabling building of guides
+checking for source-highlight... no
+configure: WARNING: *** source-highlight not found, disabling building of guides
+checking for mscgen... no
+configure: WARNING: *** mscgen not found, get it at http://www.mcternan.me.uk/mscgen/
+configure: WARNING: *** Disabling building of guides
+checking for pygmentize... yes
+configure: WARNING: *** Disabling API linking due to missing doxygen package
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Doxyfile
+config.status: creating Makefile
+-------------------------------------------------------------------------------
+                                  NOTE
+
+ There have been some changes starting with 3.2 regarding where and how libnl
+ is being installed on the system in order to allow multiple libnl versions
+ to be installed in parallel:
+
+    - Headers will be installed in ${prefix}/include/libnl3, therefore
+      you will need to add "-I/usr/include/libnl3" to CFLAGS
+
+    - The library basename was renamed to libnl-3, i.e. the SO names become
+      libnl-3.so., libnl-route-3.so, etc.
+
+    - libtool versioning was assumed, to ease detection of compatible library
+      versions.
+
+ If you are using pkg-config for detecting and linking against the library 
+ things will continue magically as if nothing every happened. If you are 
+ linking manually you need to adapt your Makefiles or switch to using 
+ pkg-config files.
+
+-------------------------------------------------------------------------------
