@@ -22,12 +22,12 @@ jobs:
           mkdir -p mips-toolchain
           tar -xJf mips-toolchain.tar.xz -C mips-toolchain
           GCC_BIN=$(find mips-toolchain -maxdepth 4 -name "*-gcc" -type f | head -1)
-          TOOLCHAIN_BIN_DIR=$(dirname "$GCC_BIN")
+          TOOLCHAIN_BIN_DIR="$PWD/$(dirname "$GCC_BIN")"
           GCC_PREFIX=$(basename "$GCC_BIN" | sed 's/-gcc$//')
           echo "TOOLCHAIN_BIN=$TOOLCHAIN_BIN_DIR" >> "$GITHUB_ENV"
           echo "GCC_PREFIX=$GCC_PREFIX" >> "$GITHUB_ENV"
           export PATH="$TOOLCHAIN_BIN_DIR:$PATH"
-          "$GCC_PREFIX-gcc" --version
+          "$TOOLCHAIN_BIN_DIR/$GCC_PREFIX-gcc" --version
 
       - name: Clone OpenSSL source
         run: |
