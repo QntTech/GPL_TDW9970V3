@@ -75,6 +75,75 @@ jobs:
           cat clone_log.txt
           ls rtl88x2bu/ 2>&1 | head -30 || echo "KLASOR OLUSMADI"
 
+      - name: DIAGNOSTIC PATCH - trace wiphy_register return value (RTW_INFO isn't visible in our logs, RTW_ERR is)
+        run: |
+          set +e
+          FILE="rtl88x2bu/os_dep/linux/ioctl_cfg80211.c"
+          if [ ! -f "$FILE" ]; then
+            echo "UYARI: $FILE bulunamadi, patch atlaniyor"
+            exit 0
+          fi
+          echo "--- Patch oncesi ilgili fonksiyon ---"
+          grep -n -A15 "^int rtw_cfg80211_dev_res_register" "$FILE"
+          python3 - "$FILE" << 'PYEOF'
+          import sys
+          path = sys.argv[1]
+          with open(path, "r") as f:
+              content = f.read()
+          old = '''int rtw_cfg80211_dev_res_register(struct dvobj_priv *dvobj)
+{
+	int ret = _FAIL;
+
+#if defined(RTW_SINGLE_WIPHY)
+	if (rtw_wiphy_register(dvobj_to_wiphy(dvobj)) != 0)
+		return ret;
+
+#ifdef CONFIG_RFKILL_POLL
+	rtw_cfg80211_init_rfkill(dvobj_to_wiphy(dvobj));
+#endif
+#endif
+
+	ret = _SUCCESS;
+
+	return ret;
+}'''
+          new = '''int rtw_cfg80211_dev_res_register(struct dvobj_priv *dvobj)
+{
+	int ret = _FAIL;
+	int wiphy_reg_ret;
+
+	RTW_ERR("QNTDIAG: rtw_cfg80211_dev_res_register called\\n");
+
+#if defined(RTW_SINGLE_WIPHY)
+	wiphy_reg_ret = rtw_wiphy_register(dvobj_to_wiphy(dvobj));
+	RTW_ERR("QNTDIAG: rtw_wiphy_register returned %d\\n", wiphy_reg_ret);
+	if (wiphy_reg_ret != 0) {
+		RTW_ERR("QNTDIAG: wiphy_register FAILED, ret=%d\\n", wiphy_reg_ret);
+		return ret;
+	}
+
+#ifdef CONFIG_RFKILL_POLL
+	rtw_cfg80211_init_rfkill(dvobj_to_wiphy(dvobj));
+#endif
+#else
+	RTW_ERR("QNTDIAG: RTW_SINGLE_WIPHY is NOT defined - unexpected!\\n");
+#endif
+
+	ret = _SUCCESS;
+
+	return ret;
+}'''
+          if old not in content:
+              print("UYARI: beklenen orijinal fonksiyon metni bulunamadi, patch uygulanamadi")
+              sys.exit(0)
+          content = content.replace(old, new)
+          with open(path, "w") as f:
+              f.write(content)
+          print("BASARILI: patch uygulandi")
+          PYEOF
+          echo "--- Patch sonrasi ilgili fonksiyon ---"
+          grep -n -A20 "^int rtw_cfg80211_dev_res_register" "$FILE"
+
       - name: Shrink build - disable debug logging and unneeded features (modem has ~58MB RAM total)
         run: |
           if [ ! -d rtl88x2bu ]; then
