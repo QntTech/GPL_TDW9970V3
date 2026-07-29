@@ -85,7 +85,7 @@ jobs:
           echo "--- Kucultme oncesi ilgili CONFIG satirlari ---"
           grep -n "^CONFIG_RTW_DEBUG\|^CONFIG_PROC_DEBUG\|^CONFIG_MP_INCLUDED\|^CONFIG_WIFI_MONITOR\|^CONFIG_P2P\|^CONFIG_BT_COEXIST\|^CONFIG_80211W" Makefile
           # RTW_DEBUG ve PROC_DEBUG en buyuk .text/.rodata sisiricileri (log string'leri + debug kod yollari)
-          sed -i 's/^CONFIG_RTW_DEBUG = y/CONFIG_RTW_DEBUG = n/' Makefile
+          sed -i 's/^CONFIG_RTW_DEBUG = y/CONFIG_RTW_DEBUG = y/' Makefile
           sed -i 's/^CONFIG_PROC_DEBUG = y/CONFIG_PROC_DEBUG = n/' Makefile
           # Bizim senaryoda (basit STA client + AP) gerekmeyen ozellikler
           sed -i 's/^CONFIG_MP_INCLUDED = y/CONFIG_MP_INCLUDED = n/' Makefile
