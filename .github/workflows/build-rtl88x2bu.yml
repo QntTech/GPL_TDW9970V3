@@ -145,6 +145,19 @@ jobs:
           echo "--- Patch sonrasi (genisletilmis) ---"
           grep -n -A16 "^int rtw_os_ndevs_init" "$FILE2"
 
+          echo "--- rtw_os_ndevs_register fonksiyon govdesine ENTRY marker ekleniyor ---"
+          echo 'UlRXX0VSUigiUU5URElBRyBuZGV2c19yZWdpc3RlciBGVU5DVElPTiBFTlRSWVxuIik7Cg==' | base64 -d > /tmp/qntdiag_line5.txt
+          cat -A /tmp/qntdiag_line5.txt
+          REGFUNC_LINE=$(grep -n "^int rtw_os_ndevs_register" "$FILE2" | head -1 | cut -d: -f1)
+          echo "rtw_os_ndevs_register fonksiyon satiri: $REGFUNC_LINE"
+          if [ -n "$REGFUNC_LINE" ]; then
+            REGBRACE_LINE=$((REGFUNC_LINE + 1))
+            sed -i "${REGBRACE_LINE}r /tmp/qntdiag_line5.txt" "$FILE2"
+            echo "BASARILI: fonksiyon govdesinin en basina ENTRY marker eklendi"
+          fi
+          echo "--- Patch sonrasi (rtw_os_ndevs_register) ---"
+          grep -n -A12 "^int rtw_os_ndevs_register" "$FILE2"
+
       - name: Shrink build - disable debug logging and unneeded features (modem has ~58MB RAM total)
         run: |
           if [ ! -d rtl88x2bu ]; then
