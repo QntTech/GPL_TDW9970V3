@@ -837,9 +837,13 @@ In file included from include/linux/kernel.h:20,
 include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
    22 | int ____ilog2_NaN(void);
       | ^~~
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/os_intfs.c: In function ‘rtw_os_ndevs_register’:
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/os_intfs.c:3729:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+ 3729 |         int i, status = _SUCCESS;
+      |         ^~~
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/os_intfs.c: In function ‘rtw_os_ndevs_init’:
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/os_intfs.c:3816:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
- 3816 |         int ret = _FAIL;
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/os_intfs.c:3817:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+ 3817 |         int ret = _FAIL;
       |         ^~~
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/os_intfs.c: At top level:
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/rtl88x2bu/os_dep/linux/os_intfs.c:1146:36: warning: ‘rtw_rx_ampdu_sz_limit_4ss’ is static but used in inline function ‘rtw_regsty_init_rx_ampdu_sz_limit’ which is not static
