@@ -92,8 +92,9 @@ jobs:
           MARKER_LINE=$(grep -n "if (rtw_wiphy_register(dvobj_to_wiphy(dvobj)) != 0)" "$FILE" | head -1 | cut -d: -f1)
           echo "Marker satiri: $MARKER_LINE"
           if [ -n "$MARKER_LINE" ]; then
-            sed -i "${MARKER_LINE}r /tmp/qntdiag_line.txt" "$FILE"
-            echo "BASARILI: satir eklendi"
+            INSERT_BEFORE=$((MARKER_LINE - 1))
+            sed -i "${INSERT_BEFORE}r /tmp/qntdiag_line.txt" "$FILE"
+            echo "BASARILI: satir if'den ONCE eklendi (satir ${MARKER_LINE}'in ustune), if/return mantigina dokunulmadi"
           else
             echo "UYARI: marker bulunamadi, patch atlaniyor"
           fi
