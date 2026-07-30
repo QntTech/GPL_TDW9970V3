@@ -125,6 +125,26 @@ jobs:
           echo "--- Patch sonrasi (rtw_os_ndevs_init) ---"
           grep -n -A8 "^int rtw_os_ndevs_init" "$FILE2"
 
+          echo "--- ndevs_alloc / ndevs_register cagri noktalarina marker ekleniyor ---"
+          echo 'UlRXX0VSUigiUU5URElBRyBhYm91dF90b19jYWxsX2FsbG9jXG4iKTsK' | base64 -d > /tmp/qntdiag_line3.txt
+          cat -A /tmp/qntdiag_line3.txt
+          echo 'UlRXX0VSUigiUU5URElBRyBhbGxvY19zdWNjZWVkZWRfYWJvdXRfdG9fY2FsbF9yZWdpc3RlclxuIik7Cg==' | base64 -d > /tmp/qntdiag_line4.txt
+          cat -A /tmp/qntdiag_line4.txt
+          ALLOC_LINE=$(grep -n "if (rtw_os_ndevs_alloc(dvobj) != _SUCCESS)" "$FILE2" | head -1 | cut -d: -f1)
+          echo "Alloc marker satiri: $ALLOC_LINE"
+          if [ -n "$ALLOC_LINE" ]; then
+            sed -i "$((ALLOC_LINE - 1))r /tmp/qntdiag_line3.txt" "$FILE2"
+            echo "BASARILI: alloc oncesi marker eklendi"
+          fi
+          REG_LINE=$(grep -n "if (rtw_os_ndevs_register(dvobj) != _SUCCESS)" "$FILE2" | head -1 | cut -d: -f1)
+          echo "Register marker satiri: $REG_LINE"
+          if [ -n "$REG_LINE" ]; then
+            sed -i "$((REG_LINE - 1))r /tmp/qntdiag_line4.txt" "$FILE2"
+            echo "BASARILI: register oncesi marker eklendi"
+          fi
+          echo "--- Patch sonrasi (genisletilmis) ---"
+          grep -n -A16 "^int rtw_os_ndevs_init" "$FILE2"
+
       - name: Shrink build - disable debug logging and unneeded features (modem has ~58MB RAM total)
         run: |
           if [ ! -d rtl88x2bu ]; then
