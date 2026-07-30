@@ -101,6 +101,30 @@ jobs:
           echo "--- Patch sonrasi ---"
           grep -n -A16 "^int rtw_cfg80211_dev_res_register" "$FILE"
 
+      - name: DIAGNOSTIC PATCH 2 - trace whether rtw_os_ndevs_init is reached during probe
+        run: |
+          set +e
+          FILE2="rtl88x2bu/os_dep/linux/os_intfs.c"
+          if [ ! -f "$FILE2" ]; then
+            echo "UYARI: $FILE2 bulunamadi, patch atlaniyor"
+            exit 0
+          fi
+          echo "--- Patch oncesi (rtw_os_ndevs_init) ---"
+          grep -n -A6 "^int rtw_os_ndevs_init" "$FILE2"
+          echo 'UlRXX0VSUigiUU5URElBRyBydHdfb3NfbmRldnNfaW5pdCBjYWxsZWRcbiIpOwo=' | base64 -d > /tmp/qntdiag_line2.txt
+          cat -A /tmp/qntdiag_line2.txt
+          MARKER_LINE2=$(grep -n "^int rtw_os_ndevs_init" "$FILE2" | head -1 | cut -d: -f1)
+          echo "Marker satiri: $MARKER_LINE2"
+          if [ -n "$MARKER_LINE2" ]; then
+            BRACE_LINE=$((MARKER_LINE2 + 1))
+            sed -i "${BRACE_LINE}r /tmp/qntdiag_line2.txt" "$FILE2"
+            echo "BASARILI: satir fonksiyon govdesinin basina eklendi (satir ${BRACE_LINE}'den sonra)"
+          else
+            echo "UYARI: marker bulunamadi, patch atlaniyor"
+          fi
+          echo "--- Patch sonrasi (rtw_os_ndevs_init) ---"
+          grep -n -A8 "^int rtw_os_ndevs_init" "$FILE2"
+
       - name: Shrink build - disable debug logging and unneeded features (modem has ~58MB RAM total)
         run: |
           if [ ! -d rtl88x2bu ]; then
