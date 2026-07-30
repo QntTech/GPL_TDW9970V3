@@ -204,6 +204,20 @@ jobs:
           echo "--- Enjeksiyon sonrasi ilk 10 ccflags-y satiri ---"
           grep -n "ccflags-y" Makefile | head -10
           echo ""
+          echo "--- ROOT CAUSE FIX: CONFIG_IOCTL_CFG80211 enjekte ediliyor ---"
+          # CONFIG_IOCTL_CFG80211, Makefile'da CONFIG_PLATFORM_I386_PC ile ayni
+          # ifeq blogunun icinde tanimliydi (satir ~1339-1341). I386'yi 'n'
+          # yapinca (yukaridaki sed), bu blok atlaniyor VE CONFIG_IOCTL_CFG80211
+          # de yanlislikla hic tanimlanmiyor - halbuki cfg80211 destegi mimariden
+          # bagimsiz olmali. Bu, wiphy_register()'in hicbir zaman cagrilmamasina
+          # (netdev olusuyor ama radyo/wiphy kaydi hic olmuyor, wpa_supplicant
+          # "-19 No such device" hatasi aliyor) sebep oluyordu. Ayni yontemle
+          # (ilk ccflags-y satirinin ustune enjekte ederek) manuel ekliyoruz.
+          FIRST_CCFLAGS_LINE2=$(grep -n "^ccflags-y" Makefile | head -1 | cut -d: -f1)
+          sed -i "${FIRST_CCFLAGS_LINE2}i ccflags-y += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT" Makefile
+          echo "--- Enjeksiyon sonrasi dogrulama ---"
+          grep -n "CONFIG_IOCTL_CFG80211" Makefile | head -5
+          echo ""
           echo "--- extern-inline coklu tanim linker sorunu icin ldflags-y enjekte ediliyor ---"
           FIRST_LDFLAGS_LINE=$(grep -n "^ldflags-y" Makefile | head -1 | cut -d: -f1)
           echo "Ilk ldflags-y satiri: $FIRST_LDFLAGS_LINE"
