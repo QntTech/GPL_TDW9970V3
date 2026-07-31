@@ -66,6 +66,43 @@ jobs:
           cat Kbuild
           exit 0
 
+      - name: DIAGNOSTIC - dump cfg80211_init() body and check wiphy_sysfs_init() call
+        run: |
+          set +e
+          FILE="cfg80211_build/core.c"
+          if [ ! -f "$FILE" ]; then
+            echo "UYARI: $FILE bulunamadi"
+            exit 0
+          fi
+          echo "=== cfg80211_init fonksiyonunun tam govdesi ==="
+          awk '/^static int __init cfg80211_init/,/^}/' "$FILE"
+          echo ""
+          echo "=== wiphy_sysfs_init cagrisi var mi? ==="
+          grep -n "wiphy_sysfs_init" "$FILE"
+
+      - name: DIAGNOSTIC PATCH - trace wiphy_sysfs_init() return value inside cfg80211_init()
+        run: |
+          set +e
+          FILE="cfg80211_build/core.c"
+          if [ ! -f "$FILE" ]; then
+            echo "UYARI: $FILE bulunamadi, patch atlaniyor"
+            exit 0
+          fi
+          # cfg80211_init() icinde "err = wiphy_sysfs_init();" seklinde bir
+          # atama olmasi beklenir. Bu satiri bulup hemen sonrasina donus
+          # degerini loglayan bir RTW_ERR benzeri satir (burada pr_err,
+          # cfg80211 kernel modulu oldugu icin RTW_ERR yok) enjekte ediyoruz.
+          MARKER_LINE=$(grep -n "err = wiphy_sysfs_init();" "$FILE" | head -1 | cut -d: -f1)
+          echo "Marker satiri: $MARKER_LINE"
+          if [ -n "$MARKER_LINE" ]; then
+            sed -i "${MARKER_LINE}a\\	pr_err(\"QNTDIAG wiphy_sysfs_init ret=%d\\\\n\", err);" "$FILE"
+            echo "BASARILI: wiphy_sysfs_init() sonrasina QNTDIAG log satiri eklendi"
+          else
+            echo "UYARI: 'err = wiphy_sysfs_init();' deseni bulunamadi - fonksiyon farkli yazilmis olabilir, yukaridaki DIAGNOSTIC ciktisina bak"
+          fi
+          echo "--- Patch sonrasi cfg80211_init govdesi ---"
+          awk '/^static int __init cfg80211_init/,/^}/' "$FILE"
+
       - name: Attempt cfg80211 module build
         run: |
           set +e
