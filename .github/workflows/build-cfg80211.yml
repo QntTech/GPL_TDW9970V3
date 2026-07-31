@@ -80,7 +80,7 @@ jobs:
           echo "=== wiphy_sysfs_init cagrisi var mi? ==="
           grep -n "wiphy_sysfs_init" "$FILE"
 
-      - name: DIAGNOSTIC PATCH - trace wiphy_sysfs_init() return value inside cfg80211_init()
+      - name: DIAGNOSTIC PATCH - trace every step return value inside cfg80211_init() (wiphy_sysfs_init succeeding doesn't matter if a LATER step in the chain fails and unwinds it via goto)
         run: |
           set +e
           FILE="cfg80211_build/core.c"
@@ -88,19 +88,45 @@ jobs:
             echo "UYARI: $FILE bulunamadi, patch atlaniyor"
             exit 0
           fi
-          # cfg80211_init() icinde "err = wiphy_sysfs_init();" seklinde bir
-          # atama olmasi beklenir. Bu satiri bulup hemen sonrasina donus
-          # degerini loglayan bir RTW_ERR benzeri satir (burada pr_err,
-          # cfg80211 kernel modulu oldugu icin RTW_ERR yok) enjekte ediyoruz.
-          MARKER_LINE=$(grep -n "err = wiphy_sysfs_init();" "$FILE" | head -1 | cut -d: -f1)
-          echo "Marker satiri: $MARKER_LINE"
-          if [ -n "$MARKER_LINE" ]; then
-            sed -i "${MARKER_LINE}a\\	pr_err(\"QNTDIAG wiphy_sysfs_init ret=%d\\\\n\", err);" "$FILE"
-            echo "BASARILI: wiphy_sysfs_init() sonrasina QNTDIAG log satiri eklendi"
-          else
-            echo "UYARI: 'err = wiphy_sysfs_init();' deseni bulunamadi - fonksiyon farkli yazilmis olabilir, yukaridaki DIAGNOSTIC ciktisina bak"
-          fi
-          echo "--- Patch sonrasi cfg80211_init govdesi ---"
+          echo "--- Patch oncesi ---"
+          awk '/^static int __init cfg80211_init/,/^}/' "$FILE"
+
+          # Enjekte edilecek marker'lar - HER BIRI kendi "err = X();" satirinin
+          # hemen ALTINA eklenecek. Satir numaralari kaymasin diye SONDAN
+          # BASA dogru (asagidan yukariya) enjekte ediyoruz.
+          declare -a PATTERNS=(
+            "cfg80211_wq = create_singlethread_workqueue(\"cfg80211\");"
+            "err = regulatory_init();"
+            "err = nl80211_init();"
+            "err = register_netdevice_notifier(&cfg80211_netdev_notifier);"
+            "err = wiphy_sysfs_init();"
+            "err = register_pernet_device(&cfg80211_pernet_ops);"
+          )
+          declare -a LOGLINES=(
+            'if (!cfg80211_wq) pr_err("QNTDIAG cfg80211_wq alloc FAILED (NULL)\\n"); else pr_err("QNTDIAG cfg80211_wq alloc OK\\n");'
+            'pr_err("QNTDIAG regulatory_init ret=%d\\n", err);'
+            'pr_err("QNTDIAG nl80211_init ret=%d\\n", err);'
+            'pr_err("QNTDIAG register_netdevice_notifier ret=%d\\n", err);'
+            'pr_err("QNTDIAG wiphy_sysfs_init ret=%d\\n", err);'
+            'pr_err("QNTDIAG register_pernet_device ret=%d\\n", err);'
+          )
+
+          for i in "${!PATTERNS[@]}"; do
+            PAT="${PATTERNS[$i]}"
+            LOG="${LOGLINES[$i]}"
+            # Grep'i ozel karakterlerden (parantez, & vs.) kacinmak icin
+            # sabit-string modunda (-F) kullaniyoruz.
+            LINE=$(grep -nF "$PAT" "$FILE" | head -1 | cut -d: -f1)
+            echo "Pattern: $PAT -> satir: $LINE"
+            if [ -n "$LINE" ]; then
+              sed -i "${LINE}a\\	${LOG}" "$FILE"
+              echo "  BASARILI: enjekte edildi"
+            else
+              echo "  UYARI: bu desen bulunamadi, atlandi"
+            fi
+          done
+
+          echo "--- Patch sonrasi (tum zincir loglu) ---"
           awk '/^static int __init cfg80211_init/,/^}/' "$FILE"
 
       - name: Attempt cfg80211 module build
