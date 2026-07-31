@@ -108,6 +108,7 @@ jobs:
 
       - name: Strip debug info from built module (modem has very limited RAM)
         run: |
+          set +e
           cd cfg80211_build
           for ko in $(find . -name "*.ko"); do
             echo "--- Strip oncesi boyut: $ko ---"
@@ -116,20 +117,28 @@ jobs:
             echo "--- Strip sonrasi boyut: $ko ---"
             ls -la "$ko"
           done
+          exit 0
 
       - name: Collect artifacts
+        if: always()
         run: |
+          set +e
           mkdir -p output
           cp cfg80211_build_log.txt output/ 2>/dev/null || true
           tail -300 cfg80211_build_log.txt > output/cfg80211_build_log_tail300.txt 2>/dev/null || true
           find cfg80211_build -name "*.ko" -exec cp {} output/ \; 2>/dev/null || true
+          echo "--- output/ icerigi ---"
           ls -la output/
+          exit 0
 
       - name: Cleanup large source before commit
+        if: always()
         run: rm -rf extracted cfg80211_build GPL_W9970V3.tar.gz
 
       - name: Push results
+        if: always()
         run: |
+          set +e
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           rm -rf cfg80211_build_output
@@ -137,3 +146,4 @@ jobs:
           git add cfg80211_build_output/
           git commit -m "cfg80211 modul derleme denemesi" || echo "Degisiklik yok"
           git push
+          exit 0
