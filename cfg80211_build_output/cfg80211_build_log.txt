@@ -17,8 +17,8 @@ include/linux/init.h:299:13: warning: ‘init_module’ specifies less restricti
 include/linux/init.h:288:41: note: in expansion of macro ‘module_init’
   288 | #define subsys_initcall(fn)             module_init(fn)
       |                                         ^~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/cfg80211_build/core.c:1071:1: note: in expansion of macro ‘subsys_initcall’
- 1071 | subsys_initcall(cfg80211_init);
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/cfg80211_build/core.c:1065:1: note: in expansion of macro ‘subsys_initcall’
+ 1065 | subsys_initcall(cfg80211_init);
       | ^~~~~~~~~~~~~~~
 /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/cfg80211_build/core.c:1020:19: note: ‘init_module’ target declared here
  1020 | static int __init cfg80211_init(void)
@@ -26,11 +26,11 @@ include/linux/init.h:288:41: note: in expansion of macro ‘module_init’
 include/linux/init.h:305:14: warning: ‘cleanup_module’ specifies less restrictive attribute than its target ‘cfg80211_exit’: ‘cold’ [-Wmissing-attributes]
   305 |         void cleanup_module(void) __attribute__((alias(#exitfn)));
       |              ^~~~~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/cfg80211_build/core.c:1083:1: note: in expansion of macro ‘module_exit’
- 1083 | module_exit(cfg80211_exit);
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/cfg80211_build/core.c:1077:1: note: in expansion of macro ‘module_exit’
+ 1077 | module_exit(cfg80211_exit);
       | ^~~~~~~~~~~
-/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/cfg80211_build/core.c:1073:20: note: ‘cleanup_module’ target declared here
- 1073 | static void __exit cfg80211_exit(void)
+/home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/cfg80211_build/core.c:1067:20: note: ‘cleanup_module’ target declared here
+ 1067 | static void __exit cfg80211_exit(void)
       |                    ^~~~~~~~~~~~~
   CC [M]  /home/runner/work/GPL_TDW9970V3/GPL_TDW9970V3/cfg80211_build/sysfs.o
 In file included from include/linux/kernel.h:20,
