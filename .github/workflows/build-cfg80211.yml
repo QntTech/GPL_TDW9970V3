@@ -66,6 +66,24 @@ jobs:
           cat Kbuild
           exit 0
 
+      - name: DIAGNOSTIC PATCH - single line, wiphy_sysfs_init return value only
+        run: |
+          set +e
+          FILE="cfg80211_build/core.c"
+          if [ -f "$FILE" ]; then
+            LINE=$(grep -n "err = wiphy_sysfs_init();" "$FILE" | head -1 | cut -d: -f1)
+            echo "Marker satiri: $LINE"
+            if [ -n "$LINE" ]; then
+              sed -i "${LINE}a\\	pr_err(\"QNTDIAG wiphy_sysfs_init ret=%d\\\\n\", err);" "$FILE"
+              echo "Patch uygulandi"
+            else
+              echo "Marker bulunamadi, patch atlandi"
+            fi
+          else
+            echo "core.c bulunamadi, patch atlandi"
+          fi
+          exit 0
+
       - name: Attempt cfg80211 module build
         run: |
           set +e
