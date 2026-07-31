@@ -84,6 +84,18 @@ jobs:
           fi
           exit 0
 
+      - name: DIAGNOSTIC (read-only) - dump wiphy_register() body
+        run: |
+          set +e
+          FILE="cfg80211_build/core.c"
+          if [ -f "$FILE" ]; then
+            echo "=== wiphy_register fonksiyonu ==="
+            awk '/^int wiphy_register/,/^}/' "$FILE"
+          else
+            echo "core.c bulunamadi"
+          fi
+          exit 0
+
       - name: Attempt cfg80211 module build
         run: |
           set +e
