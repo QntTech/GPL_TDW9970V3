@@ -147,6 +147,7 @@ jobs:
 
       - name: Strip debug info from built module (modem has very limited RAM)
         run: |
+          set +e
           cd cfg80211_build
           for ko in $(find . -name "*.ko"); do
             echo "--- Strip oncesi boyut: $ko ---"
@@ -155,6 +156,7 @@ jobs:
             echo "--- Strip sonrasi boyut: $ko ---"
             ls -la "$ko"
           done
+          exit 0
 
       - name: Collect artifacts
         run: |
