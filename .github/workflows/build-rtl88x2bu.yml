@@ -75,7 +75,7 @@ jobs:
           cat clone_log.txt
           ls rtl88x2bu/ 2>&1 | head -30 || echo "KLASOR OLUSMADI"
 
-      - name: DIAGNOSTIC PATCH - trace wiphy_register return value (RTW_INFO isn't visible in our logs, RTW_ERR is)
+      - name: DIAGNOSTIC PATCH - trace wiphy_register RETURN VALUE (previous patch only logged that the call was reached, never the actual errno - that's why we saw "phy0/phy1 does not have a release() function" with no visible cause)
         run: |
           set +e
           FILE="rtl88x2bu/os_dep/linux/ioctl_cfg80211.c"
@@ -85,16 +85,18 @@ jobs:
           fi
           echo "--- Patch oncesi ---"
           grep -n -A15 "^int rtw_cfg80211_dev_res_register" "$FILE"
-          # base64 ile enjekte edilecek satiri kodluyoruz, boylece YAML
-          # block-scalar icinde hic tirnak/escape catismasi olmuyor.
-          echo 'CVJUV19FUlIoIlFOVERJQUcgd2lwaHlfcmVnaXN0ZXIgY2FsbCByZWFjaGVkXG4iKTsK' | base64 -d > /tmp/qntdiag_line.txt
-          cat -A /tmp/qntdiag_line.txt
           MARKER_LINE=$(grep -n "if (rtw_wiphy_register(dvobj_to_wiphy(dvobj)) != 0)" "$FILE" | head -1 | cut -d: -f1)
           echo "Marker satiri: $MARKER_LINE"
           if [ -n "$MARKER_LINE" ]; then
-            INSERT_BEFORE=$((MARKER_LINE - 1))
-            sed -i "${INSERT_BEFORE}r /tmp/qntdiag_line.txt" "$FILE"
-            echo "BASARILI: satir if'den ONCE eklendi (satir ${MARKER_LINE}'in ustune), if/return mantigina dokunulmadi"
+            # Orijinal: "if (rtw_wiphy_register(dvobj_to_wiphy(dvobj)) != 0)"
+            # Yeni:     "if (({ int qntdiag_ret = rtw_wiphy_register(dvobj_to_wiphy(dvobj)); RTW_ERR("QNTDIAG wiphy_register ret=%d\n", qntdiag_ret); qntdiag_ret; }) != 0)"
+            # GCC statement-expression ((\{ ... \})) kullaniyoruz: bu sayede
+            # fonksiyon cagrisini bir degiskene atayip logluyoruz ama disaridan
+            # bakildiginda hala tek bir ifade - if/else govdesinin brace'li mi
+            # tek satirlik mi oldugunu bilmemize GEREK KALMIYOR, cunku sozdizimsel
+            # olarak orijinal "if (...)" kalibiyla tamamen ayni sekilde davraniyor.
+            sed -i "${MARKER_LINE}s|if (rtw_wiphy_register(dvobj_to_wiphy(dvobj)) != 0)|if ((\{ int qntdiag_ret = rtw_wiphy_register(dvobj_to_wiphy(dvobj)); RTW_ERR(\"QNTDIAG wiphy_register ret=%d\\\\n\", qntdiag_ret); qntdiag_ret; \}) != 0)|" "$FILE"
+            echo "BASARILI: satir GCC statement-expression ile degistirildi (if/else govdesine dokunulmadi)"
           else
             echo "UYARI: marker bulunamadi, patch atlaniyor"
           fi
