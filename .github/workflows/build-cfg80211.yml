@@ -79,6 +79,12 @@ jobs:
           echo ""
           echo "=== wiphy_sysfs_init cagrisi var mi? ==="
           grep -n "wiphy_sysfs_init" "$FILE"
+          echo ""
+          echo "=== wiphy_register fonksiyonunun tam govdesi (cfg80211_init zinciri temiz cikti ama /sys/class/ieee80211/phyN hala olusmuyor - hata bu fonksiyonun ICINDE yutuluyor olmali) ==="
+          awk '/^int wiphy_register/,/^}/' "$FILE"
+          echo ""
+          echo "=== device_add / device_register cagrisi wiphy_register icinde nerede? ==="
+          grep -n "device_add\|device_register\|dev_set_name\|->release" "$FILE"
 
       - name: DIAGNOSTIC PATCH - trace every step return value inside cfg80211_init() (wiphy_sysfs_init succeeding doesn't matter if a LATER step in the chain fails and unwinds it via goto)
         run: |
