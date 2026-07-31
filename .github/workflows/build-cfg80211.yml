@@ -66,26 +66,6 @@ jobs:
           cat Kbuild
           exit 0
 
-      - name: DIAGNOSTIC - dump cfg80211_init() body and check wiphy_sysfs_init() call
-        run: |
-          set +e
-          FILE="cfg80211_build/core.c"
-          if [ ! -f "$FILE" ]; then
-            echo "UYARI: $FILE bulunamadi"
-            exit 0
-          fi
-          echo "=== cfg80211_init fonksiyonunun tam govdesi ==="
-          awk '/^static int __init cfg80211_init/,/^}/' "$FILE"
-          echo ""
-          echo "=== wiphy_sysfs_init cagrisi var mi? ==="
-          grep -n "wiphy_sysfs_init" "$FILE"
-          echo ""
-          echo "=== wiphy_register fonksiyonunun tam govdesi (cfg80211_init zinciri temiz cikti ama /sys/class/ieee80211/phyN hala olusmuyor - hata bu fonksiyonun ICINDE yutuluyor olmali) ==="
-          awk '/^int wiphy_register/,/^}/' "$FILE"
-          echo ""
-          echo "=== device_add / device_register cagrisi wiphy_register icinde nerede? ==="
-          grep -n "device_add\|device_register\|dev_set_name\|->release" "$FILE"
-
       - name: DIAGNOSTIC PATCH - trace every step return value inside cfg80211_init() (wiphy_sysfs_init succeeding doesn't matter if a LATER step in the chain fails and unwinds it via goto)
         run: |
           set +e
@@ -159,18 +139,25 @@ jobs:
           exit 0
 
       - name: Collect artifacts
+        if: always()
         run: |
+          set +e
           mkdir -p output
           cp cfg80211_build_log.txt output/ 2>/dev/null || true
           tail -300 cfg80211_build_log.txt > output/cfg80211_build_log_tail300.txt 2>/dev/null || true
           find cfg80211_build -name "*.ko" -exec cp {} output/ \; 2>/dev/null || true
+          echo "--- output/ icerigi ---"
           ls -la output/
+          exit 0
 
       - name: Cleanup large source before commit
+        if: always()
         run: rm -rf extracted cfg80211_build GPL_W9970V3.tar.gz
 
       - name: Push results
+        if: always()
         run: |
+          set +e
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           rm -rf cfg80211_build_output
@@ -178,3 +165,4 @@ jobs:
           git add cfg80211_build_output/
           git commit -m "cfg80211 modul derleme denemesi" || echo "Degisiklik yok"
           git push
+          exit 0
