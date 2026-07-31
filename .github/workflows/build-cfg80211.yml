@@ -66,55 +66,6 @@ jobs:
           cat Kbuild
           exit 0
 
-      - name: DIAGNOSTIC PATCH - trace every step return value inside cfg80211_init() (wiphy_sysfs_init succeeding doesn't matter if a LATER step in the chain fails and unwinds it via goto)
-        run: |
-          set +e
-          FILE="cfg80211_build/core.c"
-          if [ ! -f "$FILE" ]; then
-            echo "UYARI: $FILE bulunamadi, patch atlaniyor"
-            exit 0
-          fi
-          echo "--- Patch oncesi ---"
-          awk '/^static int __init cfg80211_init/,/^}/' "$FILE"
-
-          # Enjekte edilecek marker'lar - HER BIRI kendi "err = X();" satirinin
-          # hemen ALTINA eklenecek. Satir numaralari kaymasin diye SONDAN
-          # BASA dogru (asagidan yukariya) enjekte ediyoruz.
-          declare -a PATTERNS=(
-            "cfg80211_wq = create_singlethread_workqueue(\"cfg80211\");"
-            "err = regulatory_init();"
-            "err = nl80211_init();"
-            "err = register_netdevice_notifier(&cfg80211_netdev_notifier);"
-            "err = wiphy_sysfs_init();"
-            "err = register_pernet_device(&cfg80211_pernet_ops);"
-          )
-          declare -a LOGLINES=(
-            'if (!cfg80211_wq) pr_err("QNTDIAG cfg80211_wq alloc FAILED (NULL)\\n"); else pr_err("QNTDIAG cfg80211_wq alloc OK\\n");'
-            'pr_err("QNTDIAG regulatory_init ret=%d\\n", err);'
-            'pr_err("QNTDIAG nl80211_init ret=%d\\n", err);'
-            'pr_err("QNTDIAG register_netdevice_notifier ret=%d\\n", err);'
-            'pr_err("QNTDIAG wiphy_sysfs_init ret=%d\\n", err);'
-            'pr_err("QNTDIAG register_pernet_device ret=%d\\n", err);'
-          )
-
-          for i in "${!PATTERNS[@]}"; do
-            PAT="${PATTERNS[$i]}"
-            LOG="${LOGLINES[$i]}"
-            # Grep'i ozel karakterlerden (parantez, & vs.) kacinmak icin
-            # sabit-string modunda (-F) kullaniyoruz.
-            LINE=$(grep -nF "$PAT" "$FILE" | head -1 | cut -d: -f1)
-            echo "Pattern: $PAT -> satir: $LINE"
-            if [ -n "$LINE" ]; then
-              sed -i "${LINE}a\\	${LOG}" "$FILE"
-              echo "  BASARILI: enjekte edildi"
-            else
-              echo "  UYARI: bu desen bulunamadi, atlandi"
-            fi
-          done
-
-          echo "--- Patch sonrasi (tum zincir loglu) ---"
-          awk '/^static int __init cfg80211_init/,/^}/' "$FILE"
-
       - name: Attempt cfg80211 module build
         run: |
           set +e
@@ -127,7 +78,6 @@ jobs:
 
       - name: Strip debug info from built module (modem has very limited RAM)
         run: |
-          set +e
           cd cfg80211_build
           for ko in $(find . -name "*.ko"); do
             echo "--- Strip oncesi boyut: $ko ---"
@@ -136,28 +86,20 @@ jobs:
             echo "--- Strip sonrasi boyut: $ko ---"
             ls -la "$ko"
           done
-          exit 0
 
       - name: Collect artifacts
-        if: always()
         run: |
-          set +e
           mkdir -p output
           cp cfg80211_build_log.txt output/ 2>/dev/null || true
           tail -300 cfg80211_build_log.txt > output/cfg80211_build_log_tail300.txt 2>/dev/null || true
           find cfg80211_build -name "*.ko" -exec cp {} output/ \; 2>/dev/null || true
-          echo "--- output/ icerigi ---"
           ls -la output/
-          exit 0
 
       - name: Cleanup large source before commit
-        if: always()
         run: rm -rf extracted cfg80211_build GPL_W9970V3.tar.gz
 
       - name: Push results
-        if: always()
         run: |
-          set +e
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           rm -rf cfg80211_build_output
@@ -165,4 +107,3 @@ jobs:
           git add cfg80211_build_output/
           git commit -m "cfg80211 modul derleme denemesi" || echo "Degisiklik yok"
           git push
-          exit 0
